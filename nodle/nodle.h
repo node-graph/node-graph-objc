@@ -1,13 +1,9 @@
-//
-//  nodle.h
-//  nodle
-//
-//  Created by Mikael Sundström on 2019-01-26.
-//  Copyright © 2019 Mikael Sundström. All rights reserved.
-//
-
 #import <UIKit/UIKit.h>
 
+#import "Node.h"
+#import "RGBNode.h"
+#import "AssembleColorNode.h"
+#import "UpdateBackgroundColorNode.h"
 //! Project version number for nodle.
 FOUNDATION_EXPORT double nodleVersionNumber;
 

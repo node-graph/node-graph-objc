@@ -1,10 +1,11 @@
-#import "RGBNode.h"
-#import <CoreGraphics/CGBase.h>
+#import "AssembleColorNode.h"
+#import <UIKit/UIKit.h>
 
-@implementation RGBNode
+@implementation AssembleColorNode
 
 @synthesize inputs = _inputs;
-@synthesize outputs = _outputs;;
+@synthesize outputs = _outputs;
+@synthesize combinationType = _combinationType;
 
 - (instancetype)init {
     self = [super init];
@@ -16,10 +17,10 @@
                     };
         
         _outputs = @{
-                     @"R": [[NodeOutputCollection alloc] initWithKey:@"R"],
-                     @"G": [[NodeOutputCollection alloc] initWithKey:@"G"],
-                     @"B": [[NodeOutputCollection alloc] initWithKey:@"B"]
+                     @"COLOR": [[NodeOutputCollection alloc] initWithKey:@"COLOR"]
                      };
+        
+        _combinationType = NodeCombinationTypeWhenAll;
     }
     
     return self;
@@ -44,9 +45,7 @@
             g = [((NSNumber *)self.inputs[@"G"].value) floatValue],
             b = [((NSNumber *)self.inputs[@"B"].value) floatValue];
     
-    self.outputs[@"R"].value = @(r + 0.1);
-    self.outputs[@"G"].value = @(g + 0.1);
-    self.outputs[@"B"].value = @(b + 0.1);
+    self.outputs[@"COLOR"].value = [UIColor colorWithRed:r green:g blue:b alpha:1.0f];
 }
 
 @end

@@ -10,14 +10,21 @@
 		405038F221FC814A005B1585 /* nodle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 405038E821FC814A005B1585 /* nodle.framework */; };
 		405038F721FC814A005B1585 /* nodleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 405038F621FC814A005B1585 /* nodleTests.m */; };
 		405038F921FC814A005B1585 /* nodle.h in Headers */ = {isa = PBXBuildFile; fileRef = 405038EB21FC814A005B1585 /* nodle.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4050395B21FC8869005B1585 /* NodeInput.h in Headers */ = {isa = PBXBuildFile; fileRef = 4050395921FC8869005B1585 /* NodeInput.h */; };
+		4050395B21FC8869005B1585 /* NodeInput.h in Headers */ = {isa = PBXBuildFile; fileRef = 4050395921FC8869005B1585 /* NodeInput.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4050395C21FC8869005B1585 /* NodeInput.m in Sources */ = {isa = PBXBuildFile; fileRef = 4050395A21FC8869005B1585 /* NodeInput.m */; };
-		4050395F21FC8927005B1585 /* NodeOutput.h in Headers */ = {isa = PBXBuildFile; fileRef = 4050395D21FC8927005B1585 /* NodeOutput.h */; };
+		4050395F21FC8927005B1585 /* NodeOutput.h in Headers */ = {isa = PBXBuildFile; fileRef = 4050395D21FC8927005B1585 /* NodeOutput.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4050396021FC8927005B1585 /* NodeOutput.m in Sources */ = {isa = PBXBuildFile; fileRef = 4050395E21FC8927005B1585 /* NodeOutput.m */; };
-		4050396321FC896E005B1585 /* Node.h in Headers */ = {isa = PBXBuildFile; fileRef = 4050396121FC896E005B1585 /* Node.h */; };
+		4050396321FC896E005B1585 /* Node.h in Headers */ = {isa = PBXBuildFile; fileRef = 4050396121FC896E005B1585 /* Node.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4050396421FC896E005B1585 /* Node.m in Sources */ = {isa = PBXBuildFile; fileRef = 4050396221FC896E005B1585 /* Node.m */; };
-		4050396721FC89C7005B1585 /* RGBNode.h in Headers */ = {isa = PBXBuildFile; fileRef = 4050396521FC89C7005B1585 /* RGBNode.h */; };
+		4050396721FC89C7005B1585 /* RGBNode.h in Headers */ = {isa = PBXBuildFile; fileRef = 4050396521FC89C7005B1585 /* RGBNode.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4050396821FC89C7005B1585 /* RGBNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 4050396621FC89C7005B1585 /* RGBNode.m */; };
+		4050397321FC9BD6005B1585 /* NodeOutputCollection.h in Headers */ = {isa = PBXBuildFile; fileRef = 4050397121FC9BD6005B1585 /* NodeOutputCollection.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4050397421FC9BD6005B1585 /* NodeOutputCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = 4050397221FC9BD6005B1585 /* NodeOutputCollection.m */; };
+		4050397721FC9EDD005B1585 /* AssembleColorNode.h in Headers */ = {isa = PBXBuildFile; fileRef = 4050397521FC9EDD005B1585 /* AssembleColorNode.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4050397821FC9EDD005B1585 /* AssembleColorNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 4050397621FC9EDD005B1585 /* AssembleColorNode.m */; };
+		4050397921FCA1BA005B1585 /* NodeCombinationType.h in Headers */ = {isa = PBXBuildFile; fileRef = 4050396921FC8A3A005B1585 /* NodeCombinationType.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4050397C21FCA8A4005B1585 /* UpdateBackgroundColorNode.h in Headers */ = {isa = PBXBuildFile; fileRef = 4050397A21FCA8A4005B1585 /* UpdateBackgroundColorNode.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4050397D21FCA8A4005B1585 /* UpdateBackgroundColorNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 4050397B21FCA8A4005B1585 /* UpdateBackgroundColorNode.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +53,12 @@
 		4050396521FC89C7005B1585 /* RGBNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RGBNode.h; sourceTree = "<group>"; };
 		4050396621FC89C7005B1585 /* RGBNode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RGBNode.m; sourceTree = "<group>"; };
 		4050396921FC8A3A005B1585 /* NodeCombinationType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NodeCombinationType.h; sourceTree = "<group>"; };
+		4050397121FC9BD6005B1585 /* NodeOutputCollection.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NodeOutputCollection.h; sourceTree = "<group>"; };
+		4050397221FC9BD6005B1585 /* NodeOutputCollection.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NodeOutputCollection.m; sourceTree = "<group>"; };
+		4050397521FC9EDD005B1585 /* AssembleColorNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AssembleColorNode.h; sourceTree = "<group>"; };
+		4050397621FC9EDD005B1585 /* AssembleColorNode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AssembleColorNode.m; sourceTree = "<group>"; };
+		4050397A21FCA8A4005B1585 /* UpdateBackgroundColorNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UpdateBackgroundColorNode.h; sourceTree = "<group>"; };
+		4050397B21FCA8A4005B1585 /* UpdateBackgroundColorNode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UpdateBackgroundColorNode.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,12 +101,13 @@
 		405038EA21FC814A005B1585 /* nodle */ = {
 			isa = PBXGroup;
 			children = (
+				405038EB21FC814A005B1585 /* nodle.h */,
 				4050390221FC8198005B1585 /* Include */,
 				4050390921FC82A8005B1585 /* Nodes */,
+				4050397221FC9BD6005B1585 /* NodeOutputCollection.m */,
 				4050396221FC896E005B1585 /* Node.m */,
 				4050395A21FC8869005B1585 /* NodeInput.m */,
 				4050395E21FC8927005B1585 /* NodeOutput.m */,
-				405038EB21FC814A005B1585 /* nodle.h */,
 				405038EC21FC814A005B1585 /* Info.plist */,
 			);
 			path = nodle;
@@ -111,11 +125,14 @@
 		4050390221FC8198005B1585 /* Include */ = {
 			isa = PBXGroup;
 			children = (
+				4050396921FC8A3A005B1585 /* NodeCombinationType.h */,
 				4050395921FC8869005B1585 /* NodeInput.h */,
 				4050395D21FC8927005B1585 /* NodeOutput.h */,
+				4050397121FC9BD6005B1585 /* NodeOutputCollection.h */,
 				4050396121FC896E005B1585 /* Node.h */,
 				4050396521FC89C7005B1585 /* RGBNode.h */,
-				4050396921FC8A3A005B1585 /* NodeCombinationType.h */,
+				4050397521FC9EDD005B1585 /* AssembleColorNode.h */,
+				4050397A21FCA8A4005B1585 /* UpdateBackgroundColorNode.h */,
 			);
 			path = Include;
 			sourceTree = "<group>";
@@ -123,7 +140,9 @@
 		4050390921FC82A8005B1585 /* Nodes */ = {
 			isa = PBXGroup;
 			children = (
+				4050397B21FCA8A4005B1585 /* UpdateBackgroundColorNode.m */,
 				4050396621FC89C7005B1585 /* RGBNode.m */,
+				4050397621FC9EDD005B1585 /* AssembleColorNode.m */,
 			);
 			path = Nodes;
 			sourceTree = "<group>";
@@ -135,10 +154,14 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4050397C21FCA8A4005B1585 /* UpdateBackgroundColorNode.h in Headers */,
 				4050396321FC896E005B1585 /* Node.h in Headers */,
+				4050397321FC9BD6005B1585 /* NodeOutputCollection.h in Headers */,
+				4050397721FC9EDD005B1585 /* AssembleColorNode.h in Headers */,
 				405038F921FC814A005B1585 /* nodle.h in Headers */,
 				4050396721FC89C7005B1585 /* RGBNode.h in Headers */,
 				4050395F21FC8927005B1585 /* NodeOutput.h in Headers */,
+				4050397921FCA1BA005B1585 /* NodeCombinationType.h in Headers */,
 				4050395B21FC8869005B1585 /* NodeInput.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -240,9 +263,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				4050395C21FC8869005B1585 /* NodeInput.m in Sources */,
+				4050397821FC9EDD005B1585 /* AssembleColorNode.m in Sources */,
 				4050396821FC89C7005B1585 /* RGBNode.m in Sources */,
 				4050396021FC8927005B1585 /* NodeOutput.m in Sources */,
+				4050397D21FCA8A4005B1585 /* UpdateBackgroundColorNode.m in Sources */,
 				4050396421FC896E005B1585 /* Node.m in Sources */,
+				4050397421FC9BD6005B1585 /* NodeOutputCollection.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

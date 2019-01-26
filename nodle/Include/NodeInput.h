@@ -5,7 +5,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface NodeInput : NSObject
 
 @property (nonatomic, readonly) Class type;
-@property (nonatomic, strong) id value;
+@property (nonatomic, strong, nullable) id value;
 
 - (instancetype)initWithType:(Class)type;
 
