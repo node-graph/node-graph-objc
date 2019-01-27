@@ -2,13 +2,17 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+/**
+ A type of input for a \c Node. This decides what type of input a node can accept.
+ A node can accept more than one input by defining more of these.
+ */
 @interface NodeInput : NSObject
 
-@property (nonatomic, readonly) Class type;
+/**
+ Value is only set if valid
+ */
 @property (nonatomic, strong, nullable) id value;
-
-- (instancetype)initWithType:(Class)type;
-
+- (instancetype)initWithValidation:(BOOL (^)(id value))validationBlock;
 - (BOOL)isValueValid:(id)value;
 
 @end

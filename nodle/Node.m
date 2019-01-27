@@ -1,26 +1,71 @@
 #import "Node.h"
 
-@interface Node()
+@interface AbstractNode ()
 
-@property (nonatomic, strong, readwrite) NSMutableDictionary<NSString *, NodeOutputCollection *> *outputs;
+@property (nonatomic, strong) NSMutableDictionary<NSString *, NodeInput *> *inputs
+@property (nonatomic, strong) NSMutableSet<NodeOutput> *outputs;
+
+@property (nonatomic, assign) NSUInteger locks;
+@property (nonatomic, assign) BOOL processWhenUnlocked;
+@property (nonatomic, assign, getter=isProcessing) BOOL processing;
 
 @end
 
-@implementation Node
+@implementation AbstractNode
 
 - (instancetype)init {
     self = [super init];
     if (self) {
-        _inputs = [NSDictionary new];
-        _outputs = [NSDictionary new];
+        _locks = 0;
+        _inputs = [NSMutableDictionary new];
+        _outputs = [NSMutableSet set];
     }
     
     return self;
 }
 
-- (void)performForInput:(NSString *)inputKey withValue:(id)value {
+
+#pragma mark - Actions
+
+- (void)process {
+    if (self.locks > 0) {
+        self.processWhenUnlocked = YES;
+        return;
+    }
+    self.processWhenUnlocked = NO;
+    self.processing = YES;
     
+    [self onProcess:^(id  _Nonnull result) {
+        self.processing = NO;
+        // Done processing, call downstream nodes
+        [self passResultToDownstreamNodes:result];
+    }];
 }
+
+- (void)lock {
+    self.locks += 1;
+}
+
+- (void)unlock {
+#if DEBUG
+    assert(self.locks != 0);
+#endif
+    self.locks -= 1;
+    if (self.locks == 0 && self.processWhenUnlocked) {
+        [self process];
+    }
+}
+
+
+#pragma mark - Private Actions
+
+- (void)passResultToDownstreamNodes:(id)result {
+    for (NodeOutput *output in self.outputs) {
+        // Update output
+    }
+}
+
+
 
 - (BOOL)canRun {
     switch (self.combinationType) {
