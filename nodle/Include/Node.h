@@ -7,15 +7,17 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  Decides what inputs need to be set in order for a node to process.
  */
-typedef NS_ENUM(NSUInteger, NodeInputRequirement) {
-    /// Effectively the same as NodeCombinationTypeAny but signifies that the logic is defined by the node itself.
-    NodeInputRequirementUndefined,
+typedef NS_ENUM(NSUInteger, NodeInputTrigger) {
+    /// The node does not automatically process anything, you manually have to call the -process method.
+    NodeInputTriggerNoAutomaticProcessing,
     /// Process as soon as any input is set.
-    NodeInputRequirementAny,
+    NodeInputTriggerAny,
     /// All inputs have to be triggered between each run for the node to process.
-    NodeInputRequirementAll,
+    NodeInputTriggerAll,
     /// Same as NodeInputRequirementAll but keeps the value so next run can start whenever any input is set.
-    NodeInputRequirementAllAtLeastOnce,
+    NodeInputTriggerAllAtLeastOnce,
+    /// The processing behaviour is custom and driven by the node itself.
+    NodeInputTriggerCustom
 };
 
 
@@ -25,6 +27,21 @@ typedef NS_ENUM(NSUInteger, NodeInputRequirement) {
  Let't take an Add Node as the simplest example. It would require at least two inputs but the
  result would only be one value. Downstream nodes can be specified in the outputs property
  however but they all receive the same result.
+
+ 
+ Node example:
+ 
+  20         4
+   \        /
+  --A------B--
+ |            |
+ |   Divide   |
+ |  O = A / B |
+ |            |
+  ------O-----
+        |
+        5
+ 
  */
 @protocol Node
 @required
@@ -32,48 +49,31 @@ typedef NS_ENUM(NSUInteger, NodeInputRequirement) {
 /**
  Specifies what inputs need to be set in order for the node to process.
  */
-@property (nonatomic, assign, readonly) NodeInputRequirement inputRequirement;
+@property (nonatomic, assign, readonly) NodeInputTrigger inputTrigger;
 
 /**
  The inputs of this node, inputs do not reference upstream nodes but keeps a result from an upstream node
  that this node can use when -process is called.
  */
-@property (nonatomic, strong, readonly) NSDictionary<NSString *, NodeInput *> *inputs;
+@property (nonatomic, strong, readonly) NSSet<NodeInput *> *inputs;
 
 /**
- All downstream nodes from this one. When -process is run the result will be fed as input to each NodeOutput.
+ All downstream connections out from this node. When -process is run the result will be fed to each NodeOutput.
  */
 @property (nonatomic, strong, readonly) NSSet<NodeOutput *> *outputs;
-
-/**
- Will add @c outputNode as output for @c key
- */
-- (void)addOutput:(Node *)output forInputKey:(nullable NSString *)key;
 
 /**
  Processes the node with the current values stored in the inputs of this node.
  All outputs will be triggered with the result of this nodes operation.
  
- This method will also be triggered internally based on the combinationType specified by the node.
-
- The -process method can be stalled by calling the -lock method. A corresponding call to -unlock must
- be made for each call to -lock.
+ This method will also be triggered internally based on the inputTrigger specified by the node.
  */
 - (void)process;
 
 /**
- Lock this node from running its process method. The lock is kept as a count and the corresponding
- -unlock method needs to be called for each call to the -lock method.
- 
- This lock exists as a performance improvement to defer the call to the -processs method when multiple
- inputs are set in the same "tick".
+ Cancels the current processing and stops the result from flowing to any downstream nodes.
  */
-- (void)lock;
-
-/**
- Unlock the node to allow it to process it's inputs. This decreases the lock count.
- */
-- (void)unlock;
+- (void)cancel;
 
 @end
 
@@ -84,7 +84,7 @@ typedef NS_ENUM(NSUInteger, NodeInputRequirement) {
  Methods to override:
  -process
  */
-@interface AbstractNode : NSObject <Node>
+@interface AbstractNode : NSObject <Node, NodeInputDelegate>
 
 /**
  Determines if the node is currently processing or not.
@@ -93,10 +93,16 @@ typedef NS_ENUM(NSUInteger, NodeInputRequirement) {
 
 /**
  @abstract
- Override this method with your Node functionality.
+ Implement this method with your Node functionality.
  Call completion block when done.
  */
 - (void)onProcess:(void (^)(id result))completion;
+
+/**
+ @abstract
+ Implement this method to pass the result through the correct outputs.
+ */
+- (void)sendResultToOutputs:(id)result;
 
 @end
 

@@ -2,122 +2,93 @@
 
 @interface AbstractNode ()
 
-@property (nonatomic, strong) NSMutableDictionary<NSString *, NodeInput *> *inputs
-@property (nonatomic, strong) NSMutableSet<NodeOutput> *outputs;
-
-@property (nonatomic, assign) NSUInteger locks;
-@property (nonatomic, assign) BOOL processWhenUnlocked;
 @property (nonatomic, assign, getter=isProcessing) BOOL processing;
 
 @end
 
 @implementation AbstractNode
 
+@synthesize inputTrigger = _inputTrigger;
+@synthesize inputs = _inputs;
+@synthesize outputs = _outputs;
+
 - (instancetype)init {
     self = [super init];
     if (self) {
-        _locks = 0;
-        _inputs = [NSMutableDictionary new];
-        _outputs = [NSMutableSet set];
+        _inputTrigger = NodeInputTriggerAny;
+        _inputs = [NSSet setWithObject:[[NodeInput alloc] initWithKey:nil
+                                                           validation:nil
+                                                             delegate:self]];
+        _outputs = [NSSet setWithObject:[NodeOutput new]];
     }
     
     return self;
 }
 
-
 #pragma mark - Actions
 
 - (void)process {
-    if (self.locks > 0) {
-        self.processWhenUnlocked = YES;
+    if (self.processing) {
         return;
     }
-    self.processWhenUnlocked = NO;
+    
     self.processing = YES;
     
+    if ([self useDeferredProcessing]) {
+        [self processDeferred];
+    } else {
+        [self processDirectly];
+    }
+}
+
+- (void)cancel {
+    // no-op
+}
+
+- (void)onProcess:(void (^)(id))completion {
+    completion(nil);
+}
+
+- (void)sendResultToOutputs:(id)result {
+    for (NodeOutput *output in self.outputs) {
+        [output sendResult:result];
+    }
+}
+
+#pragma mark - Processing
+
+- (void)processDeferred {
+    // Could be further optimized by storing the block for future use
+    dispatch_async(dispatch_get_main_queue(), ^(void){
+        [self processDirectly];
+    });
+}
+
+- (void)processDirectly {
     [self onProcess:^(id  _Nonnull result) {
         self.processing = NO;
         // Done processing, call downstream nodes
-        [self passResultToDownstreamNodes:result];
+        [self sendResultToOutputs:result];
     }];
 }
 
-- (void)lock {
-    self.locks += 1;
-}
+#pragma mark - NodeInputDelegate
 
-- (void)unlock {
-#if DEBUG
-    assert(self.locks != 0);
-#endif
-    self.locks -= 1;
-    if (self.locks == 0 && self.processWhenUnlocked) {
-        [self process];
-    }
-}
-
-
-#pragma mark - Private Actions
-
-- (void)passResultToDownstreamNodes:(id)result {
-    for (NodeOutput *output in self.outputs) {
-        // Update output
-    }
-}
-
-
-
-- (BOOL)canRun {
-    switch (self.combinationType) {
-        case NodeCombinationTypeAny: {
-            __block BOOL canRun = NO;
-            [self.inputs enumerateKeysAndObjectsUsingBlock:^(NSString * _Nonnull key, NodeInput * _Nonnull obj, BOOL * _Nonnull stop) {
-                if (obj.value != nil) {
-                    canRun = YES;
-                    *stop = YES;
-                }
-            }];
-            return canRun;
-            break;
-        }
-        case NodeCombinationTypeWhenAll: {
-            __block BOOL canRun = YES;
-            [self.inputs enumerateKeysAndObjectsUsingBlock:^(NSString * _Nonnull key, NodeInput * _Nonnull obj, BOOL * _Nonnull stop) {
-                if (obj.value == nil) {
-                    canRun = NO;
-                    *stop = YES;
-                }
-            }];
-            return canRun;
-        }
-        case NodeCombinationTypeWhenAllAtLeastOnce: {
-            
-        }
-        default:
-            return NO;
-            break;
-    }
-}
-
-- (void)distributeToSubNodes {
-    [self.outputs enumerateKeysAndObjectsUsingBlock:^(NSString * _Nonnull key, NodeOutputCollection * _Nonnull outputCollection, BOOL * _Nonnull stop) {
-        for (Node *output in outputCollection.outputs) {
-            [output performForInput:outputCollection.key withValue:outputCollection.value];
-        }
-    }];
-}
-
-- (void)addOutput:(Node *)output {
-    for (NSString *key in self.outputs.allKeys) {
-        [self addOutput:output forKey:key];
-    }
-}
-
-- (void)addOutput:(Node *)output forKey:(NSString *)key {
-    NSAssert([self.outputs.allKeys containsObject:key], @"Node does not output the provided key");
-    NSAssert([output.inputs.allKeys containsObject:key], @"Output does not take key");
+- (void)nodeInput:(NodeInput *)nodeInput didUpdateValue:(id)value {
     
-    [self.outputs[key].outputs addObject:output];
 }
+
+#pragma mark - Helpers
+
+/**
+ Defer -onProcess: call to let inputs have a chance of being set during this run loop.
+ */
+- (BOOL)useDeferredProcessing {
+    BOOL couldTriggerOnAnyInput = (self.inputTrigger == NodeInputTriggerAny ||
+                                   self.inputTrigger == NodeInputTriggerAllAtLeastOnce ||
+                                   self.inputTrigger == NodeInputTriggerCustom);
+    return (self.inputs.count > 1 && couldTriggerOnAnyInput);
+}
+
 
 @end
