@@ -8,6 +8,7 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
+        // Caution, NSHashTable .count reports wrong value if item was dropped due to weak reference becoming nil.
         _connections = [NSHashTable hashTableWithOptions:NSPointerFunctionsWeakMemory];
     }
     return self;
@@ -51,7 +52,7 @@
 #pragma mark -
 
 - (NSString *)description {
-    return [NSString stringWithFormat:@"<%@: %p> key:%@ numberOfConnections:%tu", NSStringFromClass(self.class), self, self.key ?: @"", self.connections.count];
+    return [NSString stringWithFormat:@"<%@: %p> key:%@ numberOfConnections:%tu", NSStringFromClass(self.class), self, self.key ?: @"", self.connections.allObjects.count];
 }
 
 @end
