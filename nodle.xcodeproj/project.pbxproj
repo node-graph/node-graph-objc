@@ -133,7 +133,8 @@
 				4050395D21FC8927005B1585 /* NodeOutput.h */,
 				4050396121FC896E005B1585 /* Node.h */,
 			);
-			path = Include;
+			name = Include;
+			path = Include/nodle;
 			sourceTree = "<group>";
 		};
 		4050390921FC82A8005B1585 /* NodeImplementations */ = {
