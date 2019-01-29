@@ -1,32 +1,22 @@
 //
-//  nodleTests.m
-//  nodleTests
+//  NodeOutputTests.m
+//  NodeOutputTests
 //
 //  Created by Mikael Sundström on 2019-01-26.
 //  Copyright © 2019 Mikael Sundström. All rights reserved.
 //
 
 #import <XCTest/XCTest.h>
-#import "Node.h"
+#import <nodle/nodle.h>
 
-@interface AbstractNode (Tests)
-
-@property (nonatomic, assign, getter=isProcessing) BOOL processing;
+@interface NodeOutputTests : XCTestCase
 
 @end
 
-
-@interface NodeTests : XCTestCase
-
-@property (nonatomic, strong) AbstractNode *abstractNode;
-
-@end
-
-@implementation nodleTests
+@implementation NodeOutputTests
 
 - (void)setUp {
     // Put setup code here. This method is called before the invocation of each test method in the class.
-    self.abstractNode = [AbstractNode new];
 }
 
 - (void)tearDown {
