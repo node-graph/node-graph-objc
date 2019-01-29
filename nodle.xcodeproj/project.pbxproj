@@ -26,6 +26,7 @@
 		5F01493B21FFCF860062DAF0 /* UpdateBackgroundColorNode.h in Headers */ = {isa = PBXBuildFile; fileRef = 4050397A21FCA8A4005B1585 /* UpdateBackgroundColorNode.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5F01493E21FFCFB90062DAF0 /* NodeInputColor.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F01493C21FFCFB90062DAF0 /* NodeInputColor.h */; };
 		5F01493F21FFCFB90062DAF0 /* NodeInputColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F01493D21FFCFB90062DAF0 /* NodeInputColor.m */; };
+		5F014941220105450062DAF0 /* NodeInputTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F014940220105450062DAF0 /* NodeInputTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		5F01493421FFC66F0062DAF0 /* NodeInputNumber.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NodeInputNumber.m; sourceTree = "<group>"; };
 		5F01493C21FFCFB90062DAF0 /* NodeInputColor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NodeInputColor.h; sourceTree = "<group>"; };
 		5F01493D21FFCFB90062DAF0 /* NodeInputColor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NodeInputColor.m; sourceTree = "<group>"; };
+		5F014940220105450062DAF0 /* NodeInputTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NodeInputTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,8 +120,9 @@
 		405038F521FC814A005B1585 /* nodleTests */ = {
 			isa = PBXGroup;
 			children = (
-				405038F621FC814A005B1585 /* NodeOutputTests.m */,
 				405038F821FC814A005B1585 /* Info.plist */,
+				5F014940220105450062DAF0 /* NodeInputTests.m */,
+				405038F621FC814A005B1585 /* NodeOutputTests.m */,
 			);
 			path = nodleTests;
 			sourceTree = "<group>";
@@ -305,6 +308,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F014941220105450062DAF0 /* NodeInputTests.m in Sources */,
 				405038F721FC814A005B1585 /* NodeOutputTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -8,14 +8,32 @@
 
 @implementation NodeInput
 
++ (instancetype)inputWithKey:(NSString *)key delegate:(id<NodeInputDelegate>)delegate {
+    return [[self alloc] initWithKey:key delegate:delegate];
+}
+
++ (instancetype)inputWithKey:(NSString *)key
+                  validation:(nullable BOOL (^)(id _Nullable))validationBlock
+                    delegate:(nullable id<NodeInputDelegate>)delegate {
+    return [[self alloc] initWithKey:key validation:validationBlock delegate:delegate];
+}
+
 - (instancetype)initWithKey:(NSString *)key
-                 validation:(BOOL (^)(id _Nonnull))validationBlock
                    delegate:(id<NodeInputDelegate>)delegate {
     self = [super init];
     if (self) {
         _key = key;
-        _validationBlock = validationBlock;
         _delegate = delegate;
+    }
+    return self;
+}
+
+- (instancetype)initWithKey:(NSString *)key
+                 validation:(nullable BOOL (^)(id _Nullable))validationBlock
+                   delegate:(nullable id<NodeInputDelegate>)delegate {
+    self = [self initWithKey:key delegate:delegate];
+    if (self) {
+        _validationBlock = validationBlock;
     }
     return self;
 }
@@ -28,7 +46,7 @@
     [self.delegate nodeInput:self didUpdateValue:_value];
 }
 
-- (BOOL)valueIsValid:(id)value {
+- (BOOL)valueIsValid:(id _Nullable)value {
     if (!self.validationBlock) {
         return YES;
     }

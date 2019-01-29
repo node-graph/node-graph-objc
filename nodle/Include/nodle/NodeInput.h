@@ -44,19 +44,42 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  The block that validates incoming values.
  */
-@property (nonatomic, copy, nullable, readonly) BOOL (^validationBlock)(id value);
+@property (nonatomic, copy, nullable, readonly) BOOL (^validationBlock)(id _Nullable value);
+
+/**
+ Create a new input without a key.
+ This method is very good for instantiating subclasses of NodeInput since the
+ validation block would be handled by the subclass
+ */
++ (instancetype)inputWithKey:(nullable NSString *)key
+                    delegate:(nullable id<NodeInputDelegate>)delegate;
+
+/**
+ Create a new input.
+ */
++ (instancetype)inputWithKey:(nullable NSString *)key
+                  validation:(nullable BOOL (^)(_Nullable id value))validationBlock
+                    delegate:(nullable id<NodeInputDelegate>)delegate;
+
+/**
+ Create a new input without a key.
+ This method is very good for instantiating subclasses of NodeInput since the
+ validation block would be handled by the subclass
+ */
+- (instancetype)initWithKey:(nullable NSString *)key
+                   delegate:(nullable id<NodeInputDelegate>)delegate;
 
 /**
  Create a new input.
  */
 - (instancetype)initWithKey:(nullable NSString *)key
-                 validation:(nullable BOOL (^)(id value))validationBlock
+                 validation:(nullable BOOL (^)(id _Nullable value))validationBlock
                    delegate:(nullable id<NodeInputDelegate>)delegate;
 
 /**
  Checks if value is valid or not.
  */
-- (BOOL)valueIsValid:(id)value;
+- (BOOL)valueIsValid:(id _Nullable)value;
 
 @end
 

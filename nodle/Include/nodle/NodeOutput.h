@@ -30,7 +30,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (instancetype)outputWithKey:(NSString *)key;
 
 /**
- Creates an output without a key
+ Creates an output without a key.
  */
 + (instancetype)output;
 
