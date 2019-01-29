@@ -94,15 +94,11 @@ typedef NS_ENUM(NSUInteger, NodeInputTrigger) {
 /**
  @abstract
  Implement this method with your Node functionality.
- Call completion block when done.
+ 1, Process input values
+ 2, Send result to each respective output
+ 3, Call completion block when done
  */
-- (void)onProcess:(void (^)(id result))completion;
-
-/**
- @abstract
- Implement this method to pass the result through the correct outputs.
- */
-- (void)sendResultToOutputs:(id)result;
+- (void)doProcess:(void (^)(void))completion;
 
 @end
 

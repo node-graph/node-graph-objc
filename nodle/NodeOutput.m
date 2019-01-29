@@ -27,7 +27,7 @@
     [self.connections removeObject:connection];
 }
 
-- (void)sendResult:(id)result {
+- (void)sendResult:(nullable id)result {
     for (NodeInput *connection in self.connections) {
         [connection setValue:result];
     }

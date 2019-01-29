@@ -18,10 +18,14 @@
 		4050396421FC896E005B1585 /* Node.m in Sources */ = {isa = PBXBuildFile; fileRef = 4050396221FC896E005B1585 /* Node.m */; };
 		4050396721FC89C7005B1585 /* RGBNode.h in Headers */ = {isa = PBXBuildFile; fileRef = 4050396521FC89C7005B1585 /* RGBNode.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4050396821FC89C7005B1585 /* RGBNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 4050396621FC89C7005B1585 /* RGBNode.m */; };
-		4050397721FC9EDD005B1585 /* AssembleColorNode.h in Headers */ = {isa = PBXBuildFile; fileRef = 4050397521FC9EDD005B1585 /* AssembleColorNode.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4050397821FC9EDD005B1585 /* AssembleColorNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 4050397621FC9EDD005B1585 /* AssembleColorNode.m */; };
-		4050397C21FCA8A4005B1585 /* UpdateBackgroundColorNode.h in Headers */ = {isa = PBXBuildFile; fileRef = 4050397A21FCA8A4005B1585 /* UpdateBackgroundColorNode.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4050397D21FCA8A4005B1585 /* UpdateBackgroundColorNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 4050397B21FCA8A4005B1585 /* UpdateBackgroundColorNode.m */; };
+		5F01493521FFC66F0062DAF0 /* NodeInputNumber.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F01493321FFC66F0062DAF0 /* NodeInputNumber.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5F01493621FFC66F0062DAF0 /* NodeInputNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F01493421FFC66F0062DAF0 /* NodeInputNumber.m */; };
+		5F01493821FFCEE10062DAF0 /* AssembleColorNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 4050397621FC9EDD005B1585 /* AssembleColorNode.m */; };
+		5F01493921FFCEE60062DAF0 /* AssembleColorNode.h in Headers */ = {isa = PBXBuildFile; fileRef = 4050397521FC9EDD005B1585 /* AssembleColorNode.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5F01493A21FFCF820062DAF0 /* UpdateBackgroundColorNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 4050397B21FCA8A4005B1585 /* UpdateBackgroundColorNode.m */; };
+		5F01493B21FFCF860062DAF0 /* UpdateBackgroundColorNode.h in Headers */ = {isa = PBXBuildFile; fileRef = 4050397A21FCA8A4005B1585 /* UpdateBackgroundColorNode.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5F01493E21FFCFB90062DAF0 /* NodeInputColor.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F01493C21FFCFB90062DAF0 /* NodeInputColor.h */; };
+		5F01493F21FFCFB90062DAF0 /* NodeInputColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F01493D21FFCFB90062DAF0 /* NodeInputColor.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +57,10 @@
 		4050397621FC9EDD005B1585 /* AssembleColorNode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AssembleColorNode.m; sourceTree = "<group>"; };
 		4050397A21FCA8A4005B1585 /* UpdateBackgroundColorNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UpdateBackgroundColorNode.h; sourceTree = "<group>"; };
 		4050397B21FCA8A4005B1585 /* UpdateBackgroundColorNode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UpdateBackgroundColorNode.m; sourceTree = "<group>"; };
+		5F01493321FFC66F0062DAF0 /* NodeInputNumber.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NodeInputNumber.h; sourceTree = "<group>"; };
+		5F01493421FFC66F0062DAF0 /* NodeInputNumber.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NodeInputNumber.m; sourceTree = "<group>"; };
+		5F01493C21FFCFB90062DAF0 /* NodeInputColor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NodeInputColor.h; sourceTree = "<group>"; };
+		5F01493D21FFCFB90062DAF0 /* NodeInputColor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NodeInputColor.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,7 +105,8 @@
 			children = (
 				405038EB21FC814A005B1585 /* nodle.h */,
 				4050390221FC8198005B1585 /* Include */,
-				4050390921FC82A8005B1585 /* Nodes */,
+				5F01493721FFC6860062DAF0 /* InputTypes */,
+				4050390921FC82A8005B1585 /* NodeImplementations */,
 				4050396221FC896E005B1585 /* Node.m */,
 				4050395A21FC8869005B1585 /* NodeInput.m */,
 				4050395E21FC8927005B1585 /* NodeOutput.m */,
@@ -118,7 +127,8 @@
 		4050390221FC8198005B1585 /* Include */ = {
 			isa = PBXGroup;
 			children = (
-				5F01493121FE74200062DAF0 /* Nodes */,
+				5F01493221FFC6130062DAF0 /* InputTypes */,
+				5F01493121FE74200062DAF0 /* NodeImplementations */,
 				4050395921FC8869005B1585 /* NodeInput.h */,
 				4050395D21FC8927005B1585 /* NodeOutput.h */,
 				4050396121FC896E005B1585 /* Node.h */,
@@ -126,24 +136,42 @@
 			path = Include;
 			sourceTree = "<group>";
 		};
-		4050390921FC82A8005B1585 /* Nodes */ = {
+		4050390921FC82A8005B1585 /* NodeImplementations */ = {
 			isa = PBXGroup;
 			children = (
-				4050397B21FCA8A4005B1585 /* UpdateBackgroundColorNode.m */,
-				4050396621FC89C7005B1585 /* RGBNode.m */,
 				4050397621FC9EDD005B1585 /* AssembleColorNode.m */,
+				4050396621FC89C7005B1585 /* RGBNode.m */,
+				4050397B21FCA8A4005B1585 /* UpdateBackgroundColorNode.m */,
 			);
-			path = Nodes;
+			path = NodeImplementations;
 			sourceTree = "<group>";
 		};
-		5F01493121FE74200062DAF0 /* Nodes */ = {
+		5F01493121FE74200062DAF0 /* NodeImplementations */ = {
 			isa = PBXGroup;
 			children = (
 				4050397521FC9EDD005B1585 /* AssembleColorNode.h */,
 				4050396521FC89C7005B1585 /* RGBNode.h */,
 				4050397A21FCA8A4005B1585 /* UpdateBackgroundColorNode.h */,
 			);
-			name = Nodes;
+			name = NodeImplementations;
+			sourceTree = "<group>";
+		};
+		5F01493221FFC6130062DAF0 /* InputTypes */ = {
+			isa = PBXGroup;
+			children = (
+				5F01493321FFC66F0062DAF0 /* NodeInputNumber.h */,
+				5F01493C21FFCFB90062DAF0 /* NodeInputColor.h */,
+			);
+			name = InputTypes;
+			sourceTree = "<group>";
+		};
+		5F01493721FFC6860062DAF0 /* InputTypes */ = {
+			isa = PBXGroup;
+			children = (
+				5F01493421FFC66F0062DAF0 /* NodeInputNumber.m */,
+				5F01493D21FFCFB90062DAF0 /* NodeInputColor.m */,
+			);
+			path = InputTypes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -153,12 +181,14 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4050397C21FCA8A4005B1585 /* UpdateBackgroundColorNode.h in Headers */,
+				5F01493E21FFCFB90062DAF0 /* NodeInputColor.h in Headers */,
 				4050396321FC896E005B1585 /* Node.h in Headers */,
-				4050397721FC9EDD005B1585 /* AssembleColorNode.h in Headers */,
+				5F01493B21FFCF860062DAF0 /* UpdateBackgroundColorNode.h in Headers */,
 				405038F921FC814A005B1585 /* nodle.h in Headers */,
+				5F01493921FFCEE60062DAF0 /* AssembleColorNode.h in Headers */,
 				4050396721FC89C7005B1585 /* RGBNode.h in Headers */,
 				4050395F21FC8927005B1585 /* NodeOutput.h in Headers */,
+				5F01493521FFC66F0062DAF0 /* NodeInputNumber.h in Headers */,
 				4050395B21FC8869005B1585 /* NodeInput.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -259,11 +289,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F01493F21FFCFB90062DAF0 /* NodeInputColor.m in Sources */,
+				5F01493621FFC66F0062DAF0 /* NodeInputNumber.m in Sources */,
+				5F01493821FFCEE10062DAF0 /* AssembleColorNode.m in Sources */,
 				4050395C21FC8869005B1585 /* NodeInput.m in Sources */,
-				4050397821FC9EDD005B1585 /* AssembleColorNode.m in Sources */,
 				4050396821FC89C7005B1585 /* RGBNode.m in Sources */,
+				5F01493A21FFCF820062DAF0 /* UpdateBackgroundColorNode.m in Sources */,
 				4050396021FC8927005B1585 /* NodeOutput.m in Sources */,
-				4050397D21FCA8A4005B1585 /* UpdateBackgroundColorNode.m in Sources */,
 				4050396421FC896E005B1585 /* Node.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

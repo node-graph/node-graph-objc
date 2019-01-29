@@ -11,8 +11,6 @@
 
 @interface AbstractNode (Tests)
 
-@property (nonatomic, assign) NSUInteger locks;
-@property (nonatomic, assign) BOOL processWhenUnlocked;
 @property (nonatomic, assign, getter=isProcessing) BOOL processing;
 
 @end
@@ -33,21 +31,6 @@
 
 - (void)tearDown {
     // Put teardown code here. This method is called after the invocation of each test method in the class.
-}
-
-- (void)testLockIncreasesCount {
-    XCTAssertEqual(self.abstractNode.locks, 0);
-    [self.abstractNode lock];
-    [self.abstractNode lock];
-    XCTAssertEqual(self.abstractNode.locks, 2);
-}
-
-- (void)testUnlockDecreasesCount {
-    [self.abstractNode lock];
-    [self.abstractNode lock];
-    [self.abstractNode unlock];
-    [self.abstractNode unlock];
-    XCTAssertEqual(self.abstractNode.locks, 0);
 }
 
 - (void)testPerformanceExample {

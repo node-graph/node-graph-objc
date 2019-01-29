@@ -42,7 +42,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  Sends the result to each connection.
  */
-- (void)sendResult:(id)result;
+- (void)sendResult:(nullable id)result;
 
 @end
 

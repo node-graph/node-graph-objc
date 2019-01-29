@@ -2,7 +2,10 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface AssembleColorNode : Node
+/**
+ Takes RGB input and turns into UIColor
+ */
+@interface AssembleColorNode : AbstractNode
 
 @end
 

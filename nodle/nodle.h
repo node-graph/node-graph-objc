@@ -1,6 +1,10 @@
 #import <UIKit/UIKit.h>
 
 #import "Node.h"
+#import "NodeInput.h"
+#import "NodeOutput.h"
+
+// Node Implementations
 #import "RGBNode.h"
 #import "AssembleColorNode.h"
 #import "UpdateBackgroundColorNode.h"

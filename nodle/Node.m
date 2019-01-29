@@ -45,8 +45,9 @@
     // no-op
 }
 
-- (void)onProcess:(void (^)(id))completion {
-    completion(nil);
+- (void)doProcess:(void (^)(void))completion {
+    [[self.outputs anyObject] sendResult:nil];
+    completion();
 }
 
 - (void)sendResultToOutputs:(id)result {
@@ -65,17 +66,15 @@
 }
 
 - (void)processDirectly {
-    [self onProcess:^(id  _Nonnull result) {
+    [self doProcess:^(){
         self.processing = NO;
-        // Done processing, call downstream nodes
-        [self sendResultToOutputs:result];
     }];
 }
 
 #pragma mark - NodeInputDelegate
 
 - (void)nodeInput:(NodeInput *)nodeInput didUpdateValue:(id)value {
-    
+    // TODO: Implement inputTrigger
 }
 
 #pragma mark - Helpers
