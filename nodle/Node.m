@@ -74,7 +74,41 @@
 #pragma mark - NodeInputDelegate
 
 - (void)nodeInput:(NodeInput *)nodeInput didUpdateValue:(id)value {
-    // TODO: Implement inputTrigger
+    if ([self canRun]) {
+        [self process];
+    }
+}
+
+- (BOOL)canRun {
+    switch (self.inputTrigger) {
+        case NodeInputTriggerAny: {
+            for (NodeInput *input in self.inputs) {
+                if (input.value) {
+                    return YES;
+                }
+            }
+            break;
+        }
+        case NodeInputTriggerAll: {
+            for (NodeInput *input in self.inputs) {
+                if (!input.value) {
+                    return NO;
+                }
+            }
+            return YES;
+        }
+        case NodeInputTriggerAllAtLeastOnce: {
+            // TODO
+            break;
+        }
+        case NodeInputTriggerNoAutomaticProcessing: {
+            return NO:
+        }
+        case NodeInputTriggerCustom: {
+            return YES;
+        }
+    }
+    return NO;
 }
 
 #pragma mark - Helpers
