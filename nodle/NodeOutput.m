@@ -5,13 +5,28 @@
 
 #pragma mark - Lifecycle
 
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        _connections = [NSHashTable hashTableWithOptions:NSPointerFunctionsWeakMemory];
+    }
+    return self;
+}
+
 - (instancetype)initWithKey:(NSString *)key {
     self = [self init];
     if (self) {
-        _connections = [NSHashTable hashTableWithOptions:NSPointerFunctionsWeakMemory];
         _key = key;
     }
     return self;
+}
+
++ (instancetype)output {
+    return [[self alloc] init];
+}
+
++ (instancetype)outputWithKey:(NSString *)key {
+    return [[self alloc] initWithKey:key];
 }
 
 #pragma mark - Actions

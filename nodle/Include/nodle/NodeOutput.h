@@ -27,6 +27,16 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  Creates an output with a key/name.
  */
++ (instancetype)outputWithKey:(NSString *)key;
+
+/**
+ Creates an output without a key
+ */
++ (instancetype)output;
+
+/**
+ Creates an output with a key/name.
+ */
 - (instancetype)initWithKey:(NSString *)key;
 
 /**

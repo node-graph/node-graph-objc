@@ -102,7 +102,7 @@
             break;
         }
         case NodeInputTriggerNoAutomaticProcessing: {
-            return NO:
+            return NO;
         }
         case NodeInputTriggerCustom: {
             return YES;
