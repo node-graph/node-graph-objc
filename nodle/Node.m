@@ -3,6 +3,8 @@
 @interface AbstractNode ()
 
 @property (nonatomic, assign, getter=isProcessing) BOOL processing;
+@property (nonatomic, assign) NSTimeInterval processingTime;
+@property (nonatomic, assign) NSTimeInterval processingStartTime;
 
 @end
 
@@ -15,6 +17,7 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
+        _processingTime = 0;
         _inputTrigger = NodeInputTriggerAny;
         _inputs = [NSSet setWithObject:[[NodeInput alloc] initWithKey:nil
                                                            validation:nil
@@ -33,6 +36,7 @@
     }
     
     self.processing = YES;
+    self.processingStartTime = [[NSData date] timeIntervalSince1970];
     
     if ([self useDeferredProcessing]) {
         [self processDeferred];
@@ -67,6 +71,7 @@
 
 - (void)processDirectly {
     [self doProcess:^(){
+        self.processingTime = [[NSDate date] timeIntervalSince1970] - self.processingStartTime;
         self.processing = NO;
     }];
 }

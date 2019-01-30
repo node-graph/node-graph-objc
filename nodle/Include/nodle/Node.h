@@ -24,9 +24,9 @@ typedef NS_ENUM(NSUInteger, NodeInputTrigger) {
 /**
  A Node in Nodle can have multiple input types but only one type of output.
  
- Let't take an Add Node as the simplest example. It would require at least two inputs but the
- result would only be one value. Downstream nodes can be specified in the outputs property
- however but they all receive the same result.
+ Let't take an Add Node as the simplest example. It would require at least two
+ inputs but the result would only be one value. Downstream nodes can be
+ specified in the outputs property however but they all receive the same result.
 
  
  Node example:
@@ -52,13 +52,14 @@ typedef NS_ENUM(NSUInteger, NodeInputTrigger) {
 @property (nonatomic, assign, readonly) NodeInputTrigger inputTrigger;
 
 /**
- The inputs of this node, inputs do not reference upstream nodes but keeps a result from an upstream node
- that this node can use when -process is called.
+ The inputs of this node, inputs do not reference upstream nodes but keeps a
+ result from an upstream node that this node can use when -process is called.
  */
 @property (nonatomic, strong, readonly) NSSet<NodeInput *> *inputs;
 
 /**
- All downstream connections out from this node. When -process is run the result will be fed to each NodeOutput.
+ All downstream connections out from this node. When -process is run the result
+ will be fed to each NodeOutput.
  */
 @property (nonatomic, strong, readonly) NSSet<NodeOutput *> *outputs;
 
@@ -71,7 +72,8 @@ typedef NS_ENUM(NSUInteger, NodeInputTrigger) {
 - (void)process;
 
 /**
- Cancels the current processing and stops the result from flowing to any downstream nodes.
+ Cancels the current processing and stops the result from flowing to any
+ downstream nodes.
  */
 - (void)cancel;
 
@@ -79,10 +81,8 @@ typedef NS_ENUM(NSUInteger, NodeInputTrigger) {
 
 
 /**
- Abstract class that you should subclass and implement in order to have a functioning Node.
- 
- Methods to override:
- -process
+ Abstract class that you should subclass and implement in order to have a
+ functioning Node.
  */
 @interface AbstractNode : NSObject <Node, NodeInputDelegate>
 
@@ -92,6 +92,18 @@ typedef NS_ENUM(NSUInteger, NodeInputTrigger) {
 @property (nonatomic, readonly, getter=isProcessing) BOOL processing;
 
 /**
+ The time it took for the node from when the -process method was called until
+ the completion block of -doProcess: was triggered.
+ */
+@property (nonatomic, readonly) NSTimeInterval processingTime;
+
+/**
+ Do not override this method directly to add your functionality. Instead
+ override the -doProcess: method.
+ */
+- (void)process;
+
+/**
  @abstract
  Implement this method with your Node functionality.
  1, Process input values
@@ -99,6 +111,19 @@ typedef NS_ENUM(NSUInteger, NodeInputTrigger) {
  3, Call completion block when done
  */
 - (void)doProcess:(void (^)(void))completion;
+
+/**
+ This method is called when processing is started to decide if the -doProcess:
+ method should be called directly or deferred.
+ The default behaviour looks at the number of inputs together with the
+ inputTrigger property. Only override this method if the default behaviour is
+ not suited for your application.
+ 
+ The reason for deferring the processing call is to not run your implementation
+ of the work that your node performs and all downstream nodes if multiple input
+ parameters are being set in the same runloop.
+ */
+- (BOOL)useDeferredProcessing;
 
 @end
 
