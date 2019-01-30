@@ -27,6 +27,7 @@
 		5F01493E21FFCFB90062DAF0 /* NodeInputColor.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F01493C21FFCFB90062DAF0 /* NodeInputColor.h */; };
 		5F01493F21FFCFB90062DAF0 /* NodeInputColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F01493D21FFCFB90062DAF0 /* NodeInputColor.m */; };
 		5F014941220105450062DAF0 /* NodeInputTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F014940220105450062DAF0 /* NodeInputTests.m */; };
+		5F014943220114C70062DAF0 /* AbstractNodeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F014942220114C70062DAF0 /* AbstractNodeTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		5F01493C21FFCFB90062DAF0 /* NodeInputColor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NodeInputColor.h; sourceTree = "<group>"; };
 		5F01493D21FFCFB90062DAF0 /* NodeInputColor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NodeInputColor.m; sourceTree = "<group>"; };
 		5F014940220105450062DAF0 /* NodeInputTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NodeInputTests.m; sourceTree = "<group>"; };
+		5F014942220114C70062DAF0 /* AbstractNodeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AbstractNodeTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				405038F821FC814A005B1585 /* Info.plist */,
+				5F014942220114C70062DAF0 /* AbstractNodeTests.m */,
 				5F014940220105450062DAF0 /* NodeInputTests.m */,
 				405038F621FC814A005B1585 /* NodeOutputTests.m */,
 			);
@@ -310,6 +313,7 @@
 			files = (
 				5F014941220105450062DAF0 /* NodeInputTests.m in Sources */,
 				405038F721FC814A005B1585 /* NodeOutputTests.m in Sources */,
+				5F014943220114C70062DAF0 /* AbstractNodeTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
