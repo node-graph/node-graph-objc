@@ -22,7 +22,8 @@ typedef NS_ENUM(NSUInteger, NodeInputTrigger) {
 
 
 /**
- A Node in Nodle can have multiple input types but only one type of output.
+ A Node in Nodle can have multiple inputs of varying types as well as many outputs of
+ different types.
  
  Let't take an Add Node as the simplest example. It would require at least two
  inputs but the result would only be one value. Downstream nodes can be
@@ -33,12 +34,12 @@ typedef NS_ENUM(NSUInteger, NodeInputTrigger) {
  
   20         4
    \        /
-  --A------B--
+  --I0----I1--
  |            |
  |   Divide   |
  |  O = A / B |
  |            |
-  ------O-----
+  -----O0-----
         |
         5
  
