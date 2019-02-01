@@ -58,9 +58,14 @@
 
 }
 
-- (void)testExample {
-    // This is an example of a functional test case.
-    // Use XCTAssert and related functions to verify your tests produce the correct results.
+#pragma mark - Input to Output
+
+- (void)testInputTriggersProcessingToOutputToConnections {
+    NodeInput *connection = [NodeInput new];
+    NSNumber *value = @(42);
+    [[self.abstractNode.outputs anyObject] addConnection:connection];
+    [[self.abstractNode.inputs anyObject] setValue:value];
+    XCTAssertEqual(connection.value, value);
 }
 
 #pragma mark - Deferred Processing

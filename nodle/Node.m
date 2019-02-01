@@ -50,7 +50,9 @@
 }
 
 - (void)doProcess:(void (^)(void))completion {
-    [[self.outputs anyObject] sendResult:nil];
+    // Default implementation just passes value to output.
+    // This method should be overridden in subclass
+    [[self.outputs anyObject] sendResult:[[self.inputs anyObject] value]];
     completion();
 }
 
