@@ -4,7 +4,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface UpdateBackgroundColorNode : Node
+@interface UpdateBackgroundColorNode : AbstractNode
 
 - (instancetype)initWithView:(UIView *)view;
 
