@@ -6,7 +6,7 @@
 @property (nonatomic, strong) NodeInput *unNamedInput;
 @property (nonatomic, strong) NodeInput *namedInput;
 @property (nonatomic, strong) NSNumber *sampleValue;
-@property (nonatomic, assign) BOOL delegateCalled;
+@property (nonatomic, assign) NSUInteger delegateCallCount;
 @property (nonatomic, weak) NodeInput *delegateCaller;
 @property (nonatomic, assign) id delegateValue;
 
@@ -27,7 +27,7 @@
                                    validation:^BOOL(id  _Nullable value) {return [value isKindOfClass:[NSNumber class]];}
                                          node:self];
     self.sampleValue = @(42);
-    self.delegateCalled = NO;
+    self.delegateCallCount = 0;
     self.delegateCaller = nil;
     self.delegateValue = nil;
 }
@@ -123,17 +123,28 @@
 
 - (void)testDelegateIsCalledWhenValueIsSet {
     self.namedInput.value = self.sampleValue;
-    XCTAssertTrue(self.delegateCalled);
+    XCTAssertEqual(self.delegateCallCount, 1);
     XCTAssertEqual(self.delegateCaller, self.namedInput);
     XCTAssertEqual(self.delegateValue, self.sampleValue);
 }
 
 - (void)testDelegateIsCalledWhenNilValueIsSet {
     NodeInput *input = [NodeInput inputWithKey:nil node:self];
+    input.value = self.sampleValue;
     input.value = nil;
-    XCTAssertTrue(self.delegateCalled);
+    XCTAssertEqual(self.delegateCallCount, 2);
     XCTAssertEqual(self.delegateCaller, input);
     XCTAssertNil(self.delegateValue);
+}
+
+- (void)testDelegateIsCalledOnceForSameArgumentMultipleTimes {
+    self.namedInput.value = self.sampleValue;
+    self.namedInput.value = self.sampleValue;
+    self.namedInput.value = self.sampleValue;
+    self.namedInput.value = self.sampleValue;
+    XCTAssertEqual(self.delegateCallCount, 1);
+    XCTAssertEqual(self.delegateCaller, self.namedInput);
+    XCTAssertEqual(self.delegateValue, self.sampleValue);
 }
 
 - (void)testDelegateIsNotCalledWhenValueIsNotValid {
@@ -141,7 +152,7 @@
                                     validation:^BOOL(id  _Nullable value) {return [value isKindOfClass:[NSString class]];}
                                           node:self];
     input.value = self.sampleValue;
-    XCTAssertFalse(self.delegateCalled);
+    XCTAssertEqual(self.delegateCallCount, 0);
     XCTAssertNil(self.delegateCaller);
     XCTAssertNil(self.delegateValue);
 }
@@ -149,7 +160,7 @@
 #pragma mark - NodeInputDelegate
 
 - (void)nodeInput:(NodeInput *)nodeInput didUpdateValue:(id)value {
-    self.delegateCalled = YES;
+    self.delegateCallCount ++;
     self.delegateCaller = nodeInput;
     self.delegateValue = value;
 }

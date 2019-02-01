@@ -39,7 +39,7 @@
 }
 
 - (void)setValue:(id)value {
-    if (![self valueIsValid:value]) {
+    if (_value == value || ![self valueIsValid:value]) {
         return;
     }
     _value = value;
