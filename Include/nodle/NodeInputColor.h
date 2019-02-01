@@ -1,11 +1,3 @@
-//
-//  NodeInputColor.h
-//  nodle
-//
-//  Created by Patrik Nyblad on 2019-01-29.
-//  Copyright © 2019 Mikael Sundström. All rights reserved.
-//
-
 #import <nodle/nodle.h>
 #import <UIKit/UIKit.h>
 

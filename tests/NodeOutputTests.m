@@ -1,11 +1,3 @@
-//
-//  NodeOutputTests.m
-//  NodeOutputTests
-//
-//  Created by Mikael Sundström on 2019-01-26.
-//  Copyright © 2019 Mikael Sundström. All rights reserved.
-//
-
 #import <XCTest/XCTest.h>
 #import <nodle/nodle.h>
 
