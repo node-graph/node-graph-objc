@@ -36,7 +36,7 @@
     }
     
     self.processing = YES;
-    self.processingStartTime = [[NSData date] timeIntervalSince1970];
+    self.processingStartTime = [[NSDate date] timeIntervalSince1970];
     
     if ([self useDeferredProcessing]) {
         [self processDeferred];
