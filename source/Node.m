@@ -5,6 +5,7 @@
 @property (nonatomic, assign, getter=isProcessing) BOOL processing;
 @property (nonatomic, assign) NSTimeInterval processingTime;
 @property (nonatomic, assign) NSTimeInterval processingStartTime;
+@property (nonatomic, assign, getter=isCanceling) BOOL canceling;
 
 @end
 
@@ -46,7 +47,16 @@
 }
 
 - (void)cancel {
-    // no-op
+    if (self.canceling) {
+        return;
+    }
+    self.canceling = YES;
+    for (NodeOutput *output in self.outputs) {
+        for (NodeInput *connection in output.connections) {
+            [connection.node cancel];
+        }
+    }
+    self.canceling = NO;
 }
 
 - (void)doProcess:(void (^)(void))completion {

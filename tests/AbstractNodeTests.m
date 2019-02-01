@@ -3,12 +3,15 @@
 
 @interface DeferredTestNode : AbstractNode
 @property (nonatomic, copy) void (^processed)(void);
+@property (nonatomic, copy) void (^canceled)(void);
 @property (nonatomic, strong) NodeInput *aInput;
 @property (nonatomic, strong) NodeInput *bInput;
+@property (nonatomic, strong) NodeOutput *aOutput;
 @property (nonatomic, assign) BOOL deferred;
 @end
 @implementation DeferredTestNode
 @synthesize inputs = _inputs;
+@synthesize outputs = _outputs;
 - (instancetype)init {
     self = [super init];
     if (self) {
@@ -16,6 +19,8 @@
         _aInput = [[NodeInput alloc] initWithKey:@"a" validation:nil node:self];
         _bInput = [[NodeInput alloc] initWithKey:@"b" validation:nil node:self];
         _inputs = [NSSet setWithObjects:_aInput, _bInput, nil];
+        _aOutput = [NodeOutput outputWithKey:@"a"];
+        _outputs = [NSSet setWithObjects:_aOutput, nil];
         _deferred = YES;
     }
     return self;
@@ -27,6 +32,11 @@
 }
 - (BOOL)useDeferredProcessing {
     return self.deferred;
+}
+- (void)cancel {
+    [super cancel];
+    if (self.canceled)
+        self.canceled();
 }
 @end
 
@@ -58,6 +68,29 @@
     [[self.abstractNode.outputs anyObject] addConnection:connection];
     [[self.abstractNode.inputs anyObject] setValue:value];
     XCTAssertEqual(connection.value, value);
+}
+
+#pragma mark - Cancel
+
+- (void)testCancelOperationForwardsCancelRecursively {
+    __block BOOL cancelCalled = NO;
+    self.deferredTestNode.canceled = ^{
+        cancelCalled = YES;
+    };
+    [[self.abstractNode.outputs anyObject] addConnection:self.deferredTestNode.aInput];
+    [self.abstractNode cancel];
+    XCTAssertTrue(cancelCalled);
+}
+
+- (void)testCancelOperationInCircularNodeGraphsDoesNotTriggerInfiniteLoop {
+    __block NSUInteger cancelCallCount = NO;
+    self.deferredTestNode.canceled = ^{
+        cancelCallCount ++;
+    };
+    [[self.abstractNode.outputs anyObject] addConnection:self.deferredTestNode.aInput];
+    [self.deferredTestNode.aOutput addConnection:[self.abstractNode.inputs anyObject]];
+    [self.abstractNode cancel];
+    XCTAssertEqual(cancelCallCount, 1);
 }
 
 #pragma mark - Deferred Processing
