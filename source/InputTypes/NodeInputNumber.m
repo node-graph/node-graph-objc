@@ -2,10 +2,10 @@
 
 @implementation NodeInputNumber
 
-- (instancetype)initWithKey:(NSString *)key delegate:(id<NodeInputDelegate>)delegate {
+- (instancetype)initWithKey:(NSString *)key node:(nullable id<NodeInputDelegate, Node>)node {
     self = [self initWithKey:key
                   validation:^BOOL(id  _Nonnull value) {return [value isKindOfClass:[NSNumber class]];}
-                    delegate:delegate];
+                        node:node];
     return self;
 }
 

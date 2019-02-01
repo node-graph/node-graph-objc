@@ -23,9 +23,9 @@
     if (self) {
         _inputTrigger = NodeInputTriggerAll;
 
-        _rInput = [[NodeInputNumber alloc] initWithKey:@"r" delegate:self];
-        _gInput = [[NodeInputNumber alloc] initWithKey:@"g" delegate:self];
-        _bInput = [[NodeInputNumber alloc] initWithKey:@"b" delegate:self];
+        _rInput = [[NodeInputNumber alloc] initWithKey:@"r" node:self];
+        _gInput = [[NodeInputNumber alloc] initWithKey:@"g" node:self];
+        _bInput = [[NodeInputNumber alloc] initWithKey:@"b" node:self];
         _inputs = [NSSet setWithObjects:_rInput, _gInput, _bInput, nil];
         
         _colorOutput = [[NodeOutput alloc] initWithKey:@"color"];

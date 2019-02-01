@@ -1,7 +1,7 @@
 #import <XCTest/XCTest.h>
 #import <nodle/nodle.h>
 
-@interface NodeInputTests : XCTestCase <NodeInputDelegate>
+@interface NodeInputTests : XCTestCase <NodeInputDelegate, Node>
 
 @property (nonatomic, strong) NodeInput *unNamedInput;
 @property (nonatomic, strong) NodeInput *namedInput;
@@ -13,12 +13,19 @@
 @end
 
 @implementation NodeInputTests
+// Node Protocol START
+@synthesize inputs = _inputs;
+@synthesize inputTrigger = _inputTrigger;
+@synthesize outputs = _outputs;
+- (void)cancel {}
+- (void)process {}
+// Node Protocol END
 
 - (void)setUp {
     self.unNamedInput = [NodeInput new];
     self.namedInput = [NodeInput inputWithKey:@"test"
                                    validation:^BOOL(id  _Nullable value) {return [value isKindOfClass:[NSNumber class]];}
-                                     delegate:self];
+                                         node:self];
     self.sampleValue = @(42);
     self.delegateCalled = NO;
     self.delegateCaller = nil;
@@ -35,38 +42,39 @@
     NodeInput *input = [[NodeInput alloc] init];
     XCTAssertNil(input.key);
     XCTAssertNil(input.validationBlock);
-    XCTAssertNil(input.delegate);
+    XCTAssertNil(input.node);
 }
 
 - (void)testInitWithKey {
     BOOL (^validationBlock)(id _Nonnull value) = ^BOOL(id _Nonnull value) {return YES;};
     NodeInput *input = [[NodeInput alloc] initWithKey:@"test"
                                             validation:validationBlock
-                                              delegate:self];
+                                              node:self];
     XCTAssertEqual(input.key, @"test");
     XCTAssertEqual(input.validationBlock, validationBlock);
-    XCTAssertEqual(input.delegate, self);
+    XCTAssertEqual(input.node, self);
 }
 
 - (void)testStaticNew {
     NodeInput *input = [NodeInput new];
     XCTAssertNil(input.key);
     XCTAssertNil(input.validationBlock);
-    XCTAssertNil(input.delegate);}
+    XCTAssertNil(input.node);
+}
 
 - (void)testStaticInitWithoutValidation {
-    NodeInput *input = [NodeInput inputWithKey:@"test" delegate:self];
+    NodeInput *input = [NodeInput inputWithKey:@"test" node:self];
     XCTAssertEqual(input.key, @"test");
     XCTAssertNil(input.validationBlock);
-    XCTAssertEqual(input.delegate, self);
+    XCTAssertEqual(input.node, self);
 }
 
 - (void)testStaticInitAll {
     BOOL (^validationBlock)(id _Nonnull value) = ^BOOL(id _Nonnull value) {return YES;};
-    NodeInput *input = [NodeInput inputWithKey:@"test" validation:validationBlock delegate:self];
+    NodeInput *input = [NodeInput inputWithKey:@"test" validation:validationBlock node:self];
     XCTAssertEqual(input.key, @"test");
     XCTAssertEqual(input.validationBlock, validationBlock);
-    XCTAssertEqual(input.delegate, self);
+    XCTAssertEqual(input.node, self);
 }
 
 #pragma mark - Validation
@@ -82,14 +90,14 @@
 - (void)testValidationBlockWithValidValue {
     NodeInput *input = [NodeInput inputWithKey:nil
                                     validation:^BOOL(id  _Nullable value) {return [value isKindOfClass:[NSNumber class]];}
-                                      delegate:nil];
+                                      node:nil];
     XCTAssertTrue([input valueIsValid:self.sampleValue]);
 }
 
 - (void)testValidationBlockWithInvalidValue {
     NodeInput *input = [NodeInput inputWithKey:nil
                                     validation:^BOOL(id  _Nullable value) {return [value isKindOfClass:[NSString class]];}
-                                      delegate:nil];
+                                      node:nil];
     XCTAssertFalse([input valueIsValid:self.sampleValue]);
 }
 
@@ -98,7 +106,7 @@
 - (void)testValueIsSet {
     NodeInput *input = [NodeInput inputWithKey:nil
                                     validation:^BOOL(id  _Nullable value) {return [value isKindOfClass:[NSNumber class]];}
-                                      delegate:nil];
+                                      node:nil];
     input.value = self.sampleValue;
     XCTAssertEqual(input.value, self.sampleValue);
 }
@@ -106,7 +114,7 @@
 - (void)testValueIsNotSetIfInvalid {
     NodeInput *input = [NodeInput inputWithKey:nil
                                     validation:^BOOL(id  _Nullable value) {return [value isKindOfClass:[NSString class]];}
-                                      delegate:nil];
+                                      node:nil];
     input.value = self.sampleValue;
     XCTAssertNil(input.value);
 }
@@ -121,7 +129,7 @@
 }
 
 - (void)testDelegateIsCalledWhenNilValueIsSet {
-    NodeInput *input = [NodeInput inputWithKey:nil delegate:self];
+    NodeInput *input = [NodeInput inputWithKey:nil node:self];
     input.value = nil;
     XCTAssertTrue(self.delegateCalled);
     XCTAssertEqual(self.delegateCaller, input);
@@ -131,7 +139,7 @@
 - (void)testDelegateIsNotCalledWhenValueIsNotValid {
     NodeInput *input = [NodeInput inputWithKey:nil
                                     validation:^BOOL(id  _Nullable value) {return [value isKindOfClass:[NSString class]];}
-                                      delegate:self];
+                                          node:self];
     input.value = self.sampleValue;
     XCTAssertFalse(self.delegateCalled);
     XCTAssertNil(self.delegateCaller);

@@ -13,8 +13,8 @@
     self = [super init];
     if (self) {
         // Having two inputs and trigger on any (default) should make the processing use the deferred pipeline
-        _aInput = [[NodeInput alloc] initWithKey:@"a" validation:nil delegate:self];
-        _bInput = [[NodeInput alloc] initWithKey:@"b" validation:nil delegate:self];
+        _aInput = [[NodeInput alloc] initWithKey:@"a" validation:nil node:self];
+        _bInput = [[NodeInput alloc] initWithKey:@"b" validation:nil node:self];
         _inputs = [NSSet setWithObjects:_aInput, _bInput, nil];
         _deferred = YES;
     }

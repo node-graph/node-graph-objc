@@ -21,7 +21,7 @@
         _inputTrigger = NodeInputTriggerAny;
         _inputs = [NSSet setWithObject:[[NodeInput alloc] initWithKey:nil
                                                            validation:nil
-                                                             delegate:self]];
+                                                                 node:self]];
         _outputs = [NSSet setWithObject:[NodeOutput new]];
     }
     

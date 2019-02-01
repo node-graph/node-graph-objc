@@ -6,9 +6,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong, nullable) NSNumber *value;
 
-- (instancetype)initWithKey:(nullable NSString *)key
-                   delegate:(nullable id<NodeInputDelegate>)delegate;
-
 @end
 
 NS_ASSUME_NONNULL_END
