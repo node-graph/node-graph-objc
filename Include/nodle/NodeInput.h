@@ -33,7 +33,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong, nullable) id value;
 
 /**
- Delegate that should get updates from the input.
+ The node that this input beloongs to. Receives events regarding input changes.
  */
 @property (nonatomic, assign, nullable) id<NodeInputDelegate, Node> node;
 
