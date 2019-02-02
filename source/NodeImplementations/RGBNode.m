@@ -25,9 +25,9 @@
     if (self) {
         _inputTrigger = NodeInputTriggerAny;
         
-        _rInput = [[NodeInputNumber alloc] initWithKey:@"r" delegate:self];
-        _gInput = [[NodeInputNumber alloc] initWithKey:@"g" delegate:self];
-        _bInput = [[NodeInputNumber alloc] initWithKey:@"b" delegate:self];
+        _rInput = [[NodeInputNumber alloc] initWithKey:@"r" node:self];
+        _gInput = [[NodeInputNumber alloc] initWithKey:@"g" node:self];
+        _bInput = [[NodeInputNumber alloc] initWithKey:@"b" node:self];
         
         _rOutput = [[NodeOutput alloc] initWithKey:@"r"];
         _gOutput = [[NodeOutput alloc] initWithKey:@"g"];

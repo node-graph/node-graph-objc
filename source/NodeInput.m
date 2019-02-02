@@ -8,30 +8,30 @@
 
 @implementation NodeInput
 
-+ (instancetype)inputWithKey:(NSString *)key delegate:(id<NodeInputDelegate>)delegate {
-    return [[self alloc] initWithKey:key delegate:delegate];
++ (instancetype)inputWithKey:(NSString *)key node:(nullable id<NodeInputDelegate, Node>)node {
+    return [[self alloc] initWithKey:key node:node];
 }
 
 + (instancetype)inputWithKey:(NSString *)key
                   validation:(nullable BOOL (^)(id _Nullable))validationBlock
-                    delegate:(nullable id<NodeInputDelegate>)delegate {
-    return [[self alloc] initWithKey:key validation:validationBlock delegate:delegate];
+                        node:(nullable id<NodeInputDelegate, Node>)node {
+    return [[self alloc] initWithKey:key validation:validationBlock node:node];
 }
 
 - (instancetype)initWithKey:(NSString *)key
-                   delegate:(id<NodeInputDelegate>)delegate {
+                       node:(nullable id<NodeInputDelegate, Node>)node {
     self = [super init];
     if (self) {
         _key = key;
-        _delegate = delegate;
+        _node = node;
     }
     return self;
 }
 
 - (instancetype)initWithKey:(NSString *)key
                  validation:(nullable BOOL (^)(id _Nullable))validationBlock
-                   delegate:(nullable id<NodeInputDelegate>)delegate {
-    self = [self initWithKey:key delegate:delegate];
+                       node:(nullable id<NodeInputDelegate, Node>)node {
+    self = [self initWithKey:key node:node];
     if (self) {
         _validationBlock = validationBlock;
     }
@@ -39,11 +39,11 @@
 }
 
 - (void)setValue:(id)value {
-    if (![self valueIsValid:value]) {
+    if (_value == value || ![self valueIsValid:value]) {
         return;
     }
     _value = value;
-    [self.delegate nodeInput:self didUpdateValue:_value];
+    [self.node nodeInput:self didUpdateValue:_value];
 }
 
 - (BOOL)valueIsValid:(id _Nullable)value {

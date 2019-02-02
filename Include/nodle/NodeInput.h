@@ -3,6 +3,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @class NodeInput;
+@protocol Node;
 
 /**
  Defines how a node input communicates changes.
@@ -32,9 +33,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong, nullable) id value;
 
 /**
- Delegate that should get updates from the input.
+ The node that this input beloongs to. Receives events regarding input changes.
  */
-@property (nonatomic, assign, nullable) id<NodeInputDelegate> delegate;
+@property (nonatomic, assign, nullable) id<NodeInputDelegate, Node> node;
 
 /**
  The optional key of this input for the node.
@@ -52,14 +53,14 @@ NS_ASSUME_NONNULL_BEGIN
  validation block would be handled by the subclass
  */
 + (instancetype)inputWithKey:(nullable NSString *)key
-                    delegate:(nullable id<NodeInputDelegate>)delegate;
+                        node:(nullable id<NodeInputDelegate, Node>)node;
 
 /**
  Create a new input.
  */
 + (instancetype)inputWithKey:(nullable NSString *)key
                   validation:(nullable BOOL (^)(_Nullable id value))validationBlock
-                    delegate:(nullable id<NodeInputDelegate>)delegate;
+                        node:(nullable id<NodeInputDelegate, Node>)node;
 
 /**
  Create a new input without a key.
@@ -67,14 +68,14 @@ NS_ASSUME_NONNULL_BEGIN
  validation block would be handled by the subclass
  */
 - (instancetype)initWithKey:(nullable NSString *)key
-                   delegate:(nullable id<NodeInputDelegate>)delegate;
+                       node:(nullable id<NodeInputDelegate, Node>)node;
 
 /**
  Create a new input.
  */
 - (instancetype)initWithKey:(nullable NSString *)key
                  validation:(nullable BOOL (^)(id _Nullable value))validationBlock
-                   delegate:(nullable id<NodeInputDelegate>)delegate;
+                       node:(nullable id<NodeInputDelegate, Node>)node;
 
 /**
  Checks if value is valid or not.

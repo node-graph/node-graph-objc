@@ -20,7 +20,7 @@
     if (self) {
         _view = view;
         _inputTrigger = NodeInputTriggerAny;
-        _colorInput = [[NodeInputColor alloc] initWithKey:@"color" delegate:self];
+        _colorInput = [[NodeInputColor alloc] initWithKey:@"color" node:self];
         _inputs = [NSSet setWithObject:_colorInput];
         _outputs = [NSSet set];
     }

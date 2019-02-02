@@ -74,7 +74,7 @@ typedef NS_ENUM(NSUInteger, NodeInputTrigger) {
 
 /**
  Cancels the current processing and stops the result from flowing to any
- downstream nodes.
+ downstream nodes. Also recursively cancels any downstream connections.
  */
 - (void)cancel;
 
