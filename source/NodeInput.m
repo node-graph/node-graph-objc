@@ -31,8 +31,10 @@
 - (instancetype)initWithKey:(NSString *)key
                  validation:(nullable BOOL (^)(id _Nullable))validationBlock
                        node:(nullable id<NodeInputDelegate, Node>)node {
-    self = [self initWithKey:key node:node];
+    self = [super init];
     if (self) {
+        _key = key;
+        _node = node;
         _validationBlock = validationBlock;
     }
     return self;
