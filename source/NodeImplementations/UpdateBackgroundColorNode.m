@@ -5,7 +5,6 @@
 @interface UpdateBackgroundColorNode ()
 
 @property (nonatomic, weak) UIView *view;
-@property (nonatomic, strong) NodeInput *colorInput;
 
 @end
 

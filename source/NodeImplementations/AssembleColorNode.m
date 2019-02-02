@@ -2,16 +2,6 @@
 #import <UIKit/UIKit.h>
 #import "NodeInputNumber.h"
 
-@interface AssembleColorNode ()
-
-@property (nonatomic, strong) NodeInput *rInput;
-@property (nonatomic, strong) NodeInput *gInput;
-@property (nonatomic, strong) NodeInput *bInput;
-
-@property (nonatomic, strong) NodeOutput *colorOutput;
-
-@end
-
 @implementation AssembleColorNode
 
 @synthesize inputTrigger = _inputTrigger;

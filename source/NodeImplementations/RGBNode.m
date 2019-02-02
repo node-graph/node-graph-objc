@@ -2,18 +2,6 @@
 #import <CoreGraphics/CGBase.h>
 #import "NodeInputNumber.h"
 
-@interface RGBNode ()
-
-@property (nonatomic, strong) NodeInput *rInput;
-@property (nonatomic, strong) NodeInput *gInput;
-@property (nonatomic, strong) NodeInput *bInput;
-
-@property (nonatomic, strong) NodeOutput *rOutput;
-@property (nonatomic, strong) NodeOutput *gOutput;
-@property (nonatomic, strong) NodeOutput *bOutput;
-
-@end
-
 @implementation RGBNode
 
 @synthesize inputTrigger = _inputTrigger;
@@ -23,7 +11,7 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        _inputTrigger = NodeInputTriggerAny;
+        _inputTrigger = NodeInputTriggerAll;
         
         _rInput = [[NodeInputNumber alloc] initWithKey:@"r" node:self];
         _gInput = [[NodeInputNumber alloc] initWithKey:@"g" node:self];
