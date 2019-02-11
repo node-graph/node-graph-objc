@@ -4,6 +4,7 @@
 #import "Node.h"
 #import "NodeInput.h"
 #import "NodeOutput.h"
+#import "NodeTree.h"
 
 // Node Implementations
 #import "RGBNode.h"
