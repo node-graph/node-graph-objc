@@ -109,13 +109,164 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		403EE6252211DE330074517F /* macos */ = {
+			isa = PBXGroup;
+			children = (
+				403EE62B2211DF5E0074517F /* InputTypes */,
+				40C08F632210C34500FD01AE /* nodle.h */,
+			);
+			path = macos;
+			sourceTree = "<group>";
+		};
+		403EE6262211DE3E0074517F /* ios */ = {
+			isa = PBXGroup;
+			children = (
+				405038EB21FC814A005B1585 /* nodle.h */,
+				403EE6322211E0A00074517F /* NodeImplementations */,
+				403EE6312211E0990074517F /* InputTypes */,
+			);
+			path = ios;
+			sourceTree = "<group>";
+		};
+		403EE6282211DEF70074517F /* macos */ = {
+			isa = PBXGroup;
+			children = (
+				403EE6362211E0F50074517F /* NodeImplementations */,
+				403EE6352211E0EF0074517F /* InputTypes */,
+				40C08F642210C34500FD01AE /* Info.plist */,
+			);
+			path = macos;
+			sourceTree = "<group>";
+		};
+		403EE6292211DEFD0074517F /* ios */ = {
+			isa = PBXGroup;
+			children = (
+				403EE6342211E0E60074517F /* NodeImplementations */,
+				403EE6332211E0E00074517F /* InputTypes */,
+				405038EC21FC814A005B1585 /* Info.plist */,
+			);
+			path = ios;
+			sourceTree = "<group>";
+		};
+		403EE62B2211DF5E0074517F /* InputTypes */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = InputTypes;
+			sourceTree = "<group>";
+		};
+		403EE62D2211DFAF0074517F /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				4050396121FC896E005B1585 /* Node.h */,
+				4050395921FC8869005B1585 /* NodeInput.h */,
+				4050395D21FC8927005B1585 /* NodeOutput.h */,
+				5F01497F220A44650062DAF0 /* NodeTree.h */,
+				403EE62F2211E0370074517F /* InputTypes */,
+				403EE62E2211E01D0074517F /* NodeImplementations */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		403EE62E2211E01D0074517F /* NodeImplementations */ = {
+			isa = PBXGroup;
+			children = (
+				4050396521FC89C7005B1585 /* RGBNode.h */,
+			);
+			path = NodeImplementations;
+			sourceTree = "<group>";
+		};
+		403EE62F2211E0370074517F /* InputTypes */ = {
+			isa = PBXGroup;
+			children = (
+				5F01493321FFC66F0062DAF0 /* NodeInputNumber.h */,
+			);
+			path = InputTypes;
+			sourceTree = "<group>";
+		};
+		403EE6312211E0990074517F /* InputTypes */ = {
+			isa = PBXGroup;
+			children = (
+				5F01493C21FFCFB90062DAF0 /* NodeInputColor.h */,
+			);
+			path = InputTypes;
+			sourceTree = "<group>";
+		};
+		403EE6322211E0A00074517F /* NodeImplementations */ = {
+			isa = PBXGroup;
+			children = (
+				4050397521FC9EDD005B1585 /* AssembleColorNode.h */,
+				4050397A21FCA8A4005B1585 /* UpdateBackgroundColorNode.h */,
+			);
+			path = NodeImplementations;
+			sourceTree = "<group>";
+		};
+		403EE6332211E0E00074517F /* InputTypes */ = {
+			isa = PBXGroup;
+			children = (
+				5F01493D21FFCFB90062DAF0 /* NodeInputColor.m */,
+			);
+			path = InputTypes;
+			sourceTree = "<group>";
+		};
+		403EE6342211E0E60074517F /* NodeImplementations */ = {
+			isa = PBXGroup;
+			children = (
+				4050397621FC9EDD005B1585 /* AssembleColorNode.m */,
+				4050397B21FCA8A4005B1585 /* UpdateBackgroundColorNode.m */,
+			);
+			path = NodeImplementations;
+			sourceTree = "<group>";
+		};
+		403EE6352211E0EF0074517F /* InputTypes */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = InputTypes;
+			sourceTree = "<group>";
+		};
+		403EE6362211E0F50074517F /* NodeImplementations */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = NodeImplementations;
+			sourceTree = "<group>";
+		};
+		403EE6372211E1050074517F /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				4050396221FC896E005B1585 /* Node.m */,
+				4050395A21FC8869005B1585 /* NodeInput.m */,
+				4050395E21FC8927005B1585 /* NodeOutput.m */,
+				5F014981220A44760062DAF0 /* NodeTree.m */,
+				403EE6392211E11F0074517F /* InputTypes */,
+				403EE6382211E1170074517F /* NodeImplementations */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		403EE6382211E1170074517F /* NodeImplementations */ = {
+			isa = PBXGroup;
+			children = (
+				4050396621FC89C7005B1585 /* RGBNode.m */,
+			);
+			path = NodeImplementations;
+			sourceTree = "<group>";
+		};
+		403EE6392211E11F0074517F /* InputTypes */ = {
+			isa = PBXGroup;
+			children = (
+				5F01493421FFC66F0062DAF0 /* NodeInputNumber.m */,
+			);
+			path = InputTypes;
+			sourceTree = "<group>";
+		};
 		405038DE21FC814A005B1585 = {
 			isa = PBXGroup;
 			children = (
 				4050390221FC8198005B1585 /* Include */,
 				405038EA21FC814A005B1585 /* source */,
 				405038F521FC814A005B1585 /* tests */,
-				40C08F622210C34500FD01AE /* nodle-macos */,
 				405038E921FC814A005B1585 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -133,13 +284,9 @@
 		405038EA21FC814A005B1585 /* source */ = {
 			isa = PBXGroup;
 			children = (
-				5F01493721FFC6860062DAF0 /* InputTypes */,
-				4050390921FC82A8005B1585 /* NodeImplementations */,
-				4050396221FC896E005B1585 /* Node.m */,
-				4050395A21FC8869005B1585 /* NodeInput.m */,
-				4050395E21FC8927005B1585 /* NodeOutput.m */,
-				5F014981220A44760062DAF0 /* NodeTree.m */,
-				405038EC21FC814A005B1585 /* Info.plist */,
+				403EE6372211E1050074517F /* Shared */,
+				403EE6292211DEFD0074517F /* ios */,
+				403EE6282211DEF70074517F /* macos */,
 			);
 			path = source;
 			sourceTree = "<group>";
@@ -159,63 +306,12 @@
 		4050390221FC8198005B1585 /* Include */ = {
 			isa = PBXGroup;
 			children = (
-				405038EB21FC814A005B1585 /* nodle.h */,
-				4050396121FC896E005B1585 /* Node.h */,
-				4050395921FC8869005B1585 /* NodeInput.h */,
-				4050395D21FC8927005B1585 /* NodeOutput.h */,
-				5F01497F220A44650062DAF0 /* NodeTree.h */,
-				5F01493221FFC6130062DAF0 /* InputTypes */,
-				5F01493121FE74200062DAF0 /* NodeImplementations */,
+				403EE62D2211DFAF0074517F /* Shared */,
+				403EE6262211DE3E0074517F /* ios */,
+				403EE6252211DE330074517F /* macos */,
 			);
 			name = Include;
 			path = Include/nodle;
-			sourceTree = "<group>";
-		};
-		4050390921FC82A8005B1585 /* NodeImplementations */ = {
-			isa = PBXGroup;
-			children = (
-				4050397621FC9EDD005B1585 /* AssembleColorNode.m */,
-				4050396621FC89C7005B1585 /* RGBNode.m */,
-				4050397B21FCA8A4005B1585 /* UpdateBackgroundColorNode.m */,
-			);
-			path = NodeImplementations;
-			sourceTree = "<group>";
-		};
-		40C08F622210C34500FD01AE /* nodle-macos */ = {
-			isa = PBXGroup;
-			children = (
-				40C08F632210C34500FD01AE /* nodle.h */,
-				40C08F642210C34500FD01AE /* Info.plist */,
-			);
-			path = "nodle-macos";
-			sourceTree = "<group>";
-		};
-		5F01493121FE74200062DAF0 /* NodeImplementations */ = {
-			isa = PBXGroup;
-			children = (
-				4050397521FC9EDD005B1585 /* AssembleColorNode.h */,
-				4050396521FC89C7005B1585 /* RGBNode.h */,
-				4050397A21FCA8A4005B1585 /* UpdateBackgroundColorNode.h */,
-			);
-			name = NodeImplementations;
-			sourceTree = "<group>";
-		};
-		5F01493221FFC6130062DAF0 /* InputTypes */ = {
-			isa = PBXGroup;
-			children = (
-				5F01493321FFC66F0062DAF0 /* NodeInputNumber.h */,
-				5F01493C21FFCFB90062DAF0 /* NodeInputColor.h */,
-			);
-			name = InputTypes;
-			sourceTree = "<group>";
-		};
-		5F01493721FFC6860062DAF0 /* InputTypes */ = {
-			isa = PBXGroup;
-			children = (
-				5F01493421FFC66F0062DAF0 /* NodeInputNumber.m */,
-				5F01493D21FFCFB90062DAF0 /* NodeInputColor.m */,
-			);
-			path = InputTypes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -546,7 +642,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = source/Info.plist;
+				INFOPLIST_FILE = source/ios/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -570,7 +666,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = source/Info.plist;
+				INFOPLIST_FILE = source/ios/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -630,7 +726,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_VERSION = A;
-				INFOPLIST_FILE = "nodle-macos/Info.plist";
+				INFOPLIST_FILE = source/macos/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -660,7 +756,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_VERSION = A;
-				INFOPLIST_FILE = "nodle-macos/Info.plist";
+				INFOPLIST_FILE = source/macos/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
