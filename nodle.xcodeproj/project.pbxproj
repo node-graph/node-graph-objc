@@ -18,6 +18,13 @@
 		4050396421FC896E005B1585 /* Node.m in Sources */ = {isa = PBXBuildFile; fileRef = 4050396221FC896E005B1585 /* Node.m */; };
 		4050396721FC89C7005B1585 /* RGBNode.h in Headers */ = {isa = PBXBuildFile; fileRef = 4050396521FC89C7005B1585 /* RGBNode.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4050396821FC89C7005B1585 /* RGBNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 4050396621FC89C7005B1585 /* RGBNode.m */; };
+		40C08F652210C34500FD01AE /* nodle.h in Headers */ = {isa = PBXBuildFile; fileRef = 40C08F632210C34500FD01AE /* nodle.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		40C08F6E2210C5FD00FD01AE /* Node.m in Sources */ = {isa = PBXBuildFile; fileRef = 4050396221FC896E005B1585 /* Node.m */; };
+		40C08F6F2210C60100FD01AE /* NodeInput.m in Sources */ = {isa = PBXBuildFile; fileRef = 4050395A21FC8869005B1585 /* NodeInput.m */; };
+		40C08F702210C60100FD01AE /* NodeOutput.m in Sources */ = {isa = PBXBuildFile; fileRef = 4050395E21FC8927005B1585 /* NodeOutput.m */; };
+		40C08F712210C62400FD01AE /* NodeInput.h in Headers */ = {isa = PBXBuildFile; fileRef = 4050395921FC8869005B1585 /* NodeInput.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		40C08F722210C62400FD01AE /* NodeOutput.h in Headers */ = {isa = PBXBuildFile; fileRef = 4050395D21FC8927005B1585 /* NodeOutput.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		40C08F732210C62400FD01AE /* Node.h in Headers */ = {isa = PBXBuildFile; fileRef = 4050396121FC896E005B1585 /* Node.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5F01493521FFC66F0062DAF0 /* NodeInputNumber.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F01493321FFC66F0062DAF0 /* NodeInputNumber.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5F01493621FFC66F0062DAF0 /* NodeInputNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F01493421FFC66F0062DAF0 /* NodeInputNumber.m */; };
 		5F01493821FFCEE10062DAF0 /* AssembleColorNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 4050397621FC9EDD005B1585 /* AssembleColorNode.m */; };
@@ -62,6 +69,9 @@
 		4050397621FC9EDD005B1585 /* AssembleColorNode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AssembleColorNode.m; sourceTree = "<group>"; };
 		4050397A21FCA8A4005B1585 /* UpdateBackgroundColorNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UpdateBackgroundColorNode.h; sourceTree = "<group>"; };
 		4050397B21FCA8A4005B1585 /* UpdateBackgroundColorNode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UpdateBackgroundColorNode.m; sourceTree = "<group>"; };
+		40C08F612210C34500FD01AE /* nodle.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = nodle.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		40C08F632210C34500FD01AE /* nodle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = nodle.h; sourceTree = "<group>"; };
+		40C08F642210C34500FD01AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5F01493321FFC66F0062DAF0 /* NodeInputNumber.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NodeInputNumber.h; sourceTree = "<group>"; };
 		5F01493421FFC66F0062DAF0 /* NodeInputNumber.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NodeInputNumber.m; sourceTree = "<group>"; };
 		5F01493C21FFCFB90062DAF0 /* NodeInputColor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NodeInputColor.h; sourceTree = "<group>"; };
@@ -89,6 +99,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		40C08F5E2210C34500FD01AE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -98,6 +115,7 @@
 				4050390221FC8198005B1585 /* Include */,
 				405038EA21FC814A005B1585 /* source */,
 				405038F521FC814A005B1585 /* tests */,
+				40C08F622210C34500FD01AE /* nodle-macos */,
 				405038E921FC814A005B1585 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -107,6 +125,7 @@
 			children = (
 				405038E821FC814A005B1585 /* nodle.framework */,
 				405038F121FC814A005B1585 /* nodleTests.xctest */,
+				40C08F612210C34500FD01AE /* nodle.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -162,6 +181,15 @@
 			path = NodeImplementations;
 			sourceTree = "<group>";
 		};
+		40C08F622210C34500FD01AE /* nodle-macos */ = {
+			isa = PBXGroup;
+			children = (
+				40C08F632210C34500FD01AE /* nodle.h */,
+				40C08F642210C34500FD01AE /* Info.plist */,
+			);
+			path = "nodle-macos";
+			sourceTree = "<group>";
+		};
 		5F01493121FE74200062DAF0 /* NodeImplementations */ = {
 			isa = PBXGroup;
 			children = (
@@ -210,6 +238,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		40C08F5C2210C34500FD01AE /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				40C08F722210C62400FD01AE /* NodeOutput.h in Headers */,
+				40C08F652210C34500FD01AE /* nodle.h in Headers */,
+				40C08F732210C62400FD01AE /* Node.h in Headers */,
+				40C08F712210C62400FD01AE /* NodeInput.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
@@ -249,6 +288,24 @@
 			productReference = 405038F121FC814A005B1585 /* nodleTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		40C08F602210C34500FD01AE /* nodle-macos */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 40C08F682210C34500FD01AE /* Build configuration list for PBXNativeTarget "nodle-macos" */;
+			buildPhases = (
+				40C08F5C2210C34500FD01AE /* Headers */,
+				40C08F5D2210C34500FD01AE /* Sources */,
+				40C08F5E2210C34500FD01AE /* Frameworks */,
+				40C08F5F2210C34500FD01AE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "nodle-macos";
+			productName = "nodle-macos";
+			productReference = 40C08F612210C34500FD01AE /* nodle.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -262,6 +319,9 @@
 						CreatedOnToolsVersion = 10.1;
 					};
 					405038F021FC814A005B1585 = {
+						CreatedOnToolsVersion = 10.1;
+					};
+					40C08F602210C34500FD01AE = {
 						CreatedOnToolsVersion = 10.1;
 					};
 				};
@@ -280,6 +340,7 @@
 			targets = (
 				405038E721FC814A005B1585 /* nodle */,
 				405038F021FC814A005B1585 /* nodleTests */,
+				40C08F602210C34500FD01AE /* nodle-macos */,
 			);
 		};
 /* End PBXProject section */
@@ -293,6 +354,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		405038EF21FC814A005B1585 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		40C08F5F2210C34500FD01AE /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -326,6 +394,16 @@
 				405038F721FC814A005B1585 /* NodeOutputTests.m in Sources */,
 				5F014943220114C70062DAF0 /* AbstractNodeTests.m in Sources */,
 				5F014984220A44A90062DAF0 /* NodeTreeTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		40C08F5D2210C34500FD01AE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				40C08F6F2210C60100FD01AE /* NodeInput.m in Sources */,
+				40C08F702210C60100FD01AE /* NodeOutput.m in Sources */,
+				40C08F6E2210C5FD00FD01AE /* Node.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -540,6 +618,66 @@
 			};
 			name = Release;
 		};
+		40C08F662210C34500FD01AE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = UR3JNX8K6N;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = "nodle-macos/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				PRODUCT_BUNDLE_IDENTIFIER = "msundstrom.nodle-macos";
+				PRODUCT_NAME = nodle;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
+			};
+			name = Debug;
+		};
+		40C08F672210C34500FD01AE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = UR3JNX8K6N;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = "nodle-macos/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				PRODUCT_BUNDLE_IDENTIFIER = "msundstrom.nodle-macos";
+				PRODUCT_NAME = nodle;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 4.2;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -566,6 +704,15 @@
 			buildConfigurations = (
 				4050390021FC814A005B1585 /* Debug */,
 				4050390121FC814A005B1585 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		40C08F682210C34500FD01AE /* Build configuration list for PBXNativeTarget "nodle-macos" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				40C08F662210C34500FD01AE /* Debug */,
+				40C08F672210C34500FD01AE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
