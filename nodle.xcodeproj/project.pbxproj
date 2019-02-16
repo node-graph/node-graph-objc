@@ -155,7 +155,7 @@
 			name = InputTypes;
 			sourceTree = "<group>";
 		};
-		403EE62D2211DFAF0074517F /* Shared */ = {
+		403EE62D2211DFAF0074517F /* common */ = {
 			isa = PBXGroup;
 			children = (
 				4050396121FC896E005B1585 /* Node.h */,
@@ -165,7 +165,7 @@
 				403EE62F2211E0370074517F /* InputTypes */,
 				403EE62E2211E01D0074517F /* NodeImplementations */,
 			);
-			path = Shared;
+			path = common;
 			sourceTree = "<group>";
 		};
 		403EE62E2211E01D0074517F /* NodeImplementations */ = {
@@ -232,7 +232,7 @@
 			path = NodeImplementations;
 			sourceTree = "<group>";
 		};
-		403EE6372211E1050074517F /* Shared */ = {
+		403EE6372211E1050074517F /* common */ = {
 			isa = PBXGroup;
 			children = (
 				4050396221FC896E005B1585 /* Node.m */,
@@ -242,7 +242,7 @@
 				403EE6392211E11F0074517F /* InputTypes */,
 				403EE6382211E1170074517F /* NodeImplementations */,
 			);
-			path = Shared;
+			path = common;
 			sourceTree = "<group>";
 		};
 		403EE6382211E1170074517F /* NodeImplementations */ = {
@@ -284,7 +284,7 @@
 		405038EA21FC814A005B1585 /* source */ = {
 			isa = PBXGroup;
 			children = (
-				403EE6372211E1050074517F /* Shared */,
+				403EE6372211E1050074517F /* common */,
 				403EE6292211DEFD0074517F /* ios */,
 				403EE6282211DEF70074517F /* macos */,
 			);
@@ -306,7 +306,7 @@
 		4050390221FC8198005B1585 /* Include */ = {
 			isa = PBXGroup;
 			children = (
-				403EE62D2211DFAF0074517F /* Shared */,
+				403EE62D2211DFAF0074517F /* common */,
 				403EE6262211DE3E0074517F /* ios */,
 				403EE6252211DE330074517F /* macos */,
 			);
