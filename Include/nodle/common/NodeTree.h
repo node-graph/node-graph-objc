@@ -1,12 +1,14 @@
 #import <Foundation/Foundation.h>
-#import <nodle/nodle.h>
+#import "Node.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 /**
  Holds a chain/tree of nodes
  */
-@interface NodeTree : NSObject <Node>
+@interface NodeTree : NSObject <SerializableNode>
+
+@property (nonatomic, readonly, getter=isSerializable) BOOL serializable;
 
 - (void)holdNodeChainWithStartNodes:(NSSet <id<Node>> *)nodes;
 

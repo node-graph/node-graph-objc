@@ -1,4 +1,5 @@
 #import "NodeTree.h"
+#import "NodeSerializationUtils.h"
 
 @interface NodeTree ()
 
@@ -24,6 +25,15 @@
     self.inputs = [NSSet set];
     self.outputs = [NSSet set];
     self.startNodes = nil;
+}
+
+- (BOOL)isSerializable {
+    for (id node in self.nodes) {
+        if (![node respondsToSelector:@selector(serializedRepresentationAsDictionary)]) {
+            return NO;
+        }
+    }
+    return YES;
 }
 
 #pragma mark - Node Protocol
@@ -73,5 +83,66 @@
         self.outputs = [self.outputs setByAddingObjectsFromSet:node.outputs];
     }
 }
+
+#pragma mark - Serializable Node
+
+- (NSString *)serializedType {
+    return NSStringFromClass([self class]);
+}
+
+- (NSDictionary *)serializedRepresentationAsDictionary {
+    return [NodeSerializationUtils serializedRepresentationAsDictionaryFromNode:self];
+}
+
+- (NSDictionary<NSString *, NSArray *> *)serializedOutputConnectionsWithNodeMapping:(NSDictionary<NSString *,id<SerializableNode>> *)nodeMapping {
+    return [NodeSerializationUtils serializedOutputConnectionsFromNode:self
+                                                       withNodeMapping:nodeMapping];
+}
+
+- (NSDictionary *)serializedData {
+    // TODO: Serialize connections and stuff
+    NSDictionary<NSString *, id<Node>> *nodeMapping = [self nodeMappingFromNodesSet:self.nodes];
+    NSDictionary<NSString *, NSString *> *serializedNodeMapping = [self serializedNodesFromNodeMapping:nodeMapping];
+    NSDictionary<NSString *, NSDictionary *> *serializedConnections = [self connectionsForNodesInNodeMapping:nodeMapping];
+    return @{
+             @"nodes": serializedNodeMapping,
+             @"connections": serializedConnections
+             };
+}
+
+#pragma mark - Serialization helpers
+
+// TODO: Recursive serialization of all nodes in the tree
+
+- (NSDictionary<NSString *, id<Node>> *)nodeMappingFromNodesSet:(NSSet<id<Node>> *)nodes {
+    NSMutableDictionary *result = [NSMutableDictionary dictionary];
+    NSUInteger i = 0;
+    for (id<Node> node in nodes) {
+        // TODO: Generate better key?
+        result[[NSString stringWithFormat:@"node-id-%lu", (unsigned long)i]] = node;
+        i++;
+    }
+    return result;
+}
+
+/**
+ Fails if any contained node is not a SerializableNode.
+ */
+- (NSDictionary<NSString *, NSDictionary *> *)connectionsForNodesInNodeMapping:(NSDictionary<NSString *, id<SerializableNode>> *)nodeMapping {
+    NSMutableDictionary *connections = [NSMutableDictionary dictionary];
+    [nodeMapping enumerateKeysAndObjectsUsingBlock:^(NSString * _Nonnull key, id<SerializableNode>  _Nonnull node, BOOL * _Nonnull stop) {
+        connections[key] = [node serializedOutputConnectionsWithNodeMapping:nodeMapping];
+    }];
+    return connections;
+}
+
+- (NSDictionary<NSString *, NSString *> *)serializedNodesFromNodeMapping:(NSDictionary<NSString *, id<SerializableNode>> *)nodes {
+    NSMutableDictionary *result = [NSMutableDictionary dictionary];
+    [nodes enumerateKeysAndObjectsUsingBlock:^(NSString * _Nonnull key, id<SerializableNode>  _Nonnull node, BOOL * _Nonnull stop) {
+        result[key] = [node serializedRepresentationAsDictionary];
+    }];
+    return result;
+}
+
 
 @end
