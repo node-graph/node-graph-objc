@@ -146,6 +146,23 @@
     XCTAssertEqual([self.nodeTree.nodes count], 3);
 }
 
+- (void)testSerializingNodeTreeWithThreeNodesHasDataWithThreeNodes {
+    [self.node1.testOutput addConnection:self.node2.testInput];
+    [self.node2.testOutput addConnection:self.node3.testInput];
+    [self.nodeTree holdNodeChainWithStartNodes:[NSSet setWithObject:self.node1]];
+    NSDictionary *serialized = [(id)self.nodeTree serializedRepresentationAsDictionary];
+    XCTAssertEqual([(NSArray *)serialized[@"data"][@"nodes"] count], 3);
+}
+
+- (void)testSerializingNodeTreeWithThreeNodesHasDataWithThreeConnections {
+    [self.node1.testOutput addConnection:self.node2.testInput];
+    [self.node2.testOutput addConnection:self.node3.testInput];
+    [self.nodeTree holdNodeChainWithStartNodes:[NSSet setWithObject:self.node1]];
+    NSDictionary *serialized = [(id)self.nodeTree serializedRepresentationAsDictionary];
+    XCTAssertEqual([(NSArray *)serialized[@"data"][@"connections"] count], 3);
+}
+
+
 // TODO: Test -process triggers all startNodes -process
 // TODO: Test -cancel triggers all startNodes -cancel
 
