@@ -48,6 +48,10 @@
 		5F0149A5221CBD490062DAF0 /* NSDictionary+NSMapTable.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F0149A2221CBD490062DAF0 /* NSDictionary+NSMapTable.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5F0149A6221CBD490062DAF0 /* NSDictionary+NSMapTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F0149A3221CBD490062DAF0 /* NSDictionary+NSMapTable.m */; };
 		5F0149A7221CBD490062DAF0 /* NSDictionary+NSMapTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F0149A3221CBD490062DAF0 /* NSDictionary+NSMapTable.m */; };
+		5F0149AA221CBEA20062DAF0 /* NodeSerializationUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F0149A8221CBEA20062DAF0 /* NodeSerializationUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5F0149AB221CBEA20062DAF0 /* NodeSerializationUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F0149A8221CBEA20062DAF0 /* NodeSerializationUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5F0149AC221CBEA20062DAF0 /* NodeSerializationUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F0149A9221CBEA20062DAF0 /* NodeSerializationUtils.m */; };
+		5F0149AD221CBEA20062DAF0 /* NodeSerializationUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F0149A9221CBEA20062DAF0 /* NodeSerializationUtils.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +97,8 @@
 		5F014983220A44A90062DAF0 /* NodeTreeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NodeTreeTests.m; sourceTree = "<group>"; };
 		5F0149A2221CBD490062DAF0 /* NSDictionary+NSMapTable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+NSMapTable.h"; sourceTree = "<group>"; };
 		5F0149A3221CBD490062DAF0 /* NSDictionary+NSMapTable.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+NSMapTable.m"; sourceTree = "<group>"; };
+		5F0149A8221CBEA20062DAF0 /* NodeSerializationUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NodeSerializationUtils.h; sourceTree = "<group>"; };
+		5F0149A9221CBEA20062DAF0 /* NodeSerializationUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NodeSerializationUtils.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -331,6 +337,7 @@
 		5F0149A1221CBD300062DAF0 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				5F0149A8221CBEA20062DAF0 /* NodeSerializationUtils.h */,
 				5F0149A2221CBD490062DAF0 /* NSDictionary+NSMapTable.h */,
 			);
 			path = Utils;
@@ -339,6 +346,7 @@
 		5F0149AE221DFCFF0062DAF0 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				5F0149A9221CBEA20062DAF0 /* NodeSerializationUtils.m */,
 				5F0149A3221CBD490062DAF0 /* NSDictionary+NSMapTable.m */,
 			);
 			path = Utils;
@@ -358,6 +366,7 @@
 				405038F921FC814A005B1585 /* nodle.h in Headers */,
 				5F01493921FFCEE60062DAF0 /* AssembleColorNode.h in Headers */,
 				4050396721FC89C7005B1585 /* RGBNode.h in Headers */,
+				5F0149AA221CBEA20062DAF0 /* NodeSerializationUtils.h in Headers */,
 				5F014980220A44650062DAF0 /* NodeTree.h in Headers */,
 				4050395F21FC8927005B1585 /* NodeOutput.h in Headers */,
 				5F01493521FFC66F0062DAF0 /* NodeInputNumber.h in Headers */,
@@ -376,6 +385,7 @@
 				40C08F652210C34500FD01AE /* nodle.h in Headers */,
 				5F01499E221CB0480062DAF0 /* NodeTree.h in Headers */,
 				40C08F732210C62400FD01AE /* Node.h in Headers */,
+				5F0149AB221CBEA20062DAF0 /* NodeSerializationUtils.h in Headers */,
 				40C08F712210C62400FD01AE /* NodeInput.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -513,6 +523,7 @@
 				4050395C21FC8869005B1585 /* NodeInput.m in Sources */,
 				4050396821FC89C7005B1585 /* RGBNode.m in Sources */,
 				5F01493A21FFCF820062DAF0 /* UpdateBackgroundColorNode.m in Sources */,
+				5F0149AC221CBEA20062DAF0 /* NodeSerializationUtils.m in Sources */,
 				4050396021FC8927005B1585 /* NodeOutput.m in Sources */,
 				4050396421FC896E005B1585 /* Node.m in Sources */,
 			);
@@ -540,6 +551,7 @@
 				5F014999221CB0270062DAF0 /* NodeInputNumber.m in Sources */,
 				40C08F6E2210C5FD00FD01AE /* Node.m in Sources */,
 				5F01499A221CB02B0062DAF0 /* RGBNode.m in Sources */,
+				5F0149AD221CBEA20062DAF0 /* NodeSerializationUtils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
