@@ -44,6 +44,10 @@
 		5F01499E221CB0480062DAF0 /* NodeTree.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F01497F220A44650062DAF0 /* NodeTree.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5F01499F221CB0570062DAF0 /* NodeInputNumber.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F01493321FFC66F0062DAF0 /* NodeInputNumber.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5F0149A0221CB05B0062DAF0 /* RGBNode.h in Headers */ = {isa = PBXBuildFile; fileRef = 4050396521FC89C7005B1585 /* RGBNode.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5F0149A4221CBD490062DAF0 /* NSDictionary+NSMapTable.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F0149A2221CBD490062DAF0 /* NSDictionary+NSMapTable.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5F0149A5221CBD490062DAF0 /* NSDictionary+NSMapTable.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F0149A2221CBD490062DAF0 /* NSDictionary+NSMapTable.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5F0149A6221CBD490062DAF0 /* NSDictionary+NSMapTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F0149A3221CBD490062DAF0 /* NSDictionary+NSMapTable.m */; };
+		5F0149A7221CBD490062DAF0 /* NSDictionary+NSMapTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F0149A3221CBD490062DAF0 /* NSDictionary+NSMapTable.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +91,8 @@
 		5F01497F220A44650062DAF0 /* NodeTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NodeTree.h; sourceTree = "<group>"; };
 		5F014981220A44760062DAF0 /* NodeTree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NodeTree.m; sourceTree = "<group>"; };
 		5F014983220A44A90062DAF0 /* NodeTreeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NodeTreeTests.m; sourceTree = "<group>"; };
+		5F0149A2221CBD490062DAF0 /* NSDictionary+NSMapTable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+NSMapTable.h"; sourceTree = "<group>"; };
+		5F0149A3221CBD490062DAF0 /* NSDictionary+NSMapTable.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+NSMapTable.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +170,7 @@
 		403EE62D2211DFAF0074517F /* common */ = {
 			isa = PBXGroup;
 			children = (
+				5F0149A1221CBD300062DAF0 /* Utils */,
 				4050396121FC896E005B1585 /* Node.h */,
 				4050395921FC8869005B1585 /* NodeInput.h */,
 				4050395D21FC8927005B1585 /* NodeOutput.h */,
@@ -241,6 +248,7 @@
 		403EE6372211E1050074517F /* common */ = {
 			isa = PBXGroup;
 			children = (
+				5F0149AE221DFCFF0062DAF0 /* Utils */,
 				4050396221FC896E005B1585 /* Node.m */,
 				4050395A21FC8869005B1585 /* NodeInput.m */,
 				4050395E21FC8927005B1585 /* NodeOutput.m */,
@@ -320,6 +328,22 @@
 			path = Include/nodle;
 			sourceTree = "<group>";
 		};
+		5F0149A1221CBD300062DAF0 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				5F0149A2221CBD490062DAF0 /* NSDictionary+NSMapTable.h */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		5F0149AE221DFCFF0062DAF0 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				5F0149A3221CBD490062DAF0 /* NSDictionary+NSMapTable.m */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -330,6 +354,7 @@
 				5F01493E21FFCFB90062DAF0 /* NodeInputColor.h in Headers */,
 				4050396321FC896E005B1585 /* Node.h in Headers */,
 				5F01493B21FFCF860062DAF0 /* UpdateBackgroundColorNode.h in Headers */,
+				5F0149A4221CBD490062DAF0 /* NSDictionary+NSMapTable.h in Headers */,
 				405038F921FC814A005B1585 /* nodle.h in Headers */,
 				5F01493921FFCEE60062DAF0 /* AssembleColorNode.h in Headers */,
 				4050396721FC89C7005B1585 /* RGBNode.h in Headers */,
@@ -344,6 +369,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F0149A5221CBD490062DAF0 /* NSDictionary+NSMapTable.h in Headers */,
 				5F0149A0221CB05B0062DAF0 /* RGBNode.h in Headers */,
 				40C08F722210C62400FD01AE /* NodeOutput.h in Headers */,
 				5F01499F221CB0570062DAF0 /* NodeInputNumber.h in Headers */,
@@ -479,6 +505,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F0149A6221CBD490062DAF0 /* NSDictionary+NSMapTable.m in Sources */,
 				5F01493F21FFCFB90062DAF0 /* NodeInputColor.m in Sources */,
 				5F01493621FFC66F0062DAF0 /* NodeInputNumber.m in Sources */,
 				5F01493821FFCEE10062DAF0 /* AssembleColorNode.m in Sources */,
@@ -506,6 +533,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F0149A7221CBD490062DAF0 /* NSDictionary+NSMapTable.m in Sources */,
 				40C08F6F2210C60100FD01AE /* NodeInput.m in Sources */,
 				5F014998221CB01B0062DAF0 /* NodeTree.m in Sources */,
 				40C08F702210C60100FD01AE /* NodeOutput.m in Sources */,
