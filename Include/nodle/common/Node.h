@@ -78,6 +78,82 @@ typedef NS_ENUM(NSUInteger, NodeInputTrigger) {
  */
 - (void)cancel;
 
+@optional
+
+/**
+ Human readable name of the node.
+ */
+@property (nonatomic, strong, readonly) NSString *nodeName;
+
+/**
+ Describes what the node does or can be used for.
+ */
+@property (nonatomic, strong, readonly) NSString *nodeDescription;
+
+@end
+
+
+/**
+ A Node that is serializable to NSDictionary format based on nothing but instances of
+ NSArray, NSDictionary, NSNumber, NSString.
+ */
+@protocol SerializableNode <Node>
+@required
+/**
+ Serialized dictionary representing a node. This does not include what
+ connections have been made but only represents what the node itself is.
+ This is an instance method so that a node can be more dynamic and the same class
+ can be setup in multiple different ways.
+ ex:
+  @{
+     @"type": @"RGBNode", // Required
+     @"inputs": @[@"r", // Required
+                  @"g",
+                  @"b"],
+     @"outputs": @[@"r", // Required
+                   @"g",
+                   @"b"]
+     @"name": @"Passthrough RGB Node",
+     @"description": @"Node passing through "r, g, b" values.",
+     @"data": @{} // Any data needed to restore the configuration of the node in its current state
+  }
+ */
+- (NSDictionary *)serializedRepresentationAsDictionary;
+
+/**
+ Connections to any direct downstream nodes.
+ @param nodeMapping A dictionary mapping a node instance to a specific string name.
+ This string name will be referenced rather than the actual node instance in the
+ returned dictionary.
+ ex:
+  @{
+    @"r": @[
+            @{
+                @"node": @"node-id-21",
+                @"input": @"r"
+            },
+            @{
+                @"node": @"node-id-21",
+                @"input": @"r"
+            }
+        ]
+    }
+  }
+ */
+- (NSDictionary<NSString *, NSArray *> *)serializedOutputConnectionsWithNodeMapping:(NSDictionary<NSString *,id<SerializableNode>> *)nodeMapping;
+
+/**
+ Type of the node. ex: RGBNode
+ */
+- (NSString *)serializedType;
+
+@optional
+
+/**
+ Any data needed to restore the configuration of the node in its curren state.
+ */
+- (NSDictionary *)serializedData;
+
 @end
 
 
@@ -85,7 +161,7 @@ typedef NS_ENUM(NSUInteger, NodeInputTrigger) {
  Abstract class that you should subclass and implement in order to have a
  functioning Node.
  */
-@interface AbstractNode : NSObject <Node, NodeInputDelegate>
+@interface AbstractNode : NSObject <SerializableNode, NodeInputDelegate>
 
 /**
  Determines if the node is currently processing or not.

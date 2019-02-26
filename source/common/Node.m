@@ -1,4 +1,5 @@
 #import "Node.h"
+#import "NodeSerializationUtils.h"
 
 @interface AbstractNode ()
 
@@ -140,5 +141,19 @@
     return (self.inputs.count > 1 && couldTriggerOnAnyInput);
 }
 
+#pragma mark - SerializableNode
+
+- (NSString *)serializedType {
+    return NSStringFromClass([self class]);
+}
+
+- (NSDictionary *)serializedRepresentationAsDictionary {
+    return [NodeSerializationUtils serializedRepresentationAsDictionaryFromNode:self];
+}
+
+- (NSDictionary<NSString *, NSArray *> *)serializedOutputConnectionsWithNodeMapping:(NSDictionary<NSString *,id<SerializableNode>> *)nodeMapping {
+    return [NodeSerializationUtils serializedOutputConnectionsFromNode:self
+                                                       withNodeMapping:nodeMapping];
+}
 
 @end
