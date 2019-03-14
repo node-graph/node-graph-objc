@@ -30,6 +30,10 @@
     return self;
 }
 
+- (NSString *)nodeName {
+    return NSStringFromClass(self.class);
+}
+
 #pragma mark - Actions
 
 - (void)process {
