@@ -44,27 +44,15 @@
 
 #pragma mark - Chain
 
-- (void)testAddingSingleBranchNodeChainHoldsAllNodes {
+- (void)testAddingNonSelfContainedSetResultsInNoNodesAdded {
     [self.node1.testOutput addConnection:self.node2.testInput];
     [self.node2.testOutput addConnection:self.node3.testInput];
     [self.nodeGraph setNodeSet:[NSSet setWithArray:@[self.node1]]];
     
-    XCTAssertTrue([self.nodeGraph.nodes containsObject:self.node1]);
-    XCTAssertTrue([self.nodeGraph.nodes containsObject:self.node2]);
-    XCTAssertTrue([self.nodeGraph.nodes containsObject:self.node3]);
+    XCTAssertTrue([self.nodeGraph.nodes count] == 0);
 }
 
-- (void)testAddingSingleBranchNodeChainHoldsOnlyDownstreamNodesFromStartNode {
-    [self.node1.testOutput addConnection:self.node2.testInput];
-    [self.node2.testOutput addConnection:self.node3.testInput];
-    [self.nodeGraph setNodeSet:[NSSet setWithArray:@[self.node2]]];
-    
-    XCTAssertFalse([self.nodeGraph.nodes containsObject:self.node1]);
-    XCTAssertTrue([self.nodeGraph.nodes containsObject:self.node2]);
-    XCTAssertTrue([self.nodeGraph.nodes containsObject:self.node3]);
-}
-
-- (void)testAddingBranchingNodeChainHoldsAllNodes {
+- (void)testAddingBranchingNodeSetHoldsAllNodes {
     [self.node1.testOutput addConnection:self.node2.testInput];
     
     // Branch
@@ -74,7 +62,12 @@
     [self.node3.testOutput addConnection:self.node5.testInput];
     [self.node4.testOutput addConnection:self.node6.testInput];
 
-    [self.nodeGraph setNodeSet:[NSSet setWithArray:@[self.node1]]];
+    [self.nodeGraph setNodeSet:[NSSet setWithArray:@[self.node1,
+                                                     self.node2,
+                                                     self.node3,
+                                                     self.node4,
+                                                     self.node5,
+                                                     self.node6]]];
     
     XCTAssertTrue([self.nodeGraph.nodes containsObject:self.node1]);
     XCTAssertTrue([self.nodeGraph.nodes containsObject:self.node2]);
