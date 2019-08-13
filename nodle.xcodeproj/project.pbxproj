@@ -37,7 +37,7 @@
 		5F014943220114C70062DAF0 /* AbstractNodeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F014942220114C70062DAF0 /* AbstractNodeTests.m */; };
 		5F014980220A44650062DAF0 /* NodeGraph.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F01497F220A44650062DAF0 /* NodeGraph.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5F014982220A44760062DAF0 /* NodeGraph.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F014981220A44760062DAF0 /* NodeGraph.m */; };
-		5F014984220A44A90062DAF0 /* NodeTreeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F014983220A44A90062DAF0 /* NodeTreeTests.m */; };
+		5F014984220A44A90062DAF0 /* NodeGraphTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F014983220A44A90062DAF0 /* NodeGraphTests.m */; };
 		5F014998221CB01B0062DAF0 /* NodeGraph.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F014981220A44760062DAF0 /* NodeGraph.m */; };
 		5F014999221CB0270062DAF0 /* NodeInputNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F01493421FFC66F0062DAF0 /* NodeInputNumber.m */; };
 		5F01499A221CB02B0062DAF0 /* RGBNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 4050396621FC89C7005B1585 /* RGBNode.m */; };
@@ -94,7 +94,7 @@
 		5F014942220114C70062DAF0 /* AbstractNodeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AbstractNodeTests.m; sourceTree = "<group>"; };
 		5F01497F220A44650062DAF0 /* NodeGraph.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NodeGraph.h; sourceTree = "<group>"; };
 		5F014981220A44760062DAF0 /* NodeGraph.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NodeGraph.m; sourceTree = "<group>"; };
-		5F014983220A44A90062DAF0 /* NodeTreeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NodeTreeTests.m; sourceTree = "<group>"; };
+		5F014983220A44A90062DAF0 /* NodeGraphTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NodeGraphTests.m; sourceTree = "<group>"; };
 		5F0149A2221CBD490062DAF0 /* NSDictionary+NSMapTable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+NSMapTable.h"; sourceTree = "<group>"; };
 		5F0149A3221CBD490062DAF0 /* NSDictionary+NSMapTable.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+NSMapTable.m"; sourceTree = "<group>"; };
 		5F0149A8221CBEA20062DAF0 /* NodeSerializationUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NodeSerializationUtils.h; sourceTree = "<group>"; };
@@ -318,7 +318,7 @@
 				5F014942220114C70062DAF0 /* AbstractNodeTests.m */,
 				5F014940220105450062DAF0 /* NodeInputTests.m */,
 				405038F621FC814A005B1585 /* NodeOutputTests.m */,
-				5F014983220A44A90062DAF0 /* NodeTreeTests.m */,
+				5F014983220A44A90062DAF0 /* NodeGraphTests.m */,
 			);
 			path = tests;
 			sourceTree = "<group>";
@@ -536,7 +536,7 @@
 				5F014941220105450062DAF0 /* NodeInputTests.m in Sources */,
 				405038F721FC814A005B1585 /* NodeOutputTests.m in Sources */,
 				5F014943220114C70062DAF0 /* AbstractNodeTests.m in Sources */,
-				5F014984220A44A90062DAF0 /* NodeTreeTests.m in Sources */,
+				5F014984220A44A90062DAF0 /* NodeGraphTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
