@@ -60,20 +60,40 @@
 
 - (void)setNodeSet:(NSSet<id<Node>> *)nodes {
     [self reset];
-    if (!nodes) {
+    if (!nodes || ![self verifyNodeSetIsSelfContained:nodes]) {
         return;
     }
+    
     self.startNodes = [self findStartNodesInNodes:nodes];
     self.endNodes = [self findEndNodesInNodes:nodes];
+    
     for (id<Node> node in self.startNodes) {
         self.inputs = [self.inputs setByAddingObjectsFromSet:node.inputs];
     }
+    
     for(id<Node> node in self.endNodes) {
         self.outputs = [self.outputs setByAddingObjectsFromSet:node.outputs];
     }
 }
 
 #pragma mark - Private Actions
+
+/**
+ Node graphs should contain all nodes that are being referenced as outputs in a given set. and thus be "self contained"
+ @return NO if a node was found that does not exist in the given set. YES if set is "self contained"
+ */
+- (BOOL)verifyNodeSetIsSelfContained:(NSSet <id<Node>> *)nodes {
+    for (id<Node> node in nodes) {
+        for (NodeOutput *output in node.outputs) {
+            for (NodeInput *connection in output.connections) {
+                if (![nodes containsObject:connection.node]) {
+                    return NO;
+                }
+            }
+        }
+    }
+    return YES;
+}
 
 - (NSSet *)findStartNodesInNodes:(NSSet<id<Node>> *)nodes {
     NSMutableSet *startNodes = [nodes mutableCopy];
