@@ -35,13 +35,13 @@
 		5F01493F21FFCFB90062DAF0 /* NodeInputColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F01493D21FFCFB90062DAF0 /* NodeInputColor.m */; };
 		5F014941220105450062DAF0 /* NodeInputTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F014940220105450062DAF0 /* NodeInputTests.m */; };
 		5F014943220114C70062DAF0 /* AbstractNodeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F014942220114C70062DAF0 /* AbstractNodeTests.m */; };
-		5F014980220A44650062DAF0 /* NodeTree.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F01497F220A44650062DAF0 /* NodeTree.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5F014982220A44760062DAF0 /* NodeTree.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F014981220A44760062DAF0 /* NodeTree.m */; };
+		5F014980220A44650062DAF0 /* NodeGraph.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F01497F220A44650062DAF0 /* NodeGraph.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5F014982220A44760062DAF0 /* NodeGraph.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F014981220A44760062DAF0 /* NodeGraph.m */; };
 		5F014984220A44A90062DAF0 /* NodeTreeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F014983220A44A90062DAF0 /* NodeTreeTests.m */; };
-		5F014998221CB01B0062DAF0 /* NodeTree.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F014981220A44760062DAF0 /* NodeTree.m */; };
+		5F014998221CB01B0062DAF0 /* NodeGraph.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F014981220A44760062DAF0 /* NodeGraph.m */; };
 		5F014999221CB0270062DAF0 /* NodeInputNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F01493421FFC66F0062DAF0 /* NodeInputNumber.m */; };
 		5F01499A221CB02B0062DAF0 /* RGBNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 4050396621FC89C7005B1585 /* RGBNode.m */; };
-		5F01499E221CB0480062DAF0 /* NodeTree.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F01497F220A44650062DAF0 /* NodeTree.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5F01499E221CB0480062DAF0 /* NodeGraph.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F01497F220A44650062DAF0 /* NodeGraph.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5F01499F221CB0570062DAF0 /* NodeInputNumber.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F01493321FFC66F0062DAF0 /* NodeInputNumber.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5F0149A0221CB05B0062DAF0 /* RGBNode.h in Headers */ = {isa = PBXBuildFile; fileRef = 4050396521FC89C7005B1585 /* RGBNode.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5F0149A4221CBD490062DAF0 /* NSDictionary+NSMapTable.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F0149A2221CBD490062DAF0 /* NSDictionary+NSMapTable.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -92,8 +92,8 @@
 		5F01493D21FFCFB90062DAF0 /* NodeInputColor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NodeInputColor.m; sourceTree = "<group>"; };
 		5F014940220105450062DAF0 /* NodeInputTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NodeInputTests.m; sourceTree = "<group>"; };
 		5F014942220114C70062DAF0 /* AbstractNodeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AbstractNodeTests.m; sourceTree = "<group>"; };
-		5F01497F220A44650062DAF0 /* NodeTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NodeTree.h; sourceTree = "<group>"; };
-		5F014981220A44760062DAF0 /* NodeTree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NodeTree.m; sourceTree = "<group>"; };
+		5F01497F220A44650062DAF0 /* NodeGraph.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NodeGraph.h; sourceTree = "<group>"; };
+		5F014981220A44760062DAF0 /* NodeGraph.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NodeGraph.m; sourceTree = "<group>"; };
 		5F014983220A44A90062DAF0 /* NodeTreeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NodeTreeTests.m; sourceTree = "<group>"; };
 		5F0149A2221CBD490062DAF0 /* NSDictionary+NSMapTable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+NSMapTable.h"; sourceTree = "<group>"; };
 		5F0149A3221CBD490062DAF0 /* NSDictionary+NSMapTable.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+NSMapTable.m"; sourceTree = "<group>"; };
@@ -180,7 +180,7 @@
 				4050396121FC896E005B1585 /* Node.h */,
 				4050395921FC8869005B1585 /* NodeInput.h */,
 				4050395D21FC8927005B1585 /* NodeOutput.h */,
-				5F01497F220A44650062DAF0 /* NodeTree.h */,
+				5F01497F220A44650062DAF0 /* NodeGraph.h */,
 				403EE62F2211E0370074517F /* InputTypes */,
 				403EE62E2211E01D0074517F /* NodeImplementations */,
 			);
@@ -258,7 +258,7 @@
 				4050396221FC896E005B1585 /* Node.m */,
 				4050395A21FC8869005B1585 /* NodeInput.m */,
 				4050395E21FC8927005B1585 /* NodeOutput.m */,
-				5F014981220A44760062DAF0 /* NodeTree.m */,
+				5F014981220A44760062DAF0 /* NodeGraph.m */,
 				403EE6392211E11F0074517F /* InputTypes */,
 				403EE6382211E1170074517F /* NodeImplementations */,
 			);
@@ -367,7 +367,7 @@
 				5F01493921FFCEE60062DAF0 /* AssembleColorNode.h in Headers */,
 				4050396721FC89C7005B1585 /* RGBNode.h in Headers */,
 				5F0149AA221CBEA20062DAF0 /* NodeSerializationUtils.h in Headers */,
-				5F014980220A44650062DAF0 /* NodeTree.h in Headers */,
+				5F014980220A44650062DAF0 /* NodeGraph.h in Headers */,
 				4050395F21FC8927005B1585 /* NodeOutput.h in Headers */,
 				5F01493521FFC66F0062DAF0 /* NodeInputNumber.h in Headers */,
 				4050395B21FC8869005B1585 /* NodeInput.h in Headers */,
@@ -383,7 +383,7 @@
 				40C08F722210C62400FD01AE /* NodeOutput.h in Headers */,
 				5F01499F221CB0570062DAF0 /* NodeInputNumber.h in Headers */,
 				40C08F652210C34500FD01AE /* nodle.h in Headers */,
-				5F01499E221CB0480062DAF0 /* NodeTree.h in Headers */,
+				5F01499E221CB0480062DAF0 /* NodeGraph.h in Headers */,
 				40C08F732210C62400FD01AE /* Node.h in Headers */,
 				5F0149AB221CBEA20062DAF0 /* NodeSerializationUtils.h in Headers */,
 				40C08F712210C62400FD01AE /* NodeInput.h in Headers */,
@@ -519,7 +519,7 @@
 				5F01493F21FFCFB90062DAF0 /* NodeInputColor.m in Sources */,
 				5F01493621FFC66F0062DAF0 /* NodeInputNumber.m in Sources */,
 				5F01493821FFCEE10062DAF0 /* AssembleColorNode.m in Sources */,
-				5F014982220A44760062DAF0 /* NodeTree.m in Sources */,
+				5F014982220A44760062DAF0 /* NodeGraph.m in Sources */,
 				4050395C21FC8869005B1585 /* NodeInput.m in Sources */,
 				4050396821FC89C7005B1585 /* RGBNode.m in Sources */,
 				5F01493A21FFCF820062DAF0 /* UpdateBackgroundColorNode.m in Sources */,
@@ -546,7 +546,7 @@
 			files = (
 				5F0149A7221CBD490062DAF0 /* NSDictionary+NSMapTable.m in Sources */,
 				40C08F6F2210C60100FD01AE /* NodeInput.m in Sources */,
-				5F014998221CB01B0062DAF0 /* NodeTree.m in Sources */,
+				5F014998221CB01B0062DAF0 /* NodeGraph.m in Sources */,
 				40C08F702210C60100FD01AE /* NodeOutput.m in Sources */,
 				5F014999221CB0270062DAF0 /* NodeInputNumber.m in Sources */,
 				40C08F6E2210C5FD00FD01AE /* Node.m in Sources */,

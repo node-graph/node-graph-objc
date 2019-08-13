@@ -1,16 +1,17 @@
-#import "NodeTree.h"
+#import "NodeGraph.h"
 #import "NodeSerializationUtils.h"
 
-@interface NodeTree ()
+@interface NodeGraph ()
 
-@property (nonatomic, strong) NSMutableSet<id<Node>> *nodes;
+@property (nonatomic, strong) NSSet<id<Node>> *nodes;
 @property (nonatomic, strong) NSSet<NodeInput *> *inputs;
 @property (nonatomic, strong) NSSet<NodeOutput *> *outputs;
 @property (nonatomic, strong) NSSet<id<Node>> *startNodes;
+@property (nonatomic, strong) NSSet<id<Node>> *endNodes;
 
 @end
 
-@implementation NodeTree
+@implementation NodeGraph
 
 - (instancetype)init {
     self = [super init];
@@ -21,10 +22,11 @@
 }
 
 - (void)reset {
-    self.nodes = [NSMutableSet set];
+    self.nodes = [NSSet set];
     self.inputs = [NSSet set];
     self.outputs = [NSSet set];
     self.startNodes = nil;
+    self.endNodes = nil;
 }
 
 - (BOOL)isSerializable {
@@ -56,32 +58,53 @@
 
 #pragma mark - Actions
 
-- (void)holdNodeChainWithStartNodes:(NSSet<id<Node>> *)nodes {
+- (void)setNodeSet:(NSSet<id<Node>> *)nodes {
     [self reset];
     if (!nodes) {
         return;
     }
-    self.startNodes = nodes;
-    for (id<Node> node in nodes) {
+    self.startNodes = [self findStartNodesInNodes:nodes];
+    self.endNodes = [self findEndNodesInNodes:nodes];
+    for (id<Node> node in self.startNodes) {
         self.inputs = [self.inputs setByAddingObjectsFromSet:node.inputs];
-        [self addNodeRecursively:node];
+    }
+    for(id<Node> node in self.endNodes) {
+        self.outputs = [self.outputs setByAddingObjectsFromSet:node.outputs];
     }
 }
 
 #pragma mark - Private Actions
 
-- (void)addNodeRecursively:(id<Node>)node {
-    [self.nodes addObject:node];
-    BOOL hasDownstreamNodes = NO;
-    for (NodeOutput *output in node.outputs) {
-        for (NodeInput *connection in output.connections) {
-            [self addNodeRecursively:connection.node];
-            hasDownstreamNodes = YES;
+- (NSSet *)findStartNodesInNodes:(NSSet<id<Node>> *)nodes {
+    NSMutableSet *startNodes = [nodes mutableCopy];
+    for (id<Node> node in nodes) {
+        for (NodeOutput *output in node.outputs) {
+            for (NodeInput *connection in output.connections) {
+                // Remove any node from the set that is referenced as a connection to another node.
+                // Doing this should leave only the nodes that are not connected to anything in the `startNodes` set.
+                [startNodes removeObject:connection.node];
+            }
         }
     }
-    if (!hasDownstreamNodes) {
-        self.outputs = [self.outputs setByAddingObjectsFromSet:node.outputs];
+    return [NSSet setWithSet:startNodes];
+}
+
+- (NSSet *)findEndNodesInNodes:(NSSet<id<Node>> *)nodes {
+    NSMutableSet *endNodes = [nodes mutableCopy];
+    for (id<Node> node in nodes) {
+        BOOL hasDownstreamNodes = NO;
+        for (NodeOutput *output in node.outputs) {
+            if (output.connections.count) {
+                hasDownstreamNodes = YES;
+                break;
+            }
+        }
+        if (!hasDownstreamNodes) {
+            // Add nodes which do not have any downstream nodes to the `endNodes`.
+            [endNodes addObject:node];
+        }
     }
+    return [NSSet setWithSet:endNodes];
 }
 
 #pragma mark - Serializable Node

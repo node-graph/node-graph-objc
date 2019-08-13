@@ -1,6 +1,7 @@
 #import "NodeInputNumber.h"
 
 @implementation NodeInputNumber
+@dynamic value;
 
 - (instancetype)initWithKey:(NSString *)key node:(nullable id<NodeInputDelegate, Node>)node {
     self = [self initWithKey:key

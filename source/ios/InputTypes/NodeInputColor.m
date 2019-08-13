@@ -1,6 +1,7 @@
 #import "NodeInputColor.h"
 
 @implementation NodeInputColor
+@dynamic value;
 
 - (instancetype)initWithKey:(NSString *)key node:(id<NodeInputDelegate, Node>)node {
     self = [self initWithKey:key
