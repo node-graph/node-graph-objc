@@ -79,7 +79,7 @@
 
 #pragma mark - Outputs
 
-- (void)testAddingBranchingNodeChainCollectsAllDanglingOutputsInAsTreeOutputs {
+- (void)testAddingBranchingNodeChainCollectsAllDanglingOutputsInTreeAsOutputs {
     [self.node1.testOutput addConnection:self.node2.testInput];
     
     // Branch
@@ -89,8 +89,13 @@
     [self.node3.testOutput addConnection:self.node5.testInput];
     [self.node4.testOutput addConnection:self.node6.testInput];
     
-    [self.nodeGraph setNodeSet:[NSSet setWithArray:@[self.node1]]];
-    
+    [self.nodeGraph setNodeSet:[NSSet setWithArray:@[self.node1,
+                                                     self.node2,
+                                                     self.node3,
+                                                     self.node4,
+                                                     self.node5,
+                                                     self.node6]]];
+
     XCTAssertTrue([self.nodeGraph.outputs containsObject:self.node5.testOutput]);
     XCTAssertTrue([self.nodeGraph.outputs containsObject:self.node6.testOutput]);
     XCTAssertEqual([self.nodeGraph.outputs count], 2);
@@ -106,8 +111,12 @@
     [self.node3.testOutput addConnection:self.node4.testInput];
     [self.node4.testOutput addConnection:self.node5.testInput];
     
-    [self.nodeGraph setNodeSet:[NSSet setWithArray:@[self.node1, self.node2]]];
-    
+    [self.nodeGraph setNodeSet:[NSSet setWithArray:@[self.node1,
+                                                     self.node2,
+                                                     self.node3,
+                                                     self.node4,
+                                                     self.node5]]];
+
     XCTAssertTrue([self.nodeGraph.inputs containsObject:self.node1.testInput]);
     XCTAssertTrue([self.nodeGraph.inputs containsObject:self.node2.testInput]);
     XCTAssertEqual([self.nodeGraph.inputs count], 2);
@@ -123,8 +132,12 @@
     [self.node5.testOutput addConnection:self.node6.testInput];
 
     // Test
-    [self.nodeGraph setNodeSet:[NSSet setWithArray:@[self.node1]]];
-    [self.nodeGraph setNodeSet:[NSSet setWithArray:@[self.node4]]];
+    [self.nodeGraph setNodeSet:[NSSet setWithArray:@[self.node1,
+                                                     self.node2,
+                                                     self.node3]]];
+    [self.nodeGraph setNodeSet:[NSSet setWithArray:@[self.node4,
+                                                     self.node5,
+                                                     self.node6]]];
     
     // Verify
     XCTAssertTrue([self.nodeGraph.inputs containsObject:self.node4.testInput]);
@@ -140,17 +153,31 @@
 }
 
 - (void)testSerializingNodeTreeWithThreeNodesHasDataWithThreeNodes {
+    // Simple connetions
     [self.node1.testOutput addConnection:self.node2.testInput];
     [self.node2.testOutput addConnection:self.node3.testInput];
-    [self.nodeGraph setNodeSet:[NSSet setWithObject:self.node1]];
+    
+    // Add to graph
+    [self.nodeGraph setNodeSet:[NSSet setWithArray:@[self.node1,
+                                                     self.node2,
+                                                     self.node3]]];
+    
+    // Serialize
     NSDictionary *serialized = [(id)self.nodeGraph serializedRepresentationAsDictionary];
     XCTAssertEqual([(NSArray *)serialized[@"data"][@"nodes"] count], 3);
 }
 
 - (void)testSerializingNodeTreeWithThreeNodesHasDataWithThreeConnections {
+    // Simple connetions
     [self.node1.testOutput addConnection:self.node2.testInput];
     [self.node2.testOutput addConnection:self.node3.testInput];
-    [self.nodeGraph setNodeSet:[NSSet setWithObject:self.node1]];
+    
+    // Add to graph
+    [self.nodeGraph setNodeSet:[NSSet setWithArray:@[self.node1,
+                                                     self.node2,
+                                                     self.node3]]];
+    
+    // Serialize
     NSDictionary *serialized = [(id)self.nodeGraph serializedRepresentationAsDictionary];
     XCTAssertEqual([(NSArray *)serialized[@"data"][@"connections"] count], 3);
 }
