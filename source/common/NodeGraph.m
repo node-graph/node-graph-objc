@@ -64,6 +64,8 @@
         return;
     }
     
+    _nodes = nodes;
+    
     self.startNodes = [self findStartNodesInNodes:nodes];
     self.endNodes = [self findEndNodesInNodes:nodes];
     
@@ -110,7 +112,7 @@
 }
 
 - (NSSet *)findEndNodesInNodes:(NSSet<id<Node>> *)nodes {
-    NSMutableSet *endNodes = [nodes mutableCopy];
+    NSMutableSet *endNodes = [NSMutableSet set];
     for (id<Node> node in nodes) {
         BOOL hasDownstreamNodes = NO;
         for (NodeOutput *output in node.outputs) {
