@@ -331,7 +331,7 @@
 				403EE6252211DE330074517F /* macos */,
 			);
 			name = Include;
-			path = Include/nodle;
+			path = Include/NodeGraph;
 			sourceTree = "<group>";
 		};
 		5F0149A1221CBD300062DAF0 /* Utils */ = {
