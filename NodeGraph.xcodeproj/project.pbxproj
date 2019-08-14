@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		405038F221FC814A005B1585 /* nodle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 405038E821FC814A005B1585 /* nodle.framework */; };
+		405038F221FC814A005B1585 /* NodeGraph.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 405038E821FC814A005B1585 /* NodeGraph.framework */; };
 		405038F721FC814A005B1585 /* NodeOutputTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 405038F621FC814A005B1585 /* NodeOutputTests.m */; };
 		405038F921FC814A005B1585 /* nodle.h in Headers */ = {isa = PBXBuildFile; fileRef = 405038EB21FC814A005B1585 /* nodle.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4050395B21FC8869005B1585 /* NodeInput.h in Headers */ = {isa = PBXBuildFile; fileRef = 4050395921FC8869005B1585 /* NodeInput.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -65,10 +65,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		405038E821FC814A005B1585 /* nodle.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = nodle.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		405038E821FC814A005B1585 /* NodeGraph.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NodeGraph.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		405038EB21FC814A005B1585 /* nodle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = nodle.h; sourceTree = "<group>"; };
 		405038EC21FC814A005B1585 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		405038F121FC814A005B1585 /* nodleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = nodleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		405038F121FC814A005B1585 /* NodeGraphTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NodeGraphTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		405038F621FC814A005B1585 /* NodeOutputTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NodeOutputTests.m; sourceTree = "<group>"; };
 		405038F821FC814A005B1585 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4050395921FC8869005B1585 /* NodeInput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NodeInput.h; sourceTree = "<group>"; };
@@ -83,7 +83,7 @@
 		4050397621FC9EDD005B1585 /* AssembleColorNode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AssembleColorNode.m; sourceTree = "<group>"; };
 		4050397A21FCA8A4005B1585 /* UpdateBackgroundColorNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UpdateBackgroundColorNode.h; sourceTree = "<group>"; };
 		4050397B21FCA8A4005B1585 /* UpdateBackgroundColorNode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UpdateBackgroundColorNode.m; sourceTree = "<group>"; };
-		40C08F612210C34500FD01AE /* nodle.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = nodle.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		40C08F612210C34500FD01AE /* NodeGraph.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NodeGraph.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		40C08F632210C34500FD01AE /* nodle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = nodle.h; sourceTree = "<group>"; };
 		40C08F642210C34500FD01AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5F01493321FFC66F0062DAF0 /* NodeInputNumber.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NodeInputNumber.h; sourceTree = "<group>"; };
@@ -113,7 +113,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				405038F221FC814A005B1585 /* nodle.framework in Frameworks */,
+				405038F221FC814A005B1585 /* NodeGraph.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -294,9 +294,9 @@
 		405038E921FC814A005B1585 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				405038E821FC814A005B1585 /* nodle.framework */,
-				405038F121FC814A005B1585 /* nodleTests.xctest */,
-				40C08F612210C34500FD01AE /* nodle.framework */,
+				405038E821FC814A005B1585 /* NodeGraph.framework */,
+				405038F121FC814A005B1585 /* NodeGraphTests.xctest */,
+				40C08F612210C34500FD01AE /* NodeGraph.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -393,9 +393,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		405038E721FC814A005B1585 /* nodle */ = {
+		405038E721FC814A005B1585 /* NodeGraph */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 405038FC21FC814A005B1585 /* Build configuration list for PBXNativeTarget "nodle" */;
+			buildConfigurationList = 405038FC21FC814A005B1585 /* Build configuration list for PBXNativeTarget "NodeGraph" */;
 			buildPhases = (
 				405038E321FC814A005B1585 /* Headers */,
 				405038E421FC814A005B1585 /* Sources */,
@@ -406,14 +406,14 @@
 			);
 			dependencies = (
 			);
-			name = nodle;
+			name = NodeGraph;
 			productName = nodle;
-			productReference = 405038E821FC814A005B1585 /* nodle.framework */;
+			productReference = 405038E821FC814A005B1585 /* NodeGraph.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		405038F021FC814A005B1585 /* nodleTests */ = {
+		405038F021FC814A005B1585 /* NodeGraphTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 405038FF21FC814A005B1585 /* Build configuration list for PBXNativeTarget "nodleTests" */;
+			buildConfigurationList = 405038FF21FC814A005B1585 /* Build configuration list for PBXNativeTarget "NodeGraphTests" */;
 			buildPhases = (
 				405038ED21FC814A005B1585 /* Sources */,
 				405038EE21FC814A005B1585 /* Frameworks */,
@@ -424,14 +424,14 @@
 			dependencies = (
 				405038F421FC814A005B1585 /* PBXTargetDependency */,
 			);
-			name = nodleTests;
+			name = NodeGraphTests;
 			productName = nodleTests;
-			productReference = 405038F121FC814A005B1585 /* nodleTests.xctest */;
+			productReference = 405038F121FC814A005B1585 /* NodeGraphTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		40C08F602210C34500FD01AE /* nodle-macos */ = {
+		40C08F602210C34500FD01AE /* NodeGraph-macos */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 40C08F682210C34500FD01AE /* Build configuration list for PBXNativeTarget "nodle-macos" */;
+			buildConfigurationList = 40C08F682210C34500FD01AE /* Build configuration list for PBXNativeTarget "NodeGraph-macos" */;
 			buildPhases = (
 				40C08F5C2210C34500FD01AE /* Headers */,
 				40C08F5D2210C34500FD01AE /* Sources */,
@@ -442,9 +442,9 @@
 			);
 			dependencies = (
 			);
-			name = "nodle-macos";
+			name = "NodeGraph-macos";
 			productName = "nodle-macos";
-			productReference = 40C08F612210C34500FD01AE /* nodle.framework */;
+			productReference = 40C08F612210C34500FD01AE /* NodeGraph.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -454,7 +454,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 1030;
-				ORGANIZATIONNAME = "Mikael Sundström";
+				ORGANIZATIONNAME = NodeGraph;
 				TargetAttributes = {
 					405038E721FC814A005B1585 = {
 						CreatedOnToolsVersion = 10.1;
@@ -467,7 +467,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 405038E221FC814A005B1585 /* Build configuration list for PBXProject "nodle" */;
+			buildConfigurationList = 405038E221FC814A005B1585 /* Build configuration list for PBXProject "NodeGraph" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -479,9 +479,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				405038E721FC814A005B1585 /* nodle */,
-				405038F021FC814A005B1585 /* nodleTests */,
-				40C08F602210C34500FD01AE /* nodle-macos */,
+				405038E721FC814A005B1585 /* NodeGraph */,
+				405038F021FC814A005B1585 /* NodeGraphTests */,
+				40C08F602210C34500FD01AE /* NodeGraph-macos */,
 			);
 		};
 /* End PBXProject section */
@@ -560,7 +560,7 @@
 /* Begin PBXTargetDependency section */
 		405038F421FC814A005B1585 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 405038E721FC814A005B1585 /* nodle */;
+			target = 405038E721FC814A005B1585 /* NodeGraph */;
 			targetProxy = 405038F321FC814A005B1585 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -701,7 +701,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = msundstrom.nodle;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nodegraph.nodegraph;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -725,7 +725,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = msundstrom.nodle;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nodegraph.nodegraph;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -786,8 +786,8 @@
 					"@loader_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
-				PRODUCT_BUNDLE_IDENTIFIER = "msundstrom.nodle-macos";
-				PRODUCT_NAME = nodle;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.nodegraph.nodegraph-macos";
+				PRODUCT_NAME = NodeGraph;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
@@ -816,8 +816,8 @@
 					"@loader_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
-				PRODUCT_BUNDLE_IDENTIFIER = "msundstrom.nodle-macos";
-				PRODUCT_NAME = nodle;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.nodegraph.nodegraph-macos";
+				PRODUCT_NAME = NodeGraph;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -829,7 +829,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		405038E221FC814A005B1585 /* Build configuration list for PBXProject "nodle" */ = {
+		405038E221FC814A005B1585 /* Build configuration list for PBXProject "NodeGraph" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				405038FA21FC814A005B1585 /* Debug */,
@@ -838,7 +838,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		405038FC21FC814A005B1585 /* Build configuration list for PBXNativeTarget "nodle" */ = {
+		405038FC21FC814A005B1585 /* Build configuration list for PBXNativeTarget "NodeGraph" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				405038FD21FC814A005B1585 /* Debug */,
@@ -847,7 +847,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		405038FF21FC814A005B1585 /* Build configuration list for PBXNativeTarget "nodleTests" */ = {
+		405038FF21FC814A005B1585 /* Build configuration list for PBXNativeTarget "NodeGraphTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4050390021FC814A005B1585 /* Debug */,
@@ -856,7 +856,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		40C08F682210C34500FD01AE /* Build configuration list for PBXNativeTarget "nodle-macos" */ = {
+		40C08F682210C34500FD01AE /* Build configuration list for PBXNativeTarget "NodeGraph-macos" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				40C08F662210C34500FD01AE /* Debug */,

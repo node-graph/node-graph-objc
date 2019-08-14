@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "405038E721FC814A005B1585"
+               BlueprintIdentifier = "40C08F602210C34500FD01AE"
                BuildableName = "nodle.framework"
-               BlueprintName = "nodle"
-               ReferencedContainer = "container:nodle.xcodeproj">
+               BlueprintName = "NodeGraph-macos"
+               ReferencedContainer = "container:NodeGraph.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -26,29 +26,9 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      codeCoverageEnabled = "YES"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "405038F021FC814A005B1585"
-               BuildableName = "nodleTests.xctest"
-               BlueprintName = "nodleTests"
-               ReferencedContainer = "container:nodle.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "405038E721FC814A005B1585"
-            BuildableName = "nodle.framework"
-            BlueprintName = "nodle"
-            ReferencedContainer = "container:nodle.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
@@ -65,10 +45,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "405038E721FC814A005B1585"
+            BlueprintIdentifier = "40C08F602210C34500FD01AE"
             BuildableName = "nodle.framework"
-            BlueprintName = "nodle"
-            ReferencedContainer = "container:nodle.xcodeproj">
+            BlueprintName = "NodeGraph-macos"
+            ReferencedContainer = "container:NodeGraph.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -83,10 +63,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "405038E721FC814A005B1585"
+            BlueprintIdentifier = "40C08F602210C34500FD01AE"
             BuildableName = "nodle.framework"
-            BlueprintName = "nodle"
-            ReferencedContainer = "container:nodle.xcodeproj">
+            BlueprintName = "NodeGraph-macos"
+            ReferencedContainer = "container:NodeGraph.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>
