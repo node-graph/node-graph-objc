@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "40C08F602210C34500FD01AE"
+               BlueprintIdentifier = "405038E721FC814A005B1585"
                BuildableName = "NodeGraph.framework"
-               BlueprintName = "NodeGraph-macos"
+               BlueprintName = "NodeGraph-ios"
                ReferencedContainer = "container:NodeGraph.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -26,9 +26,29 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      codeCoverageEnabled = "YES"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "405038F021FC814A005B1585"
+               BuildableName = "NodeGraphTests.xctest"
+               BlueprintName = "NodeGraphTests"
+               ReferencedContainer = "container:NodeGraph.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "405038E721FC814A005B1585"
+            BuildableName = "NodeGraph.framework"
+            BlueprintName = "NodeGraph-ios"
+            ReferencedContainer = "container:NodeGraph.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
@@ -45,9 +65,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "40C08F602210C34500FD01AE"
+            BlueprintIdentifier = "405038E721FC814A005B1585"
             BuildableName = "NodeGraph.framework"
-            BlueprintName = "NodeGraph-macos"
+            BlueprintName = "NodeGraph-ios"
             ReferencedContainer = "container:NodeGraph.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -63,9 +83,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "40C08F602210C34500FD01AE"
+            BlueprintIdentifier = "405038E721FC814A005B1585"
             BuildableName = "NodeGraph.framework"
-            BlueprintName = "NodeGraph-macos"
+            BlueprintName = "NodeGraph-ios"
             ReferencedContainer = "container:NodeGraph.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

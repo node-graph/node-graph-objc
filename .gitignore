@@ -1,6 +1,6 @@
 .DS_Store
 */xcuserdata/*
-project.xcworkspace/xcuserdata/*
+*/project.xcworkspace/xcuserdata/*
 
 ## Build generated
 build/

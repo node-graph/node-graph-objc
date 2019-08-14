@@ -1,4 +1,5 @@
-#import <nodle/nodle.h>
+#import <Foundation/Foundation.h>
+#import "NodeInput.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

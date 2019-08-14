@@ -1,5 +1,5 @@
 #import <XCTest/XCTest.h>
-#import <nodle/nodle.h>
+#import <NodeGraph/NodeGraph.h>
 
 @interface NodeOutputTests : XCTestCase
 

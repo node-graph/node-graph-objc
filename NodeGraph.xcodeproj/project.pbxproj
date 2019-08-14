@@ -393,9 +393,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		405038E721FC814A005B1585 /* NodeGraph */ = {
+		405038E721FC814A005B1585 /* NodeGraph-ios */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 405038FC21FC814A005B1585 /* Build configuration list for PBXNativeTarget "NodeGraph" */;
+			buildConfigurationList = 405038FC21FC814A005B1585 /* Build configuration list for PBXNativeTarget "NodeGraph-ios" */;
 			buildPhases = (
 				405038E321FC814A005B1585 /* Headers */,
 				405038E421FC814A005B1585 /* Sources */,
@@ -406,7 +406,7 @@
 			);
 			dependencies = (
 			);
-			name = NodeGraph;
+			name = "NodeGraph-ios";
 			productName = nodle;
 			productReference = 405038E821FC814A005B1585 /* NodeGraph.framework */;
 			productType = "com.apple.product-type.framework";
@@ -479,7 +479,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				405038E721FC814A005B1585 /* NodeGraph */,
+				405038E721FC814A005B1585 /* NodeGraph-ios */,
 				405038F021FC814A005B1585 /* NodeGraphTests */,
 				40C08F602210C34500FD01AE /* NodeGraph-macos */,
 			);
@@ -560,7 +560,7 @@
 /* Begin PBXTargetDependency section */
 		405038F421FC814A005B1585 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 405038E721FC814A005B1585 /* NodeGraph */;
+			target = 405038E721FC814A005B1585 /* NodeGraph-ios */;
 			targetProxy = 405038F321FC814A005B1585 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -702,7 +702,7 @@
 					"@loader_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.nodegraph.nodegraph;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(PROJECT_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -726,7 +726,7 @@
 					"@loader_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.nodegraph.nodegraph;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(PROJECT_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -743,7 +743,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = msundstrom.nodleTests;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.nodegraph.nodegraph-tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -760,7 +760,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = msundstrom.nodleTests;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.nodegraph.nodegraph-tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -787,7 +787,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.nodegraph.nodegraph-macos";
-				PRODUCT_NAME = NodeGraph;
+				PRODUCT_NAME = "$(PROJECT_NAME:c99extidentifier)";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
@@ -817,7 +817,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.nodegraph.nodegraph-macos";
-				PRODUCT_NAME = NodeGraph;
+				PRODUCT_NAME = "$(PROJECT_NAME:c99extidentifier)";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -838,7 +838,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		405038FC21FC814A005B1585 /* Build configuration list for PBXNativeTarget "NodeGraph" */ = {
+		405038FC21FC814A005B1585 /* Build configuration list for PBXNativeTarget "NodeGraph-ios" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				405038FD21FC814A005B1585 /* Debug */,

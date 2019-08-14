@@ -22,7 +22,7 @@ typedef NS_ENUM(NSUInteger, NodeInputTrigger) {
 
 
 /**
- A Node in Nodle can have multiple inputs of varying types as well as many outputs of
+ A Node in NodeGraph can have multiple inputs of varying types as well as many outputs of
  different types.
  
  Let't take an Add Node as the simplest example. It would require at least two

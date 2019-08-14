@@ -14,8 +14,8 @@
 // Helpers
 #import "NodeSerializationUtils.h"
 
-//! Project version number for nodle.
-FOUNDATION_EXPORT double nodleVersionNumber;
+//! Project version number for NodeGraph.
+FOUNDATION_EXPORT double nodeGraphVersionNumber;
 
-//! Project version string for nodle.
-FOUNDATION_EXPORT const unsigned char nodleVersionString[];
+//! Project version string for NodeGraph.
+FOUNDATION_EXPORT const unsigned char nodeGraphVersionString[];
