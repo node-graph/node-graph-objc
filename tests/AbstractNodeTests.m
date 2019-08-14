@@ -82,7 +82,7 @@
     XCTAssertTrue(cancelCalled);
 }
 
-- (void)testCancelOperationInCircularNodeGraphsDoesNotTriggerInfiniteLoop {
+- (void)testCancelOperationInCircularGraphsDoesNotTriggerInfiniteLoop {
     __block NSUInteger cancelCallCount = NO;
     self.deferredTestNode.canceled = ^{
         cancelCallCount ++;

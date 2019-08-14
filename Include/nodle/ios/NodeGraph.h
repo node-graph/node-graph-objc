@@ -4,7 +4,10 @@
 #import "Node.h"
 #import "NodeInput.h"
 #import "NodeOutput.h"
-#import "NodeGraph.h"
+#import "GraphNode.h"
+
+// Input Types
+#import "NodeInputNumber.h"
 
 // Node Implementations
 #import "RGBNode.h"
@@ -13,9 +16,10 @@
 
 // Helpers
 #import "NodeSerializationUtils.h"
+#import "NSDictionary+NSMapTable.h"
 
-//! Project version number for NodeGraph.
+//! Project version number for NodeGraph-ios.
 FOUNDATION_EXPORT double nodeGraphVersionNumber;
 
-//! Project version string for NodeGraph.
+//! Project version string for NodeGraph-ios.
 FOUNDATION_EXPORT const unsigned char nodeGraphVersionString[];

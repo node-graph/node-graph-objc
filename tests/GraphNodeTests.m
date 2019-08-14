@@ -10,11 +10,11 @@
 - (NodeOutput *)testOutput {return [self.outputs anyObject];}
 @end
 
-@interface NodeGraph (Tests)
+@interface GraphNode (Tests)
 @property (nonatomic, strong) NSMutableSet<id<Node>> *nodes;
 @end
 
-@interface NodeGraphTests : XCTestCase
+@interface GraphNodeTests : XCTestCase
 
 @property (nonatomic, strong) AbstractNode *node1;
 @property (nonatomic, strong) AbstractNode *node2;
@@ -22,14 +22,14 @@
 @property (nonatomic, strong) AbstractNode *node4;
 @property (nonatomic, strong) AbstractNode *node5;
 @property (nonatomic, strong) AbstractNode *node6;
-@property (nonatomic, strong) NodeGraph *nodeGraph;
+@property (nonatomic, strong) GraphNode *graphNode;
 
 @end
 
-@implementation NodeGraphTests
+@implementation GraphNodeTests
 
 - (void)setUp {
-    self.nodeGraph = [NodeGraph new];
+    self.graphNode = [GraphNode new];
     self.node1 = [AbstractNode new];
     self.node2 = [AbstractNode new];
     self.node3 = [AbstractNode new];
@@ -47,9 +47,9 @@
 - (void)testAddingNonSelfContainedSetResultsInNoNodesAdded {
     [self.node1.testOutput addConnection:self.node2.testInput];
     [self.node2.testOutput addConnection:self.node3.testInput];
-    [self.nodeGraph setNodeSet:[NSSet setWithArray:@[self.node1]]];
+    [self.graphNode setNodeSet:[NSSet setWithArray:@[self.node1]]];
     
-    XCTAssertTrue([self.nodeGraph.nodes count] == 0);
+    XCTAssertTrue([self.graphNode.nodes count] == 0);
 }
 
 - (void)testAddingBranchingNodeSetHoldsAllNodes {
@@ -62,19 +62,19 @@
     [self.node3.testOutput addConnection:self.node5.testInput];
     [self.node4.testOutput addConnection:self.node6.testInput];
 
-    [self.nodeGraph setNodeSet:[NSSet setWithArray:@[self.node1,
+    [self.graphNode setNodeSet:[NSSet setWithArray:@[self.node1,
                                                      self.node2,
                                                      self.node3,
                                                      self.node4,
                                                      self.node5,
                                                      self.node6]]];
     
-    XCTAssertTrue([self.nodeGraph.nodes containsObject:self.node1]);
-    XCTAssertTrue([self.nodeGraph.nodes containsObject:self.node2]);
-    XCTAssertTrue([self.nodeGraph.nodes containsObject:self.node3]);
-    XCTAssertTrue([self.nodeGraph.nodes containsObject:self.node4]);
-    XCTAssertTrue([self.nodeGraph.nodes containsObject:self.node5]);
-    XCTAssertTrue([self.nodeGraph.nodes containsObject:self.node6]);
+    XCTAssertTrue([self.graphNode.nodes containsObject:self.node1]);
+    XCTAssertTrue([self.graphNode.nodes containsObject:self.node2]);
+    XCTAssertTrue([self.graphNode.nodes containsObject:self.node3]);
+    XCTAssertTrue([self.graphNode.nodes containsObject:self.node4]);
+    XCTAssertTrue([self.graphNode.nodes containsObject:self.node5]);
+    XCTAssertTrue([self.graphNode.nodes containsObject:self.node6]);
 }
 
 #pragma mark - Outputs
@@ -89,16 +89,16 @@
     [self.node3.testOutput addConnection:self.node5.testInput];
     [self.node4.testOutput addConnection:self.node6.testInput];
     
-    [self.nodeGraph setNodeSet:[NSSet setWithArray:@[self.node1,
+    [self.graphNode setNodeSet:[NSSet setWithArray:@[self.node1,
                                                      self.node2,
                                                      self.node3,
                                                      self.node4,
                                                      self.node5,
                                                      self.node6]]];
 
-    XCTAssertTrue([self.nodeGraph.outputs containsObject:self.node5.testOutput]);
-    XCTAssertTrue([self.nodeGraph.outputs containsObject:self.node6.testOutput]);
-    XCTAssertEqual([self.nodeGraph.outputs count], 2);
+    XCTAssertTrue([self.graphNode.outputs containsObject:self.node5.testOutput]);
+    XCTAssertTrue([self.graphNode.outputs containsObject:self.node6.testOutput]);
+    XCTAssertEqual([self.graphNode.outputs count], 2);
 }
 
 #pragma mark - Inputs
@@ -111,15 +111,15 @@
     [self.node3.testOutput addConnection:self.node4.testInput];
     [self.node4.testOutput addConnection:self.node5.testInput];
     
-    [self.nodeGraph setNodeSet:[NSSet setWithArray:@[self.node1,
+    [self.graphNode setNodeSet:[NSSet setWithArray:@[self.node1,
                                                      self.node2,
                                                      self.node3,
                                                      self.node4,
                                                      self.node5]]];
 
-    XCTAssertTrue([self.nodeGraph.inputs containsObject:self.node1.testInput]);
-    XCTAssertTrue([self.nodeGraph.inputs containsObject:self.node2.testInput]);
-    XCTAssertEqual([self.nodeGraph.inputs count], 2);
+    XCTAssertTrue([self.graphNode.inputs containsObject:self.node1.testInput]);
+    XCTAssertTrue([self.graphNode.inputs containsObject:self.node2.testInput]);
+    XCTAssertEqual([self.graphNode.inputs count], 2);
 }
 
 - (void)testCallingHoldTwiceWithDifferentChainsClearsTree {
@@ -132,24 +132,24 @@
     [self.node5.testOutput addConnection:self.node6.testInput];
 
     // Test
-    [self.nodeGraph setNodeSet:[NSSet setWithArray:@[self.node1,
+    [self.graphNode setNodeSet:[NSSet setWithArray:@[self.node1,
                                                      self.node2,
                                                      self.node3]]];
-    [self.nodeGraph setNodeSet:[NSSet setWithArray:@[self.node4,
+    [self.graphNode setNodeSet:[NSSet setWithArray:@[self.node4,
                                                      self.node5,
                                                      self.node6]]];
     
     // Verify
-    XCTAssertTrue([self.nodeGraph.inputs containsObject:self.node4.testInput]);
-    XCTAssertEqual([self.nodeGraph.inputs count], 1);
+    XCTAssertTrue([self.graphNode.inputs containsObject:self.node4.testInput]);
+    XCTAssertEqual([self.graphNode.inputs count], 1);
     
-    XCTAssertTrue([self.nodeGraph.outputs containsObject:self.node6.testOutput]);
-    XCTAssertEqual([self.nodeGraph.outputs count], 1);
+    XCTAssertTrue([self.graphNode.outputs containsObject:self.node6.testOutput]);
+    XCTAssertEqual([self.graphNode.outputs count], 1);
 
-    XCTAssertTrue([self.nodeGraph.nodes containsObject:self.node4]);
-    XCTAssertTrue([self.nodeGraph.nodes containsObject:self.node5]);
-    XCTAssertTrue([self.nodeGraph.nodes containsObject:self.node6]);
-    XCTAssertEqual([self.nodeGraph.nodes count], 3);
+    XCTAssertTrue([self.graphNode.nodes containsObject:self.node4]);
+    XCTAssertTrue([self.graphNode.nodes containsObject:self.node5]);
+    XCTAssertTrue([self.graphNode.nodes containsObject:self.node6]);
+    XCTAssertEqual([self.graphNode.nodes count], 3);
 }
 
 - (void)testSerializingNodeTreeWithThreeNodesHasDataWithThreeNodes {
@@ -158,12 +158,12 @@
     [self.node2.testOutput addConnection:self.node3.testInput];
     
     // Add to graph
-    [self.nodeGraph setNodeSet:[NSSet setWithArray:@[self.node1,
+    [self.graphNode setNodeSet:[NSSet setWithArray:@[self.node1,
                                                      self.node2,
                                                      self.node3]]];
     
     // Serialize
-    NSDictionary *serialized = [(id)self.nodeGraph serializedRepresentationAsDictionary];
+    NSDictionary *serialized = [(id)self.graphNode serializedRepresentationAsDictionary];
     XCTAssertEqual([(NSArray *)serialized[@"data"][@"nodes"] count], 3);
 }
 
@@ -173,12 +173,12 @@
     [self.node2.testOutput addConnection:self.node3.testInput];
     
     // Add to graph
-    [self.nodeGraph setNodeSet:[NSSet setWithArray:@[self.node1,
+    [self.graphNode setNodeSet:[NSSet setWithArray:@[self.node1,
                                                      self.node2,
                                                      self.node3]]];
     
     // Serialize
-    NSDictionary *serialized = [(id)self.nodeGraph serializedRepresentationAsDictionary];
+    NSDictionary *serialized = [(id)self.graphNode serializedRepresentationAsDictionary];
     XCTAssertEqual([(NSArray *)serialized[@"data"][@"connections"] count], 3);
 }
 
