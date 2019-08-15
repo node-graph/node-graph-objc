@@ -7,7 +7,7 @@ NS_ASSUME_NONNULL_BEGIN
  Holds a set of nodes that are or are not connected to each other. The set is only valid if
  each node in the set (if connected) only connects to a node that exists in the same set.
  */
-@interface NodeGraph : NSObject <SerializableNode>
+@interface GraphNode : NSObject <SerializableNode>
 
 /**
  Can be serialized.

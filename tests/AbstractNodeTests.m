@@ -1,5 +1,5 @@
 #import <XCTest/XCTest.h>
-#import <nodle/nodle.h>
+#import <NodeGraph/NodeGraph.h>
 
 @interface DeferredTestNode : AbstractNode
 @property (nonatomic, copy) void (^processed)(void);
@@ -82,7 +82,7 @@
     XCTAssertTrue(cancelCalled);
 }
 
-- (void)testCancelOperationInCircularNodeGraphsDoesNotTriggerInfiniteLoop {
+- (void)testCancelOperationInCircularGraphsDoesNotTriggerInfiniteLoop {
     __block NSUInteger cancelCallCount = NO;
     self.deferredTestNode.canceled = ^{
         cancelCallCount ++;

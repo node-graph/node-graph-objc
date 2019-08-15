@@ -1,7 +1,7 @@
-#import "NodeGraph.h"
+#import "GraphNode.h"
 #import "NodeSerializationUtils.h"
 
-@interface NodeGraph ()
+@interface GraphNode ()
 
 @property (nonatomic, strong) NSSet<id<Node>> *nodes;
 @property (nonatomic, strong) NSSet<NodeInput *> *inputs;
@@ -11,7 +11,7 @@
 
 @end
 
-@implementation NodeGraph
+@implementation GraphNode
 
 - (instancetype)init {
     self = [super init];

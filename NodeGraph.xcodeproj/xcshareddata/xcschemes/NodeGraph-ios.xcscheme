@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1010"
+   LastUpgradeVersion = "1030"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "405038E721FC814A005B1585"
-               BuildableName = "nodle.framework"
-               BlueprintName = "nodle"
-               ReferencedContainer = "container:nodle.xcodeproj">
+               BuildableName = "NodeGraph.framework"
+               BlueprintName = "NodeGraph-ios"
+               ReferencedContainer = "container:NodeGraph.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -34,9 +34,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "405038F021FC814A005B1585"
-               BuildableName = "nodleTests.xctest"
-               BlueprintName = "nodleTests"
-               ReferencedContainer = "container:nodle.xcodeproj">
+               BuildableName = "NodeGraphTests.xctest"
+               BlueprintName = "NodeGraphTests"
+               ReferencedContainer = "container:NodeGraph.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -44,9 +44,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "405038E721FC814A005B1585"
-            BuildableName = "nodle.framework"
-            BlueprintName = "nodle"
-            ReferencedContainer = "container:nodle.xcodeproj">
+            BuildableName = "NodeGraph.framework"
+            BlueprintName = "NodeGraph-ios"
+            ReferencedContainer = "container:NodeGraph.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -66,9 +66,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "405038E721FC814A005B1585"
-            BuildableName = "nodle.framework"
-            BlueprintName = "nodle"
-            ReferencedContainer = "container:nodle.xcodeproj">
+            BuildableName = "NodeGraph.framework"
+            BlueprintName = "NodeGraph-ios"
+            ReferencedContainer = "container:NodeGraph.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -84,9 +84,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "405038E721FC814A005B1585"
-            BuildableName = "nodle.framework"
-            BlueprintName = "nodle"
-            ReferencedContainer = "container:nodle.xcodeproj">
+            BuildableName = "NodeGraph.framework"
+            BlueprintName = "NodeGraph-ios"
+            ReferencedContainer = "container:NodeGraph.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>
