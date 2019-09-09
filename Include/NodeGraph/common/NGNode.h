@@ -161,7 +161,7 @@ typedef NS_ENUM(NSUInteger, NodeInputTrigger) {
  Abstract class that you should subclass and implement in order to have a
  functioning Node.
  */
-@interface AbstractNode : NSObject <SerializableNode, NodeInputDelegate>
+@interface NGAbstractNode : NSObject <SerializableNode, NodeInputDelegate>
 
 /**
  Determines if the node is currently processing or not.

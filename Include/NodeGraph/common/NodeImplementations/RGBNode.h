@@ -5,7 +5,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  Should increase R, G and B values by 0.1
  */
-@interface RGBNode : AbstractNode
+@interface RGBNode : NGAbstractNode
 
 @property (nonatomic, strong) NodeInput *rInput;
 @property (nonatomic, strong) NodeInput *gInput;

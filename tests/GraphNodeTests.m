@@ -1,11 +1,11 @@
 #import <XCTest/XCTest.h>
 #import <NodeGraph/NodeGraph.h>
 
-@interface AbstractNode (Test)
+@interface NGAbstractNode (Test)
 @property (nonatomic, readonly) NodeInput *testInput;
 @property (nonatomic, readonly) NodeOutput *testOutput;
 @end
-@implementation AbstractNode (Test)
+@implementation NGAbstractNode (Test)
 - (NodeInput *)testInput {return [self.inputs anyObject];}
 - (NodeOutput *)testOutput {return [self.outputs anyObject];}
 @end
@@ -16,12 +16,12 @@
 
 @interface GraphNodeTests : XCTestCase
 
-@property (nonatomic, strong) AbstractNode *node1;
-@property (nonatomic, strong) AbstractNode *node2;
-@property (nonatomic, strong) AbstractNode *node3;
-@property (nonatomic, strong) AbstractNode *node4;
-@property (nonatomic, strong) AbstractNode *node5;
-@property (nonatomic, strong) AbstractNode *node6;
+@property (nonatomic, strong) NGAbstractNode *node1;
+@property (nonatomic, strong) NGAbstractNode *node2;
+@property (nonatomic, strong) NGAbstractNode *node3;
+@property (nonatomic, strong) NGAbstractNode *node4;
+@property (nonatomic, strong) NGAbstractNode *node5;
+@property (nonatomic, strong) NGAbstractNode *node6;
 @property (nonatomic, strong) GraphNode *graphNode;
 
 @end
@@ -30,12 +30,12 @@
 
 - (void)setUp {
     self.graphNode = [GraphNode new];
-    self.node1 = [AbstractNode new];
-    self.node2 = [AbstractNode new];
-    self.node3 = [AbstractNode new];
-    self.node4 = [AbstractNode new];
-    self.node5 = [AbstractNode new];
-    self.node6 = [AbstractNode new];
+    self.node1 = [NGAbstractNode new];
+    self.node2 = [NGAbstractNode new];
+    self.node3 = [NGAbstractNode new];
+    self.node4 = [NGAbstractNode new];
+    self.node5 = [NGAbstractNode new];
+    self.node6 = [NGAbstractNode new];
 }
 
 - (void)tearDown {

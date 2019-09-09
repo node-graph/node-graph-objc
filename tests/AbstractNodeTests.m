@@ -1,7 +1,7 @@
 #import <XCTest/XCTest.h>
 #import <NodeGraph/NodeGraph.h>
 
-@interface DeferredTestNode : AbstractNode
+@interface DeferredTestNode : NGAbstractNode
 @property (nonatomic, copy) void (^processed)(void);
 @property (nonatomic, copy) void (^canceled)(void);
 @property (nonatomic, strong) NodeInput *aInput;
@@ -42,7 +42,7 @@
 
 @interface AbstractNodeTests : XCTestCase
 
-@property (nonatomic, strong) AbstractNode *abstractNode;
+@property (nonatomic, strong) NGAbstractNode *abstractNode;
 @property (nonatomic, strong) DeferredTestNode *deferredTestNode;
 @property (nonatomic, assign) NSUInteger performanceIterations;
 
@@ -51,7 +51,7 @@
 @implementation AbstractNodeTests
 
 - (void)setUp {
-    self.abstractNode = [AbstractNode new];
+    self.abstractNode = [NGAbstractNode new];
     self.deferredTestNode = [DeferredTestNode new];
     self.performanceIterations = 10000;
 }

@@ -5,7 +5,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  Takes RGB input and turns into UIColor
  */
-@interface AssembleColorNode : AbstractNode
+@interface AssembleColorNode : NGAbstractNode
 
 @property (nonatomic, strong) NodeInput *rInput;
 @property (nonatomic, strong) NodeInput *gInput;

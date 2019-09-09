@@ -1,7 +1,7 @@
 #import "NGNode.h"
 #import "NodeSerializationUtils.h"
 
-@interface AbstractNode ()
+@interface NGAbstractNode ()
 
 @property (nonatomic, assign, getter=isProcessing) BOOL processing;
 @property (nonatomic, assign) NSTimeInterval processingTime;
@@ -10,7 +10,7 @@
 
 @end
 
-@implementation AbstractNode
+@implementation NGAbstractNode
 
 @synthesize inputTrigger = _inputTrigger;
 @synthesize inputs = _inputs;
