@@ -453,6 +453,7 @@
 		405038DF21FC814A005B1585 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = NG;
 				LastUpgradeCheck = 1030;
 				ORGANIZATIONNAME = NodeGraph;
 				TargetAttributes = {
