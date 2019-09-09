@@ -1,4 +1,4 @@
-#import "Node.h"
+#import "NGNode.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

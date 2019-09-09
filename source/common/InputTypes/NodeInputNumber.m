@@ -3,7 +3,7 @@
 @implementation NodeInputNumber
 @dynamic value;
 
-- (instancetype)initWithKey:(NSString *)key node:(nullable id<NodeInputDelegate, Node>)node {
+- (instancetype)initWithKey:(NSString *)key node:(nullable id<NodeInputDelegate, NGNode>)node {
     self = [self initWithKey:key
                   validation:^BOOL(id  _Nonnull value) {return [value isKindOfClass:[NSNumber class]];}
                         node:node];

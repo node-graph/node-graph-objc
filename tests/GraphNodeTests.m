@@ -11,7 +11,7 @@
 @end
 
 @interface GraphNode (Tests)
-@property (nonatomic, strong) NSMutableSet<id<Node>> *nodes;
+@property (nonatomic, strong) NSMutableSet<id<NGNode>> *nodes;
 @end
 
 @interface GraphNodeTests : XCTestCase

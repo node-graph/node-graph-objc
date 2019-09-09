@@ -3,7 +3,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @class NodeInput;
-@protocol Node;
+@protocol NGNode;
 
 /**
  Defines how a node input communicates changes.
@@ -35,7 +35,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  The node that this input beloongs to. Receives events regarding input changes.
  */
-@property (nonatomic, assign, nullable) id<NodeInputDelegate, Node> node;
+@property (nonatomic, assign, nullable) id<NodeInputDelegate, NGNode> node;
 
 /**
  The optional key of this input for the node.
@@ -53,14 +53,14 @@ NS_ASSUME_NONNULL_BEGIN
  validation block would be handled by the subclass
  */
 + (instancetype)inputWithKey:(nullable NSString *)key
-                        node:(nullable id<NodeInputDelegate, Node>)node;
+                        node:(nullable id<NodeInputDelegate, NGNode>)node;
 
 /**
  Create a new input.
  */
 + (instancetype)inputWithKey:(nullable NSString *)key
                   validation:(nullable BOOL (^)(_Nullable id value))validationBlock
-                        node:(nullable id<NodeInputDelegate, Node>)node;
+                        node:(nullable id<NodeInputDelegate, NGNode>)node;
 
 /**
  Create a new input without a key.
@@ -68,14 +68,14 @@ NS_ASSUME_NONNULL_BEGIN
  validation block would be handled by the subclass
  */
 - (instancetype)initWithKey:(nullable NSString *)key
-                       node:(nullable id<NodeInputDelegate, Node>)node;
+                       node:(nullable id<NodeInputDelegate, NGNode>)node;
 
 /**
  Create a new input.
  */
 - (instancetype)initWithKey:(nullable NSString *)key
                  validation:(nullable BOOL (^)(id _Nullable value))validationBlock
-                       node:(nullable id<NodeInputDelegate, Node>)node;
+                       node:(nullable id<NodeInputDelegate, NGNode>)node;
 
 /**
  Checks if value is valid or not.

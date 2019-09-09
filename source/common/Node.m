@@ -1,4 +1,4 @@
-#import "Node.h"
+#import "NGNode.h"
 #import "NodeSerializationUtils.h"
 
 @interface AbstractNode ()

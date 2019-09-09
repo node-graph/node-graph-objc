@@ -1,5 +1,5 @@
 #import "NodeSerializationUtils.h"
-#import "Node.h"
+#import "NGNode.h"
 #import "NSDictionary+NSMapTable.h"
 
 @implementation NodeSerializationUtils

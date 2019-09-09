@@ -3,7 +3,7 @@
 @implementation NodeInputColor
 @dynamic value;
 
-- (instancetype)initWithKey:(NSString *)key node:(id<NodeInputDelegate, Node>)node {
+- (instancetype)initWithKey:(NSString *)key node:(id<NodeInputDelegate, NGNode>)node {
     self = [self initWithKey:key
                   validation:^BOOL(id  _Nonnull value) {return [value isKindOfClass:[UIColor class]];}
                         node:node];

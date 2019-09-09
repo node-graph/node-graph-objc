@@ -44,7 +44,7 @@ typedef NS_ENUM(NSUInteger, NodeInputTrigger) {
         5
  
  */
-@protocol Node
+@protocol NGNode
 @required
 
 /**
@@ -97,7 +97,7 @@ typedef NS_ENUM(NSUInteger, NodeInputTrigger) {
  A Node that is serializable to NSDictionary format based on nothing but instances of
  NSArray, NSDictionary, NSNumber, NSString.
  */
-@protocol SerializableNode <Node>
+@protocol SerializableNode <NGNode>
 @required
 /**
  Serialized dictionary representing a node. This does not include what

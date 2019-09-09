@@ -3,11 +3,11 @@
 
 @interface GraphNode ()
 
-@property (nonatomic, strong) NSSet<id<Node>> *nodes;
+@property (nonatomic, strong) NSSet<id<NGNode>> *nodes;
 @property (nonatomic, strong) NSSet<NodeInput *> *inputs;
 @property (nonatomic, strong) NSSet<NodeOutput *> *outputs;
-@property (nonatomic, strong) NSSet<id<Node>> *startNodes;
-@property (nonatomic, strong) NSSet<id<Node>> *endNodes;
+@property (nonatomic, strong) NSSet<id<NGNode>> *startNodes;
+@property (nonatomic, strong) NSSet<id<NGNode>> *endNodes;
 
 @end
 
@@ -45,20 +45,20 @@
 }
 
 - (void)process {
-    for (id<Node> node in self.startNodes) {
+    for (id<NGNode> node in self.startNodes) {
         [node process];
     }
 }
 
 - (void)cancel {
-    for (id<Node> node in self.startNodes) {
+    for (id<NGNode> node in self.startNodes) {
         [node cancel];
     }
 }
 
 #pragma mark - Actions
 
-- (void)setNodeSet:(NSSet<id<Node>> *)nodes {
+- (void)setNodeSet:(NSSet<id<NGNode>> *)nodes {
     [self reset];
     if (!nodes || ![self verifyNodeSetIsSelfContained:nodes]) {
         return;
@@ -69,11 +69,11 @@
     self.startNodes = [self findStartNodesInNodes:nodes];
     self.endNodes = [self findEndNodesInNodes:nodes];
     
-    for (id<Node> node in self.startNodes) {
+    for (id<NGNode> node in self.startNodes) {
         self.inputs = [self.inputs setByAddingObjectsFromSet:node.inputs];
     }
     
-    for(id<Node> node in self.endNodes) {
+    for(id<NGNode> node in self.endNodes) {
         self.outputs = [self.outputs setByAddingObjectsFromSet:node.outputs];
     }
 }
@@ -84,8 +84,8 @@
  Node graphs should contain all nodes that are being referenced as outputs in a given set. and thus be "self contained"
  @return NO if a node was found that does not exist in the given set. YES if set is "self contained"
  */
-- (BOOL)verifyNodeSetIsSelfContained:(NSSet <id<Node>> *)nodes {
-    for (id<Node> node in nodes) {
+- (BOOL)verifyNodeSetIsSelfContained:(NSSet <id<NGNode>> *)nodes {
+    for (id<NGNode> node in nodes) {
         for (NodeOutput *output in node.outputs) {
             for (NodeInput *connection in output.connections) {
                 if (![nodes containsObject:connection.node]) {
@@ -97,9 +97,9 @@
     return YES;
 }
 
-- (NSSet *)findStartNodesInNodes:(NSSet<id<Node>> *)nodes {
+- (NSSet *)findStartNodesInNodes:(NSSet<id<NGNode>> *)nodes {
     NSMutableSet *startNodes = [nodes mutableCopy];
-    for (id<Node> node in nodes) {
+    for (id<NGNode> node in nodes) {
         for (NodeOutput *output in node.outputs) {
             for (NodeInput *connection in output.connections) {
                 // Remove any node from the set that is referenced as a connection to another node.
@@ -111,9 +111,9 @@
     return [NSSet setWithSet:startNodes];
 }
 
-- (NSSet *)findEndNodesInNodes:(NSSet<id<Node>> *)nodes {
+- (NSSet *)findEndNodesInNodes:(NSSet<id<NGNode>> *)nodes {
     NSMutableSet *endNodes = [NSMutableSet set];
-    for (id<Node> node in nodes) {
+    for (id<NGNode> node in nodes) {
         BOOL hasDownstreamNodes = NO;
         for (NodeOutput *output in node.outputs) {
             if (output.connections.count) {
@@ -156,10 +156,10 @@
 
 #pragma mark - Serialization helpers
 
-- (NSDictionary<NSString *, id<Node>> *)nodeMappingFromNodesSet:(NSSet<id<Node>> *)nodes {
+- (NSDictionary<NSString *, id<NGNode>> *)nodeMappingFromNodesSet:(NSSet<id<NGNode>> *)nodes {
     NSMutableDictionary *result = [NSMutableDictionary dictionary];
     NSUInteger i = 0;
-    for (id<Node> node in nodes) {
+    for (id<NGNode> node in nodes) {
         // TODO: Generate better key?
         result[[NSString stringWithFormat:@"node-id-%lu", (unsigned long)i]] = node;
         i++;

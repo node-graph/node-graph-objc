@@ -1,7 +1,7 @@
 #import <UIKit/UIKit.h>
 
 // Base classes
-#import "Node.h"
+#import "NGNode.h"
 #import "NodeInput.h"
 #import "NodeOutput.h"
 #import "GraphNode.h"

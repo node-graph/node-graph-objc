@@ -1,7 +1,7 @@
 #import <XCTest/XCTest.h>
 #import <NodeGraph/NodeGraph.h>
 
-@interface NodeInputTests : XCTestCase <NodeInputDelegate, Node>
+@interface NodeInputTests : XCTestCase <NodeInputDelegate, NGNode>
 
 @property (nonatomic, strong) NodeInput *unNamedInput;
 @property (nonatomic, strong) NodeInput *namedInput;
