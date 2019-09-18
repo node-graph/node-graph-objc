@@ -94,30 +94,30 @@ class AbstractNodeTests: XCTestCase {
     
     // MARK: Deferred processing
     // TODO: crashes with BAD_EXEC
-//    func test_directProcessingPerformance() {
-//        let measureExpectation = expectation(description: "Measure time")
-//
-//        measure(block: {[weak self] (completion) in
-//            guard let strongSelf = self else {
-//                print("FAILED")
-//                return
-//            }
-//            strongSelf.abstractNode.process()
-//            completion()
-//        }, iterations: performanceInterations!) {[weak self] (time) in
-//            guard let strongSelf = self else {
-//                print("FAILED")
-//                return
-//            }
-//            let totalTime = time * 1000
-//            let averageTime = totalTime / Double(strongSelf.performanceInterations!)
-//
-//            print("Deferred processing performance Total (ms): \(String(describing: totalTime)) Average (ms): \(String(describing: averageTime)) Iterations: \(String(describing: strongSelf.performanceInterations))")
-//            measureExpectation.fulfill()
-//        }
-//
-//        waitForExpectations(timeout: 9.0, handler: nil)
-//    }
+    func test_directProcessingPerformance() {
+        let measureExpectation = expectation(description: "Measure time")
+
+        measure(block: {[weak self] (completion) in
+            guard let strongSelf = self else {
+                print("FAILED")
+                return
+            }
+            strongSelf.abstractNode.process()
+            completion()
+        }, iterations: performanceInterations!) {[weak self] (time) in
+            guard let strongSelf = self else {
+                print("FAILED")
+                return
+            }
+            let totalTime = time * 1000
+            let averageTime = totalTime / Double(strongSelf.performanceInterations!)
+
+            print("Deferred processing performance Total (ms): \(String(describing: totalTime)) Average (ms): \(String(describing: averageTime)) Iterations: \(String(describing: strongSelf.performanceInterations))")
+            measureExpectation.fulfill()
+        }
+
+        waitForExpectations(timeout: 9.0, handler: nil)
+    }
     
     // TODO: Fails on time
 //    func test_deferredProcessingPerformance() {
@@ -151,19 +151,18 @@ class AbstractNodeTests: XCTestCase {
         var i = 0
         let start = Date().timeIntervalSince1970
         var testTime: TimeInterval = 0.0
-        var iterator: (() -> Void)? = nil
-        iterator = {
-            i += 1
+        
+        var dispatchGroup = DispatchGroup()
+        for i in 0...iterations {
+            dispatchGroup.enter()
             block() {
-                if i < iterations {
-                    iterator!()
-                } else {
-                    testTime = Date().timeIntervalSince1970 - start
-                    completion(testTime)
-                }
+                dispatchGroup.leave()
             }
         }
         
-        iterator!()
+        dispatchGroup.notify(queue: DispatchQueue.main) {
+            testTime = Date().timeIntervalSince1970 - start
+            completion(testTime)
+        }
     }
 }

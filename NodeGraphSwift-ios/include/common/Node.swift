@@ -216,7 +216,7 @@ class AbstractNode: Node, NodeInputDelegate {
             for input in inputs {
                 if input.value != nil {
                     canRunNode = true
-                    continue
+                    break
                 }
             }
             break
