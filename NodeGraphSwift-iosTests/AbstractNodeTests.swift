@@ -143,6 +143,55 @@ class AbstractNodeTests: XCTestCase {
         waitForExpectations(timeout: 5.0, handler: nil)
     }
     
+    func test_allARgumentsAreSetBeforeDeferredProcessing() {
+        let argumentsExpectation = expectation(description: "Both arguments set")
+        
+        let arg1 = 58
+        let arg2 = 42
+        
+        deferredTestNode.aInput.value = arg1
+        
+        deferredTestNode.processed = {[weak self] in
+            guard let strongSelf = self else {
+                XCTFail()
+                return
+            }
+            
+            XCTAssertEqual(strongSelf.deferredTestNode.aInput.value, arg1)
+            XCTAssertEqual(strongSelf.deferredTestNode.bInput.value, arg2)
+            argumentsExpectation.fulfill()
+        }
+        
+        deferredTestNode.bInput.value = arg2
+        
+        waitForExpectations(timeout: 0.1, handler: nil)
+    }
+    
+    func test_directProcessingTriggersOnFirstArgumentSet() {
+        let arg1 = 58
+        let arg2 = 42
+        
+        var triggerCount = 0
+        deferredTestNode.deferred = false
+        deferredTestNode.processed = {[weak self] in
+            guard let strongSelf = self else {
+                XCTFail()
+                return
+            }
+            XCTAssertEqual(strongSelf.deferredTestNode.aInput.value, arg1)
+            if triggerCount == 0 {
+                XCTAssertNil(strongSelf.deferredTestNode.bInput.value)
+            }
+            
+            triggerCount += 1
+        }
+        
+        deferredTestNode.aInput.value = arg1
+        deferredTestNode.bInput.value = arg2
+        
+        XCTAssertEqual(triggerCount, 2)
+    }
+    
     // MARK: Helpers
     func measure(block: @escaping ((_ completion: @escaping () -> Void ) -> Void),
                  iterations: NSInteger,
