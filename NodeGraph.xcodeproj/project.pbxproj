@@ -11,7 +11,6 @@
 		40101E72232A51F100D6EC69 /* NodeOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40101E71232A51F100D6EC69 /* NodeOutput.swift */; };
 		40101E74232B90E800D6EC69 /* NodeOutputTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40101E73232B90E800D6EC69 /* NodeOutputTests.swift */; };
 		40101E78232B91DE00D6EC69 /* NodeGraphSwift_iosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404974502327717D00B04589 /* NodeGraphSwift_iosTests.swift */; };
-		40101E7A232B932F00D6EC69 /* module.modulemap in Sources */ = {isa = PBXBuildFile; fileRef = 40101E79232B932F00D6EC69 /* module.modulemap */; };
 		4049744C2327717D00B04589 /* NodeGraphSwift_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 404974432327717D00B04589 /* NodeGraphSwift_ios.framework */; };
 		404974532327717D00B04589 /* NodeGraphSwift_ios.h in Headers */ = {isa = PBXBuildFile; fileRef = 404974452327717D00B04589 /* NodeGraphSwift_ios.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4049745D2327720000B04589 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4049745C2327720000B04589 /* Node.swift */; };
@@ -674,7 +673,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				40101E70232A51CD00D6EC69 /* NodeInput.swift in Sources */,
-				40101E7A232B932F00D6EC69 /* module.modulemap in Sources */,
 				4049745D2327720000B04589 /* Node.swift in Sources */,
 				40101E72232A51F100D6EC69 /* NodeOutput.swift in Sources */,
 			);
