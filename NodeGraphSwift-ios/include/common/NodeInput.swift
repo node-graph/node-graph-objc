@@ -39,17 +39,17 @@ class NodeInput: Hashable {
             return _value
         }
     }
-    private var _value: AnyHashable?
+    private var _value: AnyHashable? = nil
     
     /**
      The node that this input beloongs to. Receives events regarding input changes.
      */
-    var node: NodeAndDelegate?
+    var node: NodeAndDelegate? = nil
     
     /**
      The optional key of this input for the node.
      */
-    private(set) var key: String?
+    private(set) var key: String? = nil
     
     /**
      The block that validates incoming values.
@@ -57,8 +57,7 @@ class NodeInput: Hashable {
     private(set) var validationBlock: ((_: AnyHashable?) -> Bool)?
     
     init() {
-        key = nil
-        node = nil
+
     }
     
     /**

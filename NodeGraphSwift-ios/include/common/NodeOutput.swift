@@ -11,20 +11,19 @@ class NodeOutput: Hashable {
      The key of this output, can be nil if the node only has one output.
      An example value for this could be the `R` output key in an `RGB` node.
      */
-    private(set) var key: String?
+    private(set) var key: String? = nil
     
     /**
      The downstream node inputs that gets the result of this output.
      @warning Please do not mutate this object directly.
      */
-    private(set) var connections: NSHashTable<NodeInput>
+    private(set) var connections: NSHashTable<NodeInput> = NSHashTable(options: NSPointerFunctions.Options.weakMemory)
     
     /**
      Creates an output without a key.
      */
     init() {
-        key = nil
-        connections = NSHashTable(options: NSPointerFunctions.Options.weakMemory)
+
     }
     
     /**
