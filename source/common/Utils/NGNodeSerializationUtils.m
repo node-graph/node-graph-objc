@@ -1,16 +1,16 @@
-#import "NodeSerializationUtils.h"
-#import "Node.h"
+#import "NGNodeSerializationUtils.h"
+#import "NGNode.h"
 #import "NSDictionary+NSMapTable.h"
 
-@implementation NodeSerializationUtils
+@implementation NGNodeSerializationUtils
 
-+ (NSDictionary *)serializedRepresentationAsDictionaryFromNode:(id<SerializableNode>)node {
++ (NSDictionary *)serializedRepresentationAsDictionaryFromNode:(id<NGSerializableNode>)node {
     NSMutableArray *inputs = [NSMutableArray array];
-    for (NodeInput *input in node.inputs) {
+    for (NGNodeInput *input in node.inputs) {
         [inputs addObject:input.key ?: @"no_key"];
     }
     NSMutableArray *outputs = [NSMutableArray array];
-    for (NodeOutput *output in node.outputs) {
+    for (NGNodeOutput *output in node.outputs) {
         [outputs addObject:output.key ?: @"no_key"];
     }
     NSMutableDictionary *result = [NSMutableDictionary dictionaryWithDictionary:@{
@@ -30,14 +30,14 @@
     return result;
 }
 
-+ (NSDictionary<NSString *, NSArray *> *)serializedOutputConnectionsFromNode:(id<SerializableNode>)node
-                                                             withNodeMapping:(NSDictionary<NSString *, id<SerializableNode>> *)nodeMapping {
++ (NSDictionary<NSString *, NSArray *> *)serializedOutputConnectionsFromNode:(id<NGSerializableNode>)node
+                                                             withNodeMapping:(NSDictionary<NSString *, id<NGSerializableNode>> *)nodeMapping {
     NSMapTable *nodesAsKeys = [nodeMapping mapWithFlippedKeysAndValues];
     
     NSMutableDictionary *outputs = [NSMutableDictionary dictionary];
-    for (NodeOutput *output in node.outputs) {
+    for (NGNodeOutput *output in node.outputs) {
         NSMutableArray *connections = [NSMutableArray array];
-        for (NodeInput *connection in output.connections) {
+        for (NGNodeInput *connection in output.connections) {
             [connections addObject:@{
                                      @"node": [nodesAsKeys objectForKey:connection.node],
                                      @"input": connection.key ?: @"no_key"

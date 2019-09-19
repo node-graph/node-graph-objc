@@ -1,6 +1,6 @@
 #import <UIKit/UIKit.h>
 #import "UpdateBackgroundColorNode.h"
-#import "NodeInputColor.h"
+#import "NGNodeInputColor.h"
 
 @interface UpdateBackgroundColorNode ()
 
@@ -18,8 +18,8 @@
     self = [super init];
     if (self) {
         _view = view;
-        _inputTrigger = NodeInputTriggerAny;
-        _colorInput = [[NodeInputColor alloc] initWithKey:@"color" node:self];
+        _inputTrigger = NGNodeInputTriggerAny;
+        _colorInput = [[NGNodeInputColor alloc] initWithKey:@"color" node:self];
         _inputs = [NSSet setWithObject:_colorInput];
         _outputs = [NSSet set];
     }

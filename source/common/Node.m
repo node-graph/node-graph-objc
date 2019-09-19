@@ -1,7 +1,7 @@
-#import "Node.h"
-#import "NodeSerializationUtils.h"
+#import "NGNode.h"
+#import "NGNodeSerializationUtils.h"
 
-@interface AbstractNode ()
+@interface NGAbstractNode ()
 
 @property (nonatomic, assign, getter=isProcessing) BOOL processing;
 @property (nonatomic, assign) NSTimeInterval processingTime;
@@ -10,7 +10,7 @@
 
 @end
 
-@implementation AbstractNode
+@implementation NGAbstractNode
 
 @synthesize inputTrigger = _inputTrigger;
 @synthesize inputs = _inputs;
@@ -20,11 +20,11 @@
     self = [super init];
     if (self) {
         _processingTime = 0;
-        _inputTrigger = NodeInputTriggerAny;
-        _inputs = [NSSet setWithObject:[[NodeInput alloc] initWithKey:nil
+        _inputTrigger = NGNodeInputTriggerAny;
+        _inputs = [NSSet setWithObject:[[NGNodeInput alloc] initWithKey:nil
                                                            validation:nil
                                                                  node:self]];
-        _outputs = [NSSet setWithObject:[NodeOutput new]];
+        _outputs = [NSSet setWithObject:[NGNodeOutput new]];
     }
     
     return self;
@@ -56,8 +56,8 @@
         return;
     }
     self.canceling = YES;
-    for (NodeOutput *output in self.outputs) {
-        for (NodeInput *connection in output.connections) {
+    for (NGNodeOutput *output in self.outputs) {
+        for (NGNodeInput *connection in output.connections) {
             [connection.node cancel];
         }
     }
@@ -72,7 +72,7 @@
 }
 
 - (void)sendResultToOutputs:(id)result {
-    for (NodeOutput *output in self.outputs) {
+    for (NGNodeOutput *output in self.outputs) {
         [output sendResult:result];
     }
 }
@@ -93,9 +93,9 @@
     }];
 }
 
-#pragma mark - NodeInputDelegate
+#pragma mark - NGNodeInputDelegate
 
-- (void)nodeInput:(NodeInput *)nodeInput didUpdateValue:(id)value {
+- (void)nodeInput:(NGNodeInput *)nodeInput didUpdateValue:(id)value {
     if ([self canRun]) {
         [self process];
     }
@@ -103,30 +103,30 @@
 
 - (BOOL)canRun {
     switch (self.inputTrigger) {
-        case NodeInputTriggerAny: {
-            for (NodeInput *input in self.inputs) {
+        case NGNodeInputTriggerAny: {
+            for (NGNodeInput *input in self.inputs) {
                 if (input.value) {
                     return YES;
                 }
             }
             break;
         }
-        case NodeInputTriggerAll: {
-            for (NodeInput *input in self.inputs) {
+        case NGNodeInputTriggerAll: {
+            for (NGNodeInput *input in self.inputs) {
                 if (!input.value) {
                     return NO;
                 }
             }
             return YES;
         }
-        case NodeInputTriggerAllAtLeastOnce: {
+        case NGNodeInputTriggerAllAtLeastOnce: {
             // TODO
             break;
         }
-        case NodeInputTriggerNoAutomaticProcessing: {
+        case NGNodeInputTriggerNoAutomaticProcessing: {
             return NO;
         }
-        case NodeInputTriggerCustom: {
+        case NGNodeInputTriggerCustom: {
             return YES;
         }
     }
@@ -139,9 +139,9 @@
  Defer -onProcess: call to let inputs have a chance of being set during this run loop.
  */
 - (BOOL)useDeferredProcessing {
-    BOOL couldTriggerOnAnyInput = (self.inputTrigger == NodeInputTriggerAny ||
-                                   self.inputTrigger == NodeInputTriggerAllAtLeastOnce ||
-                                   self.inputTrigger == NodeInputTriggerCustom);
+    BOOL couldTriggerOnAnyInput = (self.inputTrigger == NGNodeInputTriggerAny ||
+                                   self.inputTrigger == NGNodeInputTriggerAllAtLeastOnce ||
+                                   self.inputTrigger == NGNodeInputTriggerCustom);
     return (self.inputs.count > 1 && couldTriggerOnAnyInput);
 }
 
@@ -152,11 +152,11 @@
 }
 
 - (NSDictionary *)serializedRepresentationAsDictionary {
-    return [NodeSerializationUtils serializedRepresentationAsDictionaryFromNode:self];
+    return [NGNodeSerializationUtils serializedRepresentationAsDictionaryFromNode:self];
 }
 
-- (NSDictionary<NSString *, NSArray *> *)serializedOutputConnectionsWithNodeMapping:(NSDictionary<NSString *,id<SerializableNode>> *)nodeMapping {
-    return [NodeSerializationUtils serializedOutputConnectionsFromNode:self
+- (NSDictionary<NSString *, NSArray *> *)serializedOutputConnectionsWithNodeMapping:(NSDictionary<NSString *,id<NGSerializableNode>> *)nodeMapping {
+    return [NGNodeSerializationUtils serializedOutputConnectionsFromNode:self
                                                        withNodeMapping:nodeMapping];
 }
 

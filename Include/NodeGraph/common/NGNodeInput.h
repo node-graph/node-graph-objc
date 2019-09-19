@@ -2,19 +2,19 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class NodeInput;
-@protocol Node;
+@class NGNodeInput;
+@protocol NGNode;
 
 /**
  Defines how a node input communicates changes.
  */
-@protocol NodeInputDelegate
+@protocol NGNodeInputDelegate
 @required
 
 /**
  The input value was changed
  */
-- (void)nodeInput:(NodeInput *)nodeInput didUpdateValue:(id)value;
+- (void)nodeInput:(NGNodeInput *)nodeInput didUpdateValue:(id)value;
 
 @end
 
@@ -24,7 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
  
  This class is well suited for subclassing so you can implement inputs for specific types.
  */
-@interface NodeInput : NSObject
+@interface NGNodeInput : NSObject
 
 /**
  The current value of the input. The setter will run the validationBlock before
@@ -35,7 +35,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  The node that this input beloongs to. Receives events regarding input changes.
  */
-@property (nonatomic, assign, nullable) id<NodeInputDelegate, Node> node;
+@property (nonatomic, assign, nullable) id<NGNodeInputDelegate, NGNode> node;
 
 /**
  The optional key of this input for the node.
@@ -49,33 +49,33 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  Create a new input without a key.
- This method is very good for instantiating subclasses of NodeInput since the
+ This method is very good for instantiating subclasses of NGNodeInput since the
  validation block would be handled by the subclass
  */
 + (instancetype)inputWithKey:(nullable NSString *)key
-                        node:(nullable id<NodeInputDelegate, Node>)node;
+                        node:(nullable id<NGNodeInputDelegate, NGNode>)node;
 
 /**
  Create a new input.
  */
 + (instancetype)inputWithKey:(nullable NSString *)key
                   validation:(nullable BOOL (^)(_Nullable id value))validationBlock
-                        node:(nullable id<NodeInputDelegate, Node>)node;
+                        node:(nullable id<NGNodeInputDelegate, NGNode>)node;
 
 /**
  Create a new input without a key.
- This method is very good for instantiating subclasses of NodeInput since the
+ This method is very good for instantiating subclasses of NGNodeInput since the
  validation block would be handled by the subclass
  */
 - (instancetype)initWithKey:(nullable NSString *)key
-                       node:(nullable id<NodeInputDelegate, Node>)node;
+                       node:(nullable id<NGNodeInputDelegate, NGNode>)node;
 
 /**
  Create a new input.
  */
 - (instancetype)initWithKey:(nullable NSString *)key
                  validation:(nullable BOOL (^)(id _Nullable value))validationBlock
-                       node:(nullable id<NodeInputDelegate, Node>)node;
+                       node:(nullable id<NGNodeInputDelegate, NGNode>)node;
 
 /**
  Checks if value is valid or not.

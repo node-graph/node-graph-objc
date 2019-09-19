@@ -1,18 +1,18 @@
 #import <XCTest/XCTest.h>
 #import <NodeGraph/NodeGraph.h>
 
-@interface NodeInputTests : XCTestCase <NodeInputDelegate, Node>
+@interface NGNodeInputTests : XCTestCase <NGNodeInputDelegate, NGNode>
 
-@property (nonatomic, strong) NodeInput *unNamedInput;
-@property (nonatomic, strong) NodeInput *namedInput;
+@property (nonatomic, strong) NGNodeInput *unNamedInput;
+@property (nonatomic, strong) NGNodeInput *namedInput;
 @property (nonatomic, strong) NSNumber *sampleValue;
 @property (nonatomic, assign) NSUInteger delegateCallCount;
-@property (nonatomic, weak) NodeInput *delegateCaller;
+@property (nonatomic, weak) NGNodeInput *delegateCaller;
 @property (nonatomic, assign) id delegateValue;
 
 @end
 
-@implementation NodeInputTests
+@implementation NGNodeInputTests
 // Node Protocol START
 @synthesize inputs = _inputs;
 @synthesize inputTrigger = _inputTrigger;
@@ -22,8 +22,8 @@
 // Node Protocol END
 
 - (void)setUp {
-    self.unNamedInput = [NodeInput new];
-    self.namedInput = [NodeInput inputWithKey:@"test"
+    self.unNamedInput = [NGNodeInput new];
+    self.namedInput = [NGNodeInput inputWithKey:@"test"
                                    validation:^BOOL(id  _Nullable value) {return [value isKindOfClass:[NSNumber class]];}
                                          node:self];
     self.sampleValue = @(42);
@@ -39,7 +39,7 @@
 #pragma mark - Initialization
 
 - (void)testInit {
-    NodeInput *input = [[NodeInput alloc] init];
+    NGNodeInput *input = [[NGNodeInput alloc] init];
     XCTAssertNil(input.key);
     XCTAssertNil(input.validationBlock);
     XCTAssertNil(input.node);
@@ -47,7 +47,7 @@
 
 - (void)testInitWithKey {
     BOOL (^validationBlock)(id _Nonnull value) = ^BOOL(id _Nonnull value) {return YES;};
-    NodeInput *input = [[NodeInput alloc] initWithKey:@"test"
+    NGNodeInput *input = [[NGNodeInput alloc] initWithKey:@"test"
                                             validation:validationBlock
                                               node:self];
     XCTAssertEqual(input.key, @"test");
@@ -56,14 +56,14 @@
 }
 
 - (void)testStaticNew {
-    NodeInput *input = [NodeInput new];
+    NGNodeInput *input = [NGNodeInput new];
     XCTAssertNil(input.key);
     XCTAssertNil(input.validationBlock);
     XCTAssertNil(input.node);
 }
 
 - (void)testStaticInitWithoutValidation {
-    NodeInput *input = [NodeInput inputWithKey:@"test" node:self];
+    NGNodeInput *input = [NGNodeInput inputWithKey:@"test" node:self];
     XCTAssertEqual(input.key, @"test");
     XCTAssertNil(input.validationBlock);
     XCTAssertEqual(input.node, self);
@@ -71,7 +71,7 @@
 
 - (void)testStaticInitAll {
     BOOL (^validationBlock)(id _Nonnull value) = ^BOOL(id _Nonnull value) {return YES;};
-    NodeInput *input = [NodeInput inputWithKey:@"test" validation:validationBlock node:self];
+    NGNodeInput *input = [NGNodeInput inputWithKey:@"test" validation:validationBlock node:self];
     XCTAssertEqual(input.key, @"test");
     XCTAssertEqual(input.validationBlock, validationBlock);
     XCTAssertEqual(input.node, self);
@@ -88,14 +88,14 @@
 }
 
 - (void)testValidationBlockWithValidValue {
-    NodeInput *input = [NodeInput inputWithKey:nil
+    NGNodeInput *input = [NGNodeInput inputWithKey:nil
                                     validation:^BOOL(id  _Nullable value) {return [value isKindOfClass:[NSNumber class]];}
                                       node:nil];
     XCTAssertTrue([input valueIsValid:self.sampleValue]);
 }
 
 - (void)testValidationBlockWithInvalidValue {
-    NodeInput *input = [NodeInput inputWithKey:nil
+    NGNodeInput *input = [NGNodeInput inputWithKey:nil
                                     validation:^BOOL(id  _Nullable value) {return [value isKindOfClass:[NSString class]];}
                                       node:nil];
     XCTAssertFalse([input valueIsValid:self.sampleValue]);
@@ -104,7 +104,7 @@
 #pragma mark - Set Value
 
 - (void)testValueIsSet {
-    NodeInput *input = [NodeInput inputWithKey:nil
+    NGNodeInput *input = [NGNodeInput inputWithKey:nil
                                     validation:^BOOL(id  _Nullable value) {return [value isKindOfClass:[NSNumber class]];}
                                       node:nil];
     input.value = self.sampleValue;
@@ -112,7 +112,7 @@
 }
 
 - (void)testValueIsNotSetIfInvalid {
-    NodeInput *input = [NodeInput inputWithKey:nil
+    NGNodeInput *input = [NGNodeInput inputWithKey:nil
                                     validation:^BOOL(id  _Nullable value) {return [value isKindOfClass:[NSString class]];}
                                       node:nil];
     input.value = self.sampleValue;
@@ -129,7 +129,7 @@
 }
 
 - (void)testDelegateIsCalledWhenNilValueIsSet {
-    NodeInput *input = [NodeInput inputWithKey:nil node:self];
+    NGNodeInput *input = [NGNodeInput inputWithKey:nil node:self];
     input.value = self.sampleValue;
     input.value = nil;
     XCTAssertEqual(self.delegateCallCount, 2);
@@ -148,7 +148,7 @@
 }
 
 - (void)testDelegateIsNotCalledWhenValueIsNotValid {
-    NodeInput *input = [NodeInput inputWithKey:nil
+    NGNodeInput *input = [NGNodeInput inputWithKey:nil
                                     validation:^BOOL(id  _Nullable value) {return [value isKindOfClass:[NSString class]];}
                                           node:self];
     input.value = self.sampleValue;
@@ -157,9 +157,9 @@
     XCTAssertNil(self.delegateValue);
 }
 
-#pragma mark - NodeInputDelegate
+#pragma mark - NGNodeInputDelegate
 
-- (void)nodeInput:(NodeInput *)nodeInput didUpdateValue:(id)value {
+- (void)nodeInput:(NGNodeInput *)nodeInput didUpdateValue:(id)value {
     self.delegateCallCount ++;
     self.delegateCaller = nodeInput;
     self.delegateValue = value;

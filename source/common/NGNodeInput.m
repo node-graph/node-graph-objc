@@ -1,25 +1,25 @@
-#import "NodeInput.h"
+#import "NGNodeInput.h"
 
-@interface NodeInput ()
+@interface NGNodeInput ()
 
 @property (nonatomic, strong, nullable) NSString *key;
 
 @end
 
-@implementation NodeInput
+@implementation NGNodeInput
 
-+ (instancetype)inputWithKey:(NSString *)key node:(nullable id<NodeInputDelegate, Node>)node {
++ (instancetype)inputWithKey:(NSString *)key node:(nullable id<NGNodeInputDelegate, NGNode>)node {
     return [[self alloc] initWithKey:key node:node];
 }
 
 + (instancetype)inputWithKey:(NSString *)key
                   validation:(nullable BOOL (^)(id _Nullable))validationBlock
-                        node:(nullable id<NodeInputDelegate, Node>)node {
+                        node:(nullable id<NGNodeInputDelegate, NGNode>)node {
     return [[self alloc] initWithKey:key validation:validationBlock node:node];
 }
 
 - (instancetype)initWithKey:(NSString *)key
-                       node:(nullable id<NodeInputDelegate, Node>)node {
+                       node:(nullable id<NGNodeInputDelegate, NGNode>)node {
     self = [super init];
     if (self) {
         _key = key;
@@ -30,7 +30,7 @@
 
 - (instancetype)initWithKey:(NSString *)key
                  validation:(nullable BOOL (^)(id _Nullable))validationBlock
-                       node:(nullable id<NodeInputDelegate, Node>)node {
+                       node:(nullable id<NGNodeInputDelegate, NGNode>)node {
     self = [super init];
     if (self) {
         _key = key;

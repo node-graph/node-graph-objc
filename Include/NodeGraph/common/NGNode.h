@@ -1,23 +1,23 @@
 #import <Foundation/Foundation.h>
-#import "NodeInput.h"
-#import "NodeOutput.h"
+#import "NGNodeInput.h"
+#import "NGNodeOutput.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 /**
  Decides what inputs need to be set in order for a node to process.
  */
-typedef NS_ENUM(NSUInteger, NodeInputTrigger) {
+typedef NS_ENUM(NSUInteger, NGNodeInputTrigger) {
     /// The node does not automatically process anything, you manually have to call the -process method.
-    NodeInputTriggerNoAutomaticProcessing,
+    NGNodeInputTriggerNoAutomaticProcessing,
     /// Process as soon as any input is set.
-    NodeInputTriggerAny,
+    NGNodeInputTriggerAny,
     /// All inputs have to be triggered between each run for the node to process.
-    NodeInputTriggerAll,
-    /// Same as NodeInputRequirementAll but keeps the value so next run can start whenever any input is set.
-    NodeInputTriggerAllAtLeastOnce,
+    NGNodeInputTriggerAll,
+    /// Same as NGNodeInputRequirementAll but keeps the value so next run can start whenever any input is set.
+    NGNodeInputTriggerAllAtLeastOnce,
     /// The processing behaviour is custom and driven by the node itself.
-    NodeInputTriggerCustom
+    NGNodeInputTriggerCustom
 };
 
 
@@ -44,25 +44,25 @@ typedef NS_ENUM(NSUInteger, NodeInputTrigger) {
         5
  
  */
-@protocol Node
+@protocol NGNode
 @required
 
 /**
  Specifies what inputs need to be set in order for the node to process.
  */
-@property (nonatomic, assign, readonly) NodeInputTrigger inputTrigger;
+@property (nonatomic, assign, readonly) NGNodeInputTrigger inputTrigger;
 
 /**
  The inputs of this node, inputs do not reference upstream nodes but keeps a
  result from an upstream node that this node can use when -process is called.
  */
-@property (nonatomic, strong, readonly) NSSet<NodeInput *> *inputs;
+@property (nonatomic, strong, readonly) NSSet<NGNodeInput *> *inputs;
 
 /**
  All downstream connections out from this node. When -process is run the result
- will be fed to each NodeOutput.
+ will be fed to each NGNodeOutput.
  */
-@property (nonatomic, strong, readonly) NSSet<NodeOutput *> *outputs;
+@property (nonatomic, strong, readonly) NSSet<NGNodeOutput *> *outputs;
 
 /**
  Processes the node with the current values stored in the inputs of this node.
@@ -97,7 +97,7 @@ typedef NS_ENUM(NSUInteger, NodeInputTrigger) {
  A Node that is serializable to NSDictionary format based on nothing but instances of
  NSArray, NSDictionary, NSNumber, NSString.
  */
-@protocol SerializableNode <Node>
+@protocol NGSerializableNode <NGNode>
 @required
 /**
  Serialized dictionary representing a node. This does not include what
@@ -140,7 +140,7 @@ typedef NS_ENUM(NSUInteger, NodeInputTrigger) {
     }
   }
  */
-- (NSDictionary<NSString *, NSArray *> *)serializedOutputConnectionsWithNodeMapping:(NSDictionary<NSString *,id<SerializableNode>> *)nodeMapping;
+- (NSDictionary<NSString *, NSArray *> *)serializedOutputConnectionsWithNodeMapping:(NSDictionary<NSString *,id<NGSerializableNode>> *)nodeMapping;
 
 /**
  Type of the node. ex: RGBNode
@@ -161,7 +161,7 @@ typedef NS_ENUM(NSUInteger, NodeInputTrigger) {
  Abstract class that you should subclass and implement in order to have a
  functioning Node.
  */
-@interface AbstractNode : NSObject <SerializableNode, NodeInputDelegate>
+@interface NGAbstractNode : NSObject <NGSerializableNode, NGNodeInputDelegate>
 
 /**
  Determines if the node is currently processing or not.

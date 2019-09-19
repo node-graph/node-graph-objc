@@ -1,41 +1,41 @@
 #import <XCTest/XCTest.h>
 #import <NodeGraph/NodeGraph.h>
 
-@interface AbstractNode (Test)
-@property (nonatomic, readonly) NodeInput *testInput;
-@property (nonatomic, readonly) NodeOutput *testOutput;
+@interface NGAbstractNode (Test)
+@property (nonatomic, readonly) NGNodeInput *testInput;
+@property (nonatomic, readonly) NGNodeOutput *testOutput;
 @end
-@implementation AbstractNode (Test)
-- (NodeInput *)testInput {return [self.inputs anyObject];}
-- (NodeOutput *)testOutput {return [self.outputs anyObject];}
-@end
-
-@interface GraphNode (Tests)
-@property (nonatomic, strong) NSMutableSet<id<Node>> *nodes;
+@implementation NGAbstractNode (Test)
+- (NGNodeInput *)testInput {return [self.inputs anyObject];}
+- (NGNodeOutput *)testOutput {return [self.outputs anyObject];}
 @end
 
-@interface GraphNodeTests : XCTestCase
+@interface NGGraphNode (Tests)
+@property (nonatomic, strong) NSMutableSet<id<NGNode>> *nodes;
+@end
 
-@property (nonatomic, strong) AbstractNode *node1;
-@property (nonatomic, strong) AbstractNode *node2;
-@property (nonatomic, strong) AbstractNode *node3;
-@property (nonatomic, strong) AbstractNode *node4;
-@property (nonatomic, strong) AbstractNode *node5;
-@property (nonatomic, strong) AbstractNode *node6;
-@property (nonatomic, strong) GraphNode *graphNode;
+@interface NGGraphNodeTests : XCTestCase
+
+@property (nonatomic, strong) NGAbstractNode *node1;
+@property (nonatomic, strong) NGAbstractNode *node2;
+@property (nonatomic, strong) NGAbstractNode *node3;
+@property (nonatomic, strong) NGAbstractNode *node4;
+@property (nonatomic, strong) NGAbstractNode *node5;
+@property (nonatomic, strong) NGAbstractNode *node6;
+@property (nonatomic, strong) NGGraphNode *graphNode;
 
 @end
 
-@implementation GraphNodeTests
+@implementation NGGraphNodeTests
 
 - (void)setUp {
-    self.graphNode = [GraphNode new];
-    self.node1 = [AbstractNode new];
-    self.node2 = [AbstractNode new];
-    self.node3 = [AbstractNode new];
-    self.node4 = [AbstractNode new];
-    self.node5 = [AbstractNode new];
-    self.node6 = [AbstractNode new];
+    self.graphNode = [NGGraphNode new];
+    self.node1 = [NGAbstractNode new];
+    self.node2 = [NGAbstractNode new];
+    self.node3 = [NGAbstractNode new];
+    self.node4 = [NGAbstractNode new];
+    self.node5 = [NGAbstractNode new];
+    self.node6 = [NGAbstractNode new];
 }
 
 - (void)tearDown {

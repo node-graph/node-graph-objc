@@ -1,19 +1,19 @@
-#import "Node.h"
+#import "NGNode.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 /**
  Should increase R, G and B values by 0.1
  */
-@interface RGBNode : AbstractNode
+@interface RGBNode : NGAbstractNode
 
-@property (nonatomic, strong) NodeInput *rInput;
-@property (nonatomic, strong) NodeInput *gInput;
-@property (nonatomic, strong) NodeInput *bInput;
+@property (nonatomic, strong) NGNodeInput *rInput;
+@property (nonatomic, strong) NGNodeInput *gInput;
+@property (nonatomic, strong) NGNodeInput *bInput;
 
-@property (nonatomic, strong) NodeOutput *rOutput;
-@property (nonatomic, strong) NodeOutput *gOutput;
-@property (nonatomic, strong) NodeOutput *bOutput;
+@property (nonatomic, strong) NGNodeOutput *rOutput;
+@property (nonatomic, strong) NGNodeOutput *gOutput;
+@property (nonatomic, strong) NGNodeOutput *bOutput;
 
 @end
 

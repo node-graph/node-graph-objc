@@ -1,9 +1,9 @@
 #import <UIKit/UIKit.h>
-#import "NodeInput.h"
+#import "NGNodeInput.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface NodeInputColor : NodeInput
+@interface NGNodeInputColor : NGNodeInput
 
 @property (nonatomic, strong, nullable) UIColor *value;
 

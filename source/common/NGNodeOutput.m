@@ -1,7 +1,7 @@
-#import "NodeOutput.h"
-#import "NodeInput.h"
+#import "NGNodeOutput.h"
+#import "NGNodeInput.h"
 
-@implementation NodeOutput
+@implementation NGNodeOutput
 
 #pragma mark - Lifecycle
 
@@ -32,19 +32,19 @@
 
 #pragma mark - Actions
 
-- (void)addConnection:(NodeInput *)connection {
+- (void)addConnection:(NGNodeInput *)connection {
     if (!connection) {
         return;
     }
     [self.connections addObject:connection];
 }
 
-- (void)removeConnection:(NodeInput *)connection {
+- (void)removeConnection:(NGNodeInput *)connection {
     [self.connections removeObject:connection];
 }
 
 - (void)sendResult:(nullable id)result {
-    for (NodeInput *connection in self.connections) {
+    for (NGNodeInput *connection in self.connections) {
         [connection setValue:result];
     }
 }

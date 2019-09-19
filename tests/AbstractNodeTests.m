@@ -1,12 +1,12 @@
 #import <XCTest/XCTest.h>
 #import <NodeGraph/NodeGraph.h>
 
-@interface DeferredTestNode : AbstractNode
+@interface DeferredTestNode : NGAbstractNode
 @property (nonatomic, copy) void (^processed)(void);
 @property (nonatomic, copy) void (^canceled)(void);
-@property (nonatomic, strong) NodeInput *aInput;
-@property (nonatomic, strong) NodeInput *bInput;
-@property (nonatomic, strong) NodeOutput *aOutput;
+@property (nonatomic, strong) NGNodeInput *aInput;
+@property (nonatomic, strong) NGNodeInput *bInput;
+@property (nonatomic, strong) NGNodeOutput *aOutput;
 @property (nonatomic, assign) BOOL deferred;
 @end
 @implementation DeferredTestNode
@@ -16,10 +16,10 @@
     self = [super init];
     if (self) {
         // Having two inputs and trigger on any (default) should make the processing use the deferred pipeline
-        _aInput = [[NodeInput alloc] initWithKey:@"a" validation:nil node:self];
-        _bInput = [[NodeInput alloc] initWithKey:@"b" validation:nil node:self];
+        _aInput = [[NGNodeInput alloc] initWithKey:@"a" validation:nil node:self];
+        _bInput = [[NGNodeInput alloc] initWithKey:@"b" validation:nil node:self];
         _inputs = [NSSet setWithObjects:_aInput, _bInput, nil];
-        _aOutput = [NodeOutput outputWithKey:@"a"];
+        _aOutput = [NGNodeOutput outputWithKey:@"a"];
         _outputs = [NSSet setWithObjects:_aOutput, nil];
         _deferred = YES;
     }
@@ -42,7 +42,7 @@
 
 @interface AbstractNodeTests : XCTestCase
 
-@property (nonatomic, strong) AbstractNode *abstractNode;
+@property (nonatomic, strong) NGAbstractNode *abstractNode;
 @property (nonatomic, strong) DeferredTestNode *deferredTestNode;
 @property (nonatomic, assign) NSUInteger performanceIterations;
 
@@ -51,7 +51,7 @@
 @implementation AbstractNodeTests
 
 - (void)setUp {
-    self.abstractNode = [AbstractNode new];
+    self.abstractNode = [NGAbstractNode new];
     self.deferredTestNode = [DeferredTestNode new];
     self.performanceIterations = 10000;
 }
@@ -63,7 +63,7 @@
 #pragma mark - Input to Output
 
 - (void)testInputTriggersProcessingToOutputToConnections {
-    NodeInput *connection = [NodeInput new];
+    NGNodeInput *connection = [NGNodeInput new];
     NSNumber *value = @(42);
     [[self.abstractNode.outputs anyObject] addConnection:connection];
     [[self.abstractNode.inputs anyObject] setValue:value];

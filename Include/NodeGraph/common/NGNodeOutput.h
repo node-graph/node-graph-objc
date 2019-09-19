@@ -1,6 +1,6 @@
 #import <Foundation/Foundation.h>
 
-@class NodeInput;
+@class NGNodeInput;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -8,9 +8,9 @@ NS_ASSUME_NONNULL_BEGIN
  A representation of an output from a Node. An output can be named with a key to
  signify what part of the result it carries.
  
- An output has connections as weak references to instances of NodeInput.
+ An output has connections as weak references to instances of NGNodeInput.
  */
-@interface NodeOutput: NSObject
+@interface NGNodeOutput: NSObject
 
 /**
  The key of this output, can be nil if the node only has one output.
@@ -22,7 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
  The downstream node inputs that gets the result of this output.
  @warning Please do not mutate this object directly.
  */
-@property (nonatomic, strong, readonly) NSHashTable<NodeInput *> *connections;
+@property (nonatomic, strong, readonly) NSHashTable<NGNodeInput *> *connections;
 
 /**
  Creates an output with a key/name.
@@ -42,12 +42,12 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  Adds a downstream connection from this output.
  */
-- (void)addConnection:(NodeInput *)connection;
+- (void)addConnection:(NGNodeInput *)connection;
 
 /**
  Removes a downstream connection from this output.
  */
-- (void)removeConnection:(NodeInput *)connection;
+- (void)removeConnection:(NGNodeInput *)connection;
 
 /**
  Sends the result to each connection.
