@@ -6,7 +6,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface UpdateBackgroundColorNode : NGAbstractNode
 
-@property (nonatomic, strong) NodeInput *colorInput;
+@property (nonatomic, strong) NGNodeInput *colorInput;
 
 - (instancetype)initWithView:(UIView *)view;
 

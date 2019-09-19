@@ -2,19 +2,19 @@
 #import <NodeGraph/NodeGraph.h>
 
 @interface NGAbstractNode (Test)
-@property (nonatomic, readonly) NodeInput *testInput;
-@property (nonatomic, readonly) NodeOutput *testOutput;
+@property (nonatomic, readonly) NGNodeInput *testInput;
+@property (nonatomic, readonly) NGNodeOutput *testOutput;
 @end
 @implementation NGAbstractNode (Test)
-- (NodeInput *)testInput {return [self.inputs anyObject];}
-- (NodeOutput *)testOutput {return [self.outputs anyObject];}
+- (NGNodeInput *)testInput {return [self.inputs anyObject];}
+- (NGNodeOutput *)testOutput {return [self.outputs anyObject];}
 @end
 
-@interface GraphNode (Tests)
+@interface NGGraphNode (Tests)
 @property (nonatomic, strong) NSMutableSet<id<NGNode>> *nodes;
 @end
 
-@interface GraphNodeTests : XCTestCase
+@interface NGGraphNodeTests : XCTestCase
 
 @property (nonatomic, strong) NGAbstractNode *node1;
 @property (nonatomic, strong) NGAbstractNode *node2;
@@ -22,14 +22,14 @@
 @property (nonatomic, strong) NGAbstractNode *node4;
 @property (nonatomic, strong) NGAbstractNode *node5;
 @property (nonatomic, strong) NGAbstractNode *node6;
-@property (nonatomic, strong) GraphNode *graphNode;
+@property (nonatomic, strong) NGGraphNode *graphNode;
 
 @end
 
-@implementation GraphNodeTests
+@implementation NGGraphNodeTests
 
 - (void)setUp {
-    self.graphNode = [GraphNode new];
+    self.graphNode = [NGGraphNode new];
     self.node1 = [NGAbstractNode new];
     self.node2 = [NGAbstractNode new];
     self.node3 = [NGAbstractNode new];

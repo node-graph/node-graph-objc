@@ -1,17 +1,17 @@
-#import "GraphNode.h"
-#import "NodeSerializationUtils.h"
+#import "NGGraphNode.h"
+#import "NGNodeSerializationUtils.h"
 
-@interface GraphNode ()
+@interface NGGraphNode ()
 
 @property (nonatomic, strong) NSSet<id<NGNode>> *nodes;
-@property (nonatomic, strong) NSSet<NodeInput *> *inputs;
-@property (nonatomic, strong) NSSet<NodeOutput *> *outputs;
+@property (nonatomic, strong) NSSet<NGNodeInput *> *inputs;
+@property (nonatomic, strong) NSSet<NGNodeOutput *> *outputs;
 @property (nonatomic, strong) NSSet<id<NGNode>> *startNodes;
 @property (nonatomic, strong) NSSet<id<NGNode>> *endNodes;
 
 @end
 
-@implementation GraphNode
+@implementation NGGraphNode
 
 - (instancetype)init {
     self = [super init];
@@ -40,8 +40,8 @@
 
 #pragma mark - Node Protocol
 
-- (NodeInputTrigger)inputTrigger {
-    return NodeInputTriggerCustom;
+- (NGNodeInputTrigger)inputTrigger {
+    return NGNodeInputTriggerCustom;
 }
 
 - (void)process {
@@ -86,8 +86,8 @@
  */
 - (BOOL)verifyNodeSetIsSelfContained:(NSSet <id<NGNode>> *)nodes {
     for (id<NGNode> node in nodes) {
-        for (NodeOutput *output in node.outputs) {
-            for (NodeInput *connection in output.connections) {
+        for (NGNodeOutput *output in node.outputs) {
+            for (NGNodeInput *connection in output.connections) {
                 if (![nodes containsObject:connection.node]) {
                     return NO;
                 }
@@ -100,8 +100,8 @@
 - (NSSet *)findStartNodesInNodes:(NSSet<id<NGNode>> *)nodes {
     NSMutableSet *startNodes = [nodes mutableCopy];
     for (id<NGNode> node in nodes) {
-        for (NodeOutput *output in node.outputs) {
-            for (NodeInput *connection in output.connections) {
+        for (NGNodeOutput *output in node.outputs) {
+            for (NGNodeInput *connection in output.connections) {
                 // Remove any node from the set that is referenced as a connection to another node.
                 // Doing this should leave only the nodes that are not connected to anything in the `startNodes` set.
                 [startNodes removeObject:connection.node];
@@ -115,7 +115,7 @@
     NSMutableSet *endNodes = [NSMutableSet set];
     for (id<NGNode> node in nodes) {
         BOOL hasDownstreamNodes = NO;
-        for (NodeOutput *output in node.outputs) {
+        for (NGNodeOutput *output in node.outputs) {
             if (output.connections.count) {
                 hasDownstreamNodes = YES;
                 break;
@@ -136,16 +136,16 @@
 }
 
 - (NSDictionary *)serializedRepresentationAsDictionary {
-    return [NodeSerializationUtils serializedRepresentationAsDictionaryFromNode:self];
+    return [NGNodeSerializationUtils serializedRepresentationAsDictionaryFromNode:self];
 }
 
-- (NSDictionary<NSString *, NSArray *> *)serializedOutputConnectionsWithNodeMapping:(NSDictionary<NSString *,id<SerializableNode>> *)nodeMapping {
-    return [NodeSerializationUtils serializedOutputConnectionsFromNode:self
+- (NSDictionary<NSString *, NSArray *> *)serializedOutputConnectionsWithNodeMapping:(NSDictionary<NSString *,id<NGSerializableNode>> *)nodeMapping {
+    return [NGNodeSerializationUtils serializedOutputConnectionsFromNode:self
                                                        withNodeMapping:nodeMapping];
 }
 
 - (NSDictionary *)serializedData {
-    NSDictionary<NSString *, id<SerializableNode>> *nodeMapping = (NSDictionary<NSString *, id<SerializableNode>> *)[self nodeMappingFromNodesSet:self.nodes];
+    NSDictionary<NSString *, id<NGSerializableNode>> *nodeMapping = (NSDictionary<NSString *, id<NGSerializableNode>> *)[self nodeMappingFromNodesSet:self.nodes];
     NSDictionary<NSString *, NSString *> *serializedNodeMapping = [self serializedNodesFromNodeMapping:nodeMapping];
     NSDictionary<NSString *, NSDictionary *> *serializedConnections = [self connectionsForNodesInNodeMapping:nodeMapping];
     return @{
@@ -170,17 +170,17 @@
 /**
  Fails if any contained node is not a SerializableNode.
  */
-- (NSDictionary<NSString *, NSDictionary *> *)connectionsForNodesInNodeMapping:(NSDictionary<NSString *, id<SerializableNode>> *)nodeMapping {
+- (NSDictionary<NSString *, NSDictionary *> *)connectionsForNodesInNodeMapping:(NSDictionary<NSString *, id<NGSerializableNode>> *)nodeMapping {
     NSMutableDictionary *connections = [NSMutableDictionary dictionary];
-    [nodeMapping enumerateKeysAndObjectsUsingBlock:^(NSString * _Nonnull key, id<SerializableNode>  _Nonnull node, BOOL * _Nonnull stop) {
+    [nodeMapping enumerateKeysAndObjectsUsingBlock:^(NSString * _Nonnull key, id<NGSerializableNode>  _Nonnull node, BOOL * _Nonnull stop) {
         connections[key] = [node serializedOutputConnectionsWithNodeMapping:nodeMapping];
     }];
     return connections;
 }
 
-- (NSDictionary<NSString *, NSString *> *)serializedNodesFromNodeMapping:(NSDictionary<NSString *, id<SerializableNode>> *)nodes {
+- (NSDictionary<NSString *, NSString *> *)serializedNodesFromNodeMapping:(NSDictionary<NSString *, id<NGSerializableNode>> *)nodes {
     NSMutableDictionary *result = [NSMutableDictionary dictionary];
-    [nodes enumerateKeysAndObjectsUsingBlock:^(NSString * _Nonnull key, id<SerializableNode>  _Nonnull node, BOOL * _Nonnull stop) {
+    [nodes enumerateKeysAndObjectsUsingBlock:^(NSString * _Nonnull key, id<NGSerializableNode>  _Nonnull node, BOOL * _Nonnull stop) {
         result[key] = [node serializedRepresentationAsDictionary];
     }];
     return result;

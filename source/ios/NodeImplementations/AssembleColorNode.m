@@ -1,6 +1,6 @@
 #import "AssembleColorNode.h"
 #import <UIKit/UIKit.h>
-#import "NodeInputNumber.h"
+#import "NGNodeInputNumber.h"
 
 @implementation AssembleColorNode
 
@@ -11,14 +11,14 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        _inputTrigger = NodeInputTriggerAll;
+        _inputTrigger = NGNodeInputTriggerAll;
 
-        _rInput = [[NodeInputNumber alloc] initWithKey:@"r" node:self];
-        _gInput = [[NodeInputNumber alloc] initWithKey:@"g" node:self];
-        _bInput = [[NodeInputNumber alloc] initWithKey:@"b" node:self];
+        _rInput = [[NGNodeInputNumber alloc] initWithKey:@"r" node:self];
+        _gInput = [[NGNodeInputNumber alloc] initWithKey:@"g" node:self];
+        _bInput = [[NGNodeInputNumber alloc] initWithKey:@"b" node:self];
         _inputs = [NSSet setWithObjects:_rInput, _gInput, _bInput, nil];
         
-        _colorOutput = [[NodeOutput alloc] initWithKey:@"color"];
+        _colorOutput = [[NGNodeOutput alloc] initWithKey:@"color"];
         _outputs = [NSSet setWithObject:_colorOutput];
     }
     

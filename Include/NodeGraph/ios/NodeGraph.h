@@ -2,12 +2,12 @@
 
 // Base classes
 #import "NGNode.h"
-#import "NodeInput.h"
-#import "NodeOutput.h"
-#import "GraphNode.h"
+#import "NGNodeInput.h"
+#import "NGNodeOutput.h"
+#import "NGGraphNode.h"
 
 // Input Types
-#import "NodeInputNumber.h"
+#import "NGNodeInputNumber.h"
 
 // Node Implementations
 #import "RGBNode.h"
@@ -15,7 +15,7 @@
 #import "UpdateBackgroundColorNode.h"
 
 // Helpers
-#import "NodeSerializationUtils.h"
+#import "NGNodeSerializationUtils.h"
 #import "NSDictionary+NSMapTable.h"
 
 //! Project version number for NodeGraph-ios.

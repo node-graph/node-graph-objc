@@ -8,50 +8,50 @@
 
 /* Begin PBXBuildFile section */
 		405038F221FC814A005B1585 /* NodeGraph.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 405038E821FC814A005B1585 /* NodeGraph.framework */; };
-		405038F721FC814A005B1585 /* NodeOutputTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 405038F621FC814A005B1585 /* NodeOutputTests.m */; };
+		405038F721FC814A005B1585 /* NGNodeOutputTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 405038F621FC814A005B1585 /* NGNodeOutputTests.m */; };
 		405038F921FC814A005B1585 /* NodeGraph.h in Headers */ = {isa = PBXBuildFile; fileRef = 405038EB21FC814A005B1585 /* NodeGraph.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4050395B21FC8869005B1585 /* NodeInput.h in Headers */ = {isa = PBXBuildFile; fileRef = 4050395921FC8869005B1585 /* NodeInput.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4050395C21FC8869005B1585 /* NodeInput.m in Sources */ = {isa = PBXBuildFile; fileRef = 4050395A21FC8869005B1585 /* NodeInput.m */; };
-		4050395F21FC8927005B1585 /* NodeOutput.h in Headers */ = {isa = PBXBuildFile; fileRef = 4050395D21FC8927005B1585 /* NodeOutput.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4050396021FC8927005B1585 /* NodeOutput.m in Sources */ = {isa = PBXBuildFile; fileRef = 4050395E21FC8927005B1585 /* NodeOutput.m */; };
+		4050395B21FC8869005B1585 /* NGNodeInput.h in Headers */ = {isa = PBXBuildFile; fileRef = 4050395921FC8869005B1585 /* NGNodeInput.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4050395C21FC8869005B1585 /* NGNodeInput.m in Sources */ = {isa = PBXBuildFile; fileRef = 4050395A21FC8869005B1585 /* NGNodeInput.m */; };
+		4050395F21FC8927005B1585 /* NGNodeOutput.h in Headers */ = {isa = PBXBuildFile; fileRef = 4050395D21FC8927005B1585 /* NGNodeOutput.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4050396021FC8927005B1585 /* NGNodeOutput.m in Sources */ = {isa = PBXBuildFile; fileRef = 4050395E21FC8927005B1585 /* NGNodeOutput.m */; };
 		4050396321FC896E005B1585 /* NGNode.h in Headers */ = {isa = PBXBuildFile; fileRef = 4050396121FC896E005B1585 /* NGNode.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4050396421FC896E005B1585 /* Node.m in Sources */ = {isa = PBXBuildFile; fileRef = 4050396221FC896E005B1585 /* Node.m */; };
 		4050396721FC89C7005B1585 /* RGBNode.h in Headers */ = {isa = PBXBuildFile; fileRef = 4050396521FC89C7005B1585 /* RGBNode.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4050396821FC89C7005B1585 /* RGBNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 4050396621FC89C7005B1585 /* RGBNode.m */; };
 		40C08F652210C34500FD01AE /* NodeGraph.h in Headers */ = {isa = PBXBuildFile; fileRef = 40C08F632210C34500FD01AE /* NodeGraph.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		40C08F6E2210C5FD00FD01AE /* Node.m in Sources */ = {isa = PBXBuildFile; fileRef = 4050396221FC896E005B1585 /* Node.m */; };
-		40C08F6F2210C60100FD01AE /* NodeInput.m in Sources */ = {isa = PBXBuildFile; fileRef = 4050395A21FC8869005B1585 /* NodeInput.m */; };
-		40C08F702210C60100FD01AE /* NodeOutput.m in Sources */ = {isa = PBXBuildFile; fileRef = 4050395E21FC8927005B1585 /* NodeOutput.m */; };
-		40C08F712210C62400FD01AE /* NodeInput.h in Headers */ = {isa = PBXBuildFile; fileRef = 4050395921FC8869005B1585 /* NodeInput.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		40C08F722210C62400FD01AE /* NodeOutput.h in Headers */ = {isa = PBXBuildFile; fileRef = 4050395D21FC8927005B1585 /* NodeOutput.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		40C08F6F2210C60100FD01AE /* NGNodeInput.m in Sources */ = {isa = PBXBuildFile; fileRef = 4050395A21FC8869005B1585 /* NGNodeInput.m */; };
+		40C08F702210C60100FD01AE /* NGNodeOutput.m in Sources */ = {isa = PBXBuildFile; fileRef = 4050395E21FC8927005B1585 /* NGNodeOutput.m */; };
+		40C08F712210C62400FD01AE /* NGNodeInput.h in Headers */ = {isa = PBXBuildFile; fileRef = 4050395921FC8869005B1585 /* NGNodeInput.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		40C08F722210C62400FD01AE /* NGNodeOutput.h in Headers */ = {isa = PBXBuildFile; fileRef = 4050395D21FC8927005B1585 /* NGNodeOutput.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		40C08F732210C62400FD01AE /* NGNode.h in Headers */ = {isa = PBXBuildFile; fileRef = 4050396121FC896E005B1585 /* NGNode.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5F01493521FFC66F0062DAF0 /* NodeInputNumber.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F01493321FFC66F0062DAF0 /* NodeInputNumber.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5F01493621FFC66F0062DAF0 /* NodeInputNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F01493421FFC66F0062DAF0 /* NodeInputNumber.m */; };
+		5F01493521FFC66F0062DAF0 /* NGNodeInputNumber.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F01493321FFC66F0062DAF0 /* NGNodeInputNumber.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5F01493621FFC66F0062DAF0 /* NGNodeInputNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F01493421FFC66F0062DAF0 /* NGNodeInputNumber.m */; };
 		5F01493821FFCEE10062DAF0 /* AssembleColorNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 4050397621FC9EDD005B1585 /* AssembleColorNode.m */; };
 		5F01493921FFCEE60062DAF0 /* AssembleColorNode.h in Headers */ = {isa = PBXBuildFile; fileRef = 4050397521FC9EDD005B1585 /* AssembleColorNode.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5F01493A21FFCF820062DAF0 /* UpdateBackgroundColorNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 4050397B21FCA8A4005B1585 /* UpdateBackgroundColorNode.m */; };
 		5F01493B21FFCF860062DAF0 /* UpdateBackgroundColorNode.h in Headers */ = {isa = PBXBuildFile; fileRef = 4050397A21FCA8A4005B1585 /* UpdateBackgroundColorNode.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5F01493E21FFCFB90062DAF0 /* NodeInputColor.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F01493C21FFCFB90062DAF0 /* NodeInputColor.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5F01493F21FFCFB90062DAF0 /* NodeInputColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F01493D21FFCFB90062DAF0 /* NodeInputColor.m */; };
-		5F014941220105450062DAF0 /* NodeInputTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F014940220105450062DAF0 /* NodeInputTests.m */; };
+		5F01493E21FFCFB90062DAF0 /* NGNodeInputColor.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F01493C21FFCFB90062DAF0 /* NGNodeInputColor.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5F01493F21FFCFB90062DAF0 /* NGNodeInputColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F01493D21FFCFB90062DAF0 /* NGNodeInputColor.m */; };
+		5F014941220105450062DAF0 /* NGNodeInputTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F014940220105450062DAF0 /* NGNodeInputTests.m */; };
 		5F014943220114C70062DAF0 /* AbstractNodeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F014942220114C70062DAF0 /* AbstractNodeTests.m */; };
-		5F014980220A44650062DAF0 /* GraphNode.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F01497F220A44650062DAF0 /* GraphNode.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5F014982220A44760062DAF0 /* GraphNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F014981220A44760062DAF0 /* GraphNode.m */; };
-		5F014984220A44A90062DAF0 /* GraphNodeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F014983220A44A90062DAF0 /* GraphNodeTests.m */; };
-		5F014998221CB01B0062DAF0 /* GraphNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F014981220A44760062DAF0 /* GraphNode.m */; };
-		5F014999221CB0270062DAF0 /* NodeInputNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F01493421FFC66F0062DAF0 /* NodeInputNumber.m */; };
+		5F014980220A44650062DAF0 /* NGGraphNode.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F01497F220A44650062DAF0 /* NGGraphNode.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5F014982220A44760062DAF0 /* NGGraphNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F014981220A44760062DAF0 /* NGGraphNode.m */; };
+		5F014984220A44A90062DAF0 /* NGGraphNodeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F014983220A44A90062DAF0 /* NGGraphNodeTests.m */; };
+		5F014998221CB01B0062DAF0 /* NGGraphNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F014981220A44760062DAF0 /* NGGraphNode.m */; };
+		5F014999221CB0270062DAF0 /* NGNodeInputNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F01493421FFC66F0062DAF0 /* NGNodeInputNumber.m */; };
 		5F01499A221CB02B0062DAF0 /* RGBNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 4050396621FC89C7005B1585 /* RGBNode.m */; };
-		5F01499E221CB0480062DAF0 /* GraphNode.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F01497F220A44650062DAF0 /* GraphNode.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5F01499F221CB0570062DAF0 /* NodeInputNumber.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F01493321FFC66F0062DAF0 /* NodeInputNumber.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5F01499E221CB0480062DAF0 /* NGGraphNode.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F01497F220A44650062DAF0 /* NGGraphNode.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5F01499F221CB0570062DAF0 /* NGNodeInputNumber.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F01493321FFC66F0062DAF0 /* NGNodeInputNumber.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5F0149A0221CB05B0062DAF0 /* RGBNode.h in Headers */ = {isa = PBXBuildFile; fileRef = 4050396521FC89C7005B1585 /* RGBNode.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5F0149A4221CBD490062DAF0 /* NSDictionary+NSMapTable.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F0149A2221CBD490062DAF0 /* NSDictionary+NSMapTable.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5F0149A5221CBD490062DAF0 /* NSDictionary+NSMapTable.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F0149A2221CBD490062DAF0 /* NSDictionary+NSMapTable.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5F0149A6221CBD490062DAF0 /* NSDictionary+NSMapTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F0149A3221CBD490062DAF0 /* NSDictionary+NSMapTable.m */; };
 		5F0149A7221CBD490062DAF0 /* NSDictionary+NSMapTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F0149A3221CBD490062DAF0 /* NSDictionary+NSMapTable.m */; };
-		5F0149AA221CBEA20062DAF0 /* NodeSerializationUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F0149A8221CBEA20062DAF0 /* NodeSerializationUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5F0149AB221CBEA20062DAF0 /* NodeSerializationUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F0149A8221CBEA20062DAF0 /* NodeSerializationUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5F0149AC221CBEA20062DAF0 /* NodeSerializationUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F0149A9221CBEA20062DAF0 /* NodeSerializationUtils.m */; };
-		5F0149AD221CBEA20062DAF0 /* NodeSerializationUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F0149A9221CBEA20062DAF0 /* NodeSerializationUtils.m */; };
+		5F0149AA221CBEA20062DAF0 /* NGNodeSerializationUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F0149A8221CBEA20062DAF0 /* NGNodeSerializationUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5F0149AB221CBEA20062DAF0 /* NGNodeSerializationUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F0149A8221CBEA20062DAF0 /* NGNodeSerializationUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5F0149AC221CBEA20062DAF0 /* NGNodeSerializationUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F0149A9221CBEA20062DAF0 /* NGNodeSerializationUtils.m */; };
+		5F0149AD221CBEA20062DAF0 /* NGNodeSerializationUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F0149A9221CBEA20062DAF0 /* NGNodeSerializationUtils.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,12 +69,12 @@
 		405038EB21FC814A005B1585 /* NodeGraph.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NodeGraph.h; sourceTree = "<group>"; };
 		405038EC21FC814A005B1585 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		405038F121FC814A005B1585 /* NodeGraphTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NodeGraphTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		405038F621FC814A005B1585 /* NodeOutputTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NodeOutputTests.m; sourceTree = "<group>"; };
+		405038F621FC814A005B1585 /* NGNodeOutputTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NGNodeOutputTests.m; sourceTree = "<group>"; };
 		405038F821FC814A005B1585 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4050395921FC8869005B1585 /* NodeInput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NodeInput.h; sourceTree = "<group>"; };
-		4050395A21FC8869005B1585 /* NodeInput.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NodeInput.m; sourceTree = "<group>"; };
-		4050395D21FC8927005B1585 /* NodeOutput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NodeOutput.h; sourceTree = "<group>"; };
-		4050395E21FC8927005B1585 /* NodeOutput.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NodeOutput.m; sourceTree = "<group>"; };
+		4050395921FC8869005B1585 /* NGNodeInput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NGNodeInput.h; sourceTree = "<group>"; };
+		4050395A21FC8869005B1585 /* NGNodeInput.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NGNodeInput.m; sourceTree = "<group>"; };
+		4050395D21FC8927005B1585 /* NGNodeOutput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NGNodeOutput.h; sourceTree = "<group>"; };
+		4050395E21FC8927005B1585 /* NGNodeOutput.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NGNodeOutput.m; sourceTree = "<group>"; };
 		4050396121FC896E005B1585 /* NGNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NGNode.h; sourceTree = "<group>"; };
 		4050396221FC896E005B1585 /* Node.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Node.m; sourceTree = "<group>"; };
 		4050396521FC89C7005B1585 /* RGBNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RGBNode.h; sourceTree = "<group>"; };
@@ -86,19 +86,19 @@
 		40C08F612210C34500FD01AE /* NodeGraph.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NodeGraph.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		40C08F632210C34500FD01AE /* NodeGraph.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NodeGraph.h; sourceTree = "<group>"; };
 		40C08F642210C34500FD01AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5F01493321FFC66F0062DAF0 /* NodeInputNumber.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NodeInputNumber.h; sourceTree = "<group>"; };
-		5F01493421FFC66F0062DAF0 /* NodeInputNumber.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NodeInputNumber.m; sourceTree = "<group>"; };
-		5F01493C21FFCFB90062DAF0 /* NodeInputColor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NodeInputColor.h; sourceTree = "<group>"; };
-		5F01493D21FFCFB90062DAF0 /* NodeInputColor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NodeInputColor.m; sourceTree = "<group>"; };
-		5F014940220105450062DAF0 /* NodeInputTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NodeInputTests.m; sourceTree = "<group>"; };
+		5F01493321FFC66F0062DAF0 /* NGNodeInputNumber.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NGNodeInputNumber.h; sourceTree = "<group>"; };
+		5F01493421FFC66F0062DAF0 /* NGNodeInputNumber.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NGNodeInputNumber.m; sourceTree = "<group>"; };
+		5F01493C21FFCFB90062DAF0 /* NGNodeInputColor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NGNodeInputColor.h; sourceTree = "<group>"; };
+		5F01493D21FFCFB90062DAF0 /* NGNodeInputColor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NGNodeInputColor.m; sourceTree = "<group>"; };
+		5F014940220105450062DAF0 /* NGNodeInputTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NGNodeInputTests.m; sourceTree = "<group>"; };
 		5F014942220114C70062DAF0 /* AbstractNodeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AbstractNodeTests.m; sourceTree = "<group>"; };
-		5F01497F220A44650062DAF0 /* GraphNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphNode.h; sourceTree = "<group>"; };
-		5F014981220A44760062DAF0 /* GraphNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GraphNode.m; sourceTree = "<group>"; };
-		5F014983220A44A90062DAF0 /* GraphNodeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GraphNodeTests.m; sourceTree = "<group>"; };
+		5F01497F220A44650062DAF0 /* NGGraphNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NGGraphNode.h; sourceTree = "<group>"; };
+		5F014981220A44760062DAF0 /* NGGraphNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NGGraphNode.m; sourceTree = "<group>"; };
+		5F014983220A44A90062DAF0 /* NGGraphNodeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NGGraphNodeTests.m; sourceTree = "<group>"; };
 		5F0149A2221CBD490062DAF0 /* NSDictionary+NSMapTable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+NSMapTable.h"; sourceTree = "<group>"; };
 		5F0149A3221CBD490062DAF0 /* NSDictionary+NSMapTable.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+NSMapTable.m"; sourceTree = "<group>"; };
-		5F0149A8221CBEA20062DAF0 /* NodeSerializationUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NodeSerializationUtils.h; sourceTree = "<group>"; };
-		5F0149A9221CBEA20062DAF0 /* NodeSerializationUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NodeSerializationUtils.m; sourceTree = "<group>"; };
+		5F0149A8221CBEA20062DAF0 /* NGNodeSerializationUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NGNodeSerializationUtils.h; sourceTree = "<group>"; };
+		5F0149A9221CBEA20062DAF0 /* NGNodeSerializationUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NGNodeSerializationUtils.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,9 +178,9 @@
 			children = (
 				5F0149A1221CBD300062DAF0 /* Utils */,
 				4050396121FC896E005B1585 /* NGNode.h */,
-				4050395921FC8869005B1585 /* NodeInput.h */,
-				4050395D21FC8927005B1585 /* NodeOutput.h */,
-				5F01497F220A44650062DAF0 /* GraphNode.h */,
+				4050395921FC8869005B1585 /* NGNodeInput.h */,
+				4050395D21FC8927005B1585 /* NGNodeOutput.h */,
+				5F01497F220A44650062DAF0 /* NGGraphNode.h */,
 				403EE62F2211E0370074517F /* InputTypes */,
 				403EE62E2211E01D0074517F /* NodeImplementations */,
 			);
@@ -198,7 +198,7 @@
 		403EE62F2211E0370074517F /* InputTypes */ = {
 			isa = PBXGroup;
 			children = (
-				5F01493321FFC66F0062DAF0 /* NodeInputNumber.h */,
+				5F01493321FFC66F0062DAF0 /* NGNodeInputNumber.h */,
 			);
 			path = InputTypes;
 			sourceTree = "<group>";
@@ -206,7 +206,7 @@
 		403EE6312211E0990074517F /* InputTypes */ = {
 			isa = PBXGroup;
 			children = (
-				5F01493C21FFCFB90062DAF0 /* NodeInputColor.h */,
+				5F01493C21FFCFB90062DAF0 /* NGNodeInputColor.h */,
 			);
 			path = InputTypes;
 			sourceTree = "<group>";
@@ -223,7 +223,7 @@
 		403EE6332211E0E00074517F /* InputTypes */ = {
 			isa = PBXGroup;
 			children = (
-				5F01493D21FFCFB90062DAF0 /* NodeInputColor.m */,
+				5F01493D21FFCFB90062DAF0 /* NGNodeInputColor.m */,
 			);
 			path = InputTypes;
 			sourceTree = "<group>";
@@ -256,9 +256,9 @@
 			children = (
 				5F0149AE221DFCFF0062DAF0 /* Utils */,
 				4050396221FC896E005B1585 /* Node.m */,
-				4050395A21FC8869005B1585 /* NodeInput.m */,
-				4050395E21FC8927005B1585 /* NodeOutput.m */,
-				5F014981220A44760062DAF0 /* GraphNode.m */,
+				4050395A21FC8869005B1585 /* NGNodeInput.m */,
+				4050395E21FC8927005B1585 /* NGNodeOutput.m */,
+				5F014981220A44760062DAF0 /* NGGraphNode.m */,
 				403EE6392211E11F0074517F /* InputTypes */,
 				403EE6382211E1170074517F /* NodeImplementations */,
 			);
@@ -276,7 +276,7 @@
 		403EE6392211E11F0074517F /* InputTypes */ = {
 			isa = PBXGroup;
 			children = (
-				5F01493421FFC66F0062DAF0 /* NodeInputNumber.m */,
+				5F01493421FFC66F0062DAF0 /* NGNodeInputNumber.m */,
 			);
 			path = InputTypes;
 			sourceTree = "<group>";
@@ -316,9 +316,9 @@
 			children = (
 				405038F821FC814A005B1585 /* Info.plist */,
 				5F014942220114C70062DAF0 /* AbstractNodeTests.m */,
-				5F014940220105450062DAF0 /* NodeInputTests.m */,
-				405038F621FC814A005B1585 /* NodeOutputTests.m */,
-				5F014983220A44A90062DAF0 /* GraphNodeTests.m */,
+				5F014940220105450062DAF0 /* NGNodeInputTests.m */,
+				405038F621FC814A005B1585 /* NGNodeOutputTests.m */,
+				5F014983220A44A90062DAF0 /* NGGraphNodeTests.m */,
 			);
 			path = tests;
 			sourceTree = "<group>";
@@ -337,7 +337,7 @@
 		5F0149A1221CBD300062DAF0 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				5F0149A8221CBEA20062DAF0 /* NodeSerializationUtils.h */,
+				5F0149A8221CBEA20062DAF0 /* NGNodeSerializationUtils.h */,
 				5F0149A2221CBD490062DAF0 /* NSDictionary+NSMapTable.h */,
 			);
 			path = Utils;
@@ -346,7 +346,7 @@
 		5F0149AE221DFCFF0062DAF0 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				5F0149A9221CBEA20062DAF0 /* NodeSerializationUtils.m */,
+				5F0149A9221CBEA20062DAF0 /* NGNodeSerializationUtils.m */,
 				5F0149A3221CBD490062DAF0 /* NSDictionary+NSMapTable.m */,
 			);
 			path = Utils;
@@ -365,12 +365,12 @@
 				405038F921FC814A005B1585 /* NodeGraph.h in Headers */,
 				5F01493921FFCEE60062DAF0 /* AssembleColorNode.h in Headers */,
 				4050396721FC89C7005B1585 /* RGBNode.h in Headers */,
-				5F0149AA221CBEA20062DAF0 /* NodeSerializationUtils.h in Headers */,
-				5F014980220A44650062DAF0 /* GraphNode.h in Headers */,
-				4050395F21FC8927005B1585 /* NodeOutput.h in Headers */,
-				5F01493E21FFCFB90062DAF0 /* NodeInputColor.h in Headers */,
-				5F01493521FFC66F0062DAF0 /* NodeInputNumber.h in Headers */,
-				4050395B21FC8869005B1585 /* NodeInput.h in Headers */,
+				5F0149AA221CBEA20062DAF0 /* NGNodeSerializationUtils.h in Headers */,
+				5F014980220A44650062DAF0 /* NGGraphNode.h in Headers */,
+				4050395F21FC8927005B1585 /* NGNodeOutput.h in Headers */,
+				5F01493E21FFCFB90062DAF0 /* NGNodeInputColor.h in Headers */,
+				5F01493521FFC66F0062DAF0 /* NGNodeInputNumber.h in Headers */,
+				4050395B21FC8869005B1585 /* NGNodeInput.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -380,13 +380,13 @@
 			files = (
 				5F0149A5221CBD490062DAF0 /* NSDictionary+NSMapTable.h in Headers */,
 				5F0149A0221CB05B0062DAF0 /* RGBNode.h in Headers */,
-				40C08F722210C62400FD01AE /* NodeOutput.h in Headers */,
-				5F01499F221CB0570062DAF0 /* NodeInputNumber.h in Headers */,
+				40C08F722210C62400FD01AE /* NGNodeOutput.h in Headers */,
+				5F01499F221CB0570062DAF0 /* NGNodeInputNumber.h in Headers */,
 				40C08F652210C34500FD01AE /* NodeGraph.h in Headers */,
-				5F01499E221CB0480062DAF0 /* GraphNode.h in Headers */,
+				5F01499E221CB0480062DAF0 /* NGGraphNode.h in Headers */,
 				40C08F732210C62400FD01AE /* NGNode.h in Headers */,
-				5F0149AB221CBEA20062DAF0 /* NodeSerializationUtils.h in Headers */,
-				40C08F712210C62400FD01AE /* NodeInput.h in Headers */,
+				5F0149AB221CBEA20062DAF0 /* NGNodeSerializationUtils.h in Headers */,
+				40C08F712210C62400FD01AE /* NGNodeInput.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -517,15 +517,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				5F0149A6221CBD490062DAF0 /* NSDictionary+NSMapTable.m in Sources */,
-				5F01493F21FFCFB90062DAF0 /* NodeInputColor.m in Sources */,
-				5F01493621FFC66F0062DAF0 /* NodeInputNumber.m in Sources */,
+				5F01493F21FFCFB90062DAF0 /* NGNodeInputColor.m in Sources */,
+				5F01493621FFC66F0062DAF0 /* NGNodeInputNumber.m in Sources */,
 				5F01493821FFCEE10062DAF0 /* AssembleColorNode.m in Sources */,
-				5F014982220A44760062DAF0 /* GraphNode.m in Sources */,
-				4050395C21FC8869005B1585 /* NodeInput.m in Sources */,
+				5F014982220A44760062DAF0 /* NGGraphNode.m in Sources */,
+				4050395C21FC8869005B1585 /* NGNodeInput.m in Sources */,
 				4050396821FC89C7005B1585 /* RGBNode.m in Sources */,
 				5F01493A21FFCF820062DAF0 /* UpdateBackgroundColorNode.m in Sources */,
-				5F0149AC221CBEA20062DAF0 /* NodeSerializationUtils.m in Sources */,
-				4050396021FC8927005B1585 /* NodeOutput.m in Sources */,
+				5F0149AC221CBEA20062DAF0 /* NGNodeSerializationUtils.m in Sources */,
+				4050396021FC8927005B1585 /* NGNodeOutput.m in Sources */,
 				4050396421FC896E005B1585 /* Node.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -534,10 +534,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5F014941220105450062DAF0 /* NodeInputTests.m in Sources */,
-				405038F721FC814A005B1585 /* NodeOutputTests.m in Sources */,
+				5F014941220105450062DAF0 /* NGNodeInputTests.m in Sources */,
+				405038F721FC814A005B1585 /* NGNodeOutputTests.m in Sources */,
 				5F014943220114C70062DAF0 /* AbstractNodeTests.m in Sources */,
-				5F014984220A44A90062DAF0 /* GraphNodeTests.m in Sources */,
+				5F014984220A44A90062DAF0 /* NGGraphNodeTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -546,13 +546,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				5F0149A7221CBD490062DAF0 /* NSDictionary+NSMapTable.m in Sources */,
-				40C08F6F2210C60100FD01AE /* NodeInput.m in Sources */,
-				5F014998221CB01B0062DAF0 /* GraphNode.m in Sources */,
-				40C08F702210C60100FD01AE /* NodeOutput.m in Sources */,
-				5F014999221CB0270062DAF0 /* NodeInputNumber.m in Sources */,
+				40C08F6F2210C60100FD01AE /* NGNodeInput.m in Sources */,
+				5F014998221CB01B0062DAF0 /* NGGraphNode.m in Sources */,
+				40C08F702210C60100FD01AE /* NGNodeOutput.m in Sources */,
+				5F014999221CB0270062DAF0 /* NGNodeInputNumber.m in Sources */,
 				40C08F6E2210C5FD00FD01AE /* Node.m in Sources */,
 				5F01499A221CB02B0062DAF0 /* RGBNode.m in Sources */,
-				5F0149AD221CBEA20062DAF0 /* NodeSerializationUtils.m in Sources */,
+				5F0149AD221CBEA20062DAF0 /* NGNodeSerializationUtils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

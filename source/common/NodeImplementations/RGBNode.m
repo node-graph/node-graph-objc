@@ -1,6 +1,6 @@
 #import "RGBNode.h"
 #import <CoreGraphics/CGBase.h>
-#import "NodeInputNumber.h"
+#import "NGNodeInputNumber.h"
 
 @implementation RGBNode
 
@@ -11,15 +11,15 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        _inputTrigger = NodeInputTriggerAll;
+        _inputTrigger = NGNodeInputTriggerAll;
         
-        _rInput = [[NodeInputNumber alloc] initWithKey:@"r" node:self];
-        _gInput = [[NodeInputNumber alloc] initWithKey:@"g" node:self];
-        _bInput = [[NodeInputNumber alloc] initWithKey:@"b" node:self];
+        _rInput = [[NGNodeInputNumber alloc] initWithKey:@"r" node:self];
+        _gInput = [[NGNodeInputNumber alloc] initWithKey:@"g" node:self];
+        _bInput = [[NGNodeInputNumber alloc] initWithKey:@"b" node:self];
         
-        _rOutput = [[NodeOutput alloc] initWithKey:@"r"];
-        _gOutput = [[NodeOutput alloc] initWithKey:@"g"];
-        _bOutput = [[NodeOutput alloc] initWithKey:@"b"];
+        _rOutput = [[NGNodeOutput alloc] initWithKey:@"r"];
+        _gOutput = [[NGNodeOutput alloc] initWithKey:@"g"];
+        _bOutput = [[NGNodeOutput alloc] initWithKey:@"b"];
         
         _inputs = [NSSet setWithObjects:_rInput, _gInput, _bInput, nil];
         _outputs = [NSSet setWithObjects:_rOutput, _gOutput, _bOutput, nil];

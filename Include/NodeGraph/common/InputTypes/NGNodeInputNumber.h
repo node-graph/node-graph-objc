@@ -1,9 +1,9 @@
 #import <Foundation/Foundation.h>
-#import "NodeInput.h"
+#import "NGNodeInput.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface NodeInputNumber : NodeInput
+@interface NGNodeInputNumber : NGNodeInput
 
 @property (nonatomic, strong, nullable) NSNumber *value;
 
