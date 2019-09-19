@@ -14,7 +14,7 @@ class _DeferredTestNode: AbstractNode {
     }
     
     override init() {
-        deferred = false
+        deferred = true
         aOutput = NodeOutput(withKey: "a")
         
         super.init()
@@ -54,7 +54,7 @@ class AbstractNodeTests: XCTestCase {
         
         deferredTestNode = _DeferredTestNode()
         
-        performanceInterations = 8000
+        performanceInterations = 10000
     }
     
     // MARK: Input to Output
@@ -128,7 +128,7 @@ class AbstractNodeTests: XCTestCase {
                 completion()
             }
             strongSelf.deferredTestNode.process()
-        }, iterations: 8000) {[weak self] (time) in
+        }, iterations: performanceInterations!) {[weak self] (time) in
             guard let strongSelf = self else {
                 print("FAILED")
                 return
@@ -200,10 +200,12 @@ class AbstractNodeTests: XCTestCase {
         var testTime: TimeInterval = 0.0
         
         let dispatchGroup = DispatchGroup()
-        for _ in 0...iterations {
+        for i in 0...iterations {
             dispatchGroup.enter()
+            print("enter \(i)")
             block() {
                 dispatchGroup.leave()
+                print("leave \(i)")
             }
         }
         
