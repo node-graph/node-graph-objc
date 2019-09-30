@@ -134,12 +134,14 @@ class AbstractNode: Node, NodeInputDelegate {
      */
     func process() {
         guard !isProcessing else {
+            print("is processing - quitting")
             return
         }
         
         isProcessing = true
         processingStartTime = Date().timeIntervalSince1970
         if useDeferredProcessing {
+            print("using deferred")
             processDeferred()
         } else {
             processDirectly()
@@ -185,15 +187,19 @@ class AbstractNode: Node, NodeInputDelegate {
     private func processDeferred() {
         DispatchQueue.main.async {[weak self] in
             guard let strongSelf = self else {
+                print("self doesnt exist")
                 return
             }
-            
+            print("deferred call being made")
             strongSelf.processDirectly()
         }
+        
+        print("deferred call set up!")
     }
     
     private func processDirectly() {
         doProcess {[weak self] in
+            print("in doProcess completion")
             guard let strongSelf = self else {
                 return
             }

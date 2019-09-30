@@ -27,8 +27,11 @@ class _DeferredTestNode: AbstractNode {
     }
     
     override func doProcess(_ completion: @escaping () -> Void) {
+        print("[IN NODE - doProcess]: Processing deferred...")
         completion()
+        print("[IN NODE - doProcess]: Processing deferred done!")
         if let processedCallback = processed {
+            print("[IN NODE - doProcess]: Calling processed callback!")
             processedCallback()
         }
     }
@@ -121,10 +124,13 @@ class AbstractNodeTests: XCTestCase {
     func test_deferredProcessingPerformance() {
         let measureExpectation = expectation(description: "measure time")
         measure(block: {[weak self] (completion) in
+            print("Processing deferred...")
             guard let strongSelf = self else {
+                print("self not existing ")
                 return
             }
             strongSelf.deferredTestNode.processed = {
+                print("Processing deferred done!")
                 completion()
             }
             strongSelf.deferredTestNode.process()
@@ -198,20 +204,103 @@ class AbstractNodeTests: XCTestCase {
                  completion: @escaping (_ time: TimeInterval) -> Void) {
         let start = Date().timeIntervalSince1970
         var testTime: TimeInterval = 0.0
+    
+        var operations = [Operation]()
+        for _ in 0...iterations {
+            let blockOperation = DeferredAsyncOperation(withBlock: block)
+            if let lastOperation = operations.last {
+                blockOperation.addDependency(lastOperation)
+            }
+            operations.append(blockOperation)
+        }
         
-        let dispatchGroup = DispatchGroup()
-        for i in 0...iterations {
-            dispatchGroup.enter()
-            print("enter \(i)")
-            block() {
-                dispatchGroup.leave()
-                print("leave \(i)")
+        let completionOperation = BlockOperation {
+            testTime = Date().timeIntervalSince1970 - start
+            completion(testTime)
+        }
+        
+        if let lastOperation = operations.last {
+            completionOperation.addDependency(lastOperation)
+        }
+        
+        operations.append(completionOperation)
+        
+        let operationQueue = OperationQueue()
+        operationQueue.maxConcurrentOperationCount = 1
+        operationQueue.addOperations(operations, waitUntilFinished: true)
+    }
+}
+
+class AsyncOperation: Operation {
+    @objc private enum OperationState: Int {
+        case ready
+        case executing
+        case finished
+    }
+    
+    private let stateQueue = DispatchQueue(label: Bundle.main.bundleIdentifier! + ".rw.state",
+                                           attributes: .concurrent)
+    private var _state: OperationState = .ready
+    
+    @objc private dynamic var state: OperationState {
+        get {
+            return stateQueue.sync {
+                _state
             }
         }
         
-        dispatchGroup.notify(queue: DispatchQueue.main) {
-            testTime = Date().timeIntervalSince1970 - start
-            completion(testTime)
+        set {
+            stateQueue.async(flags: .barrier) {
+                self._state = newValue
+            }
+        }
+    }
+    
+    open override var isReady: Bool {
+        return state == .ready && super.isReady
+    }
+    
+    public final override var isExecuting: Bool {
+        return state == .executing
+    }
+    
+    public final override var isFinished: Bool {
+        return state == .finished
+    }
+    
+    public final override func start() {
+        if isCancelled {
+            state = .finished
+            return
+        }
+        
+        state = .executing
+        
+        main()
+    }
+    
+    open override func main() {
+        fatalError()
+    }
+    
+    public final func finish() {
+        if !isFinished {
+            state = .finished
+        }
+    }
+}
+
+class DeferredAsyncOperation: AsyncOperation {
+    let deferredBlock: ((_ : @escaping () -> Void ) -> Void)
+    
+    init(withBlock block: @escaping ((_ completion: @escaping () -> Void ) -> Void)) {
+        deferredBlock = block
+    }
+    
+    override func main() {
+        deferredBlock() {[weak self] in
+            print("finished")
+            self?.finish()
         }
     }
 }
