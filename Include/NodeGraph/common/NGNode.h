@@ -20,6 +20,15 @@ typedef NS_ENUM(NSUInteger, NGNodeInputTrigger) {
     NGNodeInputTriggerCustom
 };
 
+typedef NS_ENUM(NSUInteger, NGProcessCallBehaviour) {
+    /// Perform processing for the new call and the ongoing call.
+    NGProcessCallBehaviourCall,
+    /// Ignore the new call if already processing.
+    NGProcessCallBehaviourIgnoreCall,
+    /// Cancel the current processing and start processing the new call.
+    NGProcessCallBehaviourCancelCurrentlyProcessing
+};
+
 
 /**
  A Node in NodeGraph can have multiple inputs of varying types as well as many outputs of
@@ -173,6 +182,11 @@ typedef NS_ENUM(NSUInteger, NGNodeInputTrigger) {
  the completion block of -doProcess: was triggered.
  */
 @property (nonatomic, readonly) NSTimeInterval processingTime;
+
+/**
+ Determines what happens when a call to -process is received while already processing.
+ */
+@property (nonatomic, readonly) NGProcessCallBehaviour processCallBehaviour;
 
 /**
  Do not override this method directly to add your functionality. Instead

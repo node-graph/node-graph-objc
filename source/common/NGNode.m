@@ -34,11 +34,24 @@
     return NSStringFromClass(self.class);
 }
 
+- (NGProcessCallBehaviour)processCallBehaviour {
+    return NGProcessCallBehaviourIgnoreCall;
+}
+
 #pragma mark - Actions
 
 - (void)process {
     if (self.processing) {
-        return;
+        switch (self.processCallBehaviour) {
+            case NGProcessCallBehaviourIgnoreCall:
+                return;
+            case NGProcessCallBehaviourCancelCurrentlyProcessing:
+                [self cancel];
+                break;
+            case NGProcessCallBehaviourCall:
+            default:
+                break;
+        }
     }
     
     self.processing = YES;
