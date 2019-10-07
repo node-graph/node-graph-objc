@@ -22,8 +22,8 @@
         _processingTime = 0;
         _inputTrigger = NGNodeInputTriggerAny;
         _inputs = [NSSet setWithObject:[[NGNodeInput alloc] initWithKey:nil
-                                                           validation:nil
-                                                                 node:self]];
+                                                             validation:nil
+                                                                   node:self]];
         _outputs = [NSSet setWithObject:[NGNodeOutput new]];
     }
     
@@ -44,10 +44,16 @@
     self.processing = YES;
     self.processingStartTime = [[NSDate date] timeIntervalSince1970];
     
+    void(^processCompletion)(void) = ^(){
+        self.processingTime = [[NSDate date] timeIntervalSince1970] - self.processingStartTime;
+        self.processing = NO;
+    };
     if ([self useDeferredProcessing]) {
-        [self processDeferred];
+        dispatch_async(dispatch_get_main_queue(), ^(void){
+            [self doProcess:processCompletion];
+        });
     } else {
-        [self processDirectly];
+        [self doProcess:processCompletion];
     }
 }
 
@@ -66,42 +72,21 @@
 
 - (void)doProcess:(void (^)(void))completion {
     // Default implementation just passes value to output.
-    // This method should be overridden in subclass
+    // This method should be overridden in your subclass
     [[self.outputs anyObject] sendResult:[[self.inputs anyObject] value]];
+    // Completion must always be called at some point, however it can be async
     completion();
-}
-
-- (void)sendResultToOutputs:(id)result {
-    for (NGNodeOutput *output in self.outputs) {
-        [output sendResult:result];
-    }
-}
-
-#pragma mark - Processing
-
-- (void)processDeferred {
-    // Could be further optimized by storing the block for future use
-    dispatch_async(dispatch_get_main_queue(), ^(void){
-        [self processDirectly];
-    });
-}
-
-- (void)processDirectly {
-    [self doProcess:^(){
-        self.processingTime = [[NSDate date] timeIntervalSince1970] - self.processingStartTime;
-        self.processing = NO;
-    }];
 }
 
 #pragma mark - NGNodeInputDelegate
 
 - (void)nodeInput:(NGNodeInput *)nodeInput didUpdateValue:(id)value {
-    if ([self canRun]) {
+    if ([self shouldProcess]) {
         [self process];
     }
 }
 
-- (BOOL)canRun {
+- (BOOL)shouldProcess {
     switch (self.inputTrigger) {
         case NGNodeInputTriggerAny: {
             for (NGNodeInput *input in self.inputs) {
@@ -157,7 +142,7 @@
 
 - (NSDictionary<NSString *, NSArray *> *)serializedOutputConnectionsWithNodeMapping:(NSDictionary<NSString *,id<NGSerializableNode>> *)nodeMapping {
     return [NGNodeSerializationUtils serializedOutputConnectionsFromNode:self
-                                                       withNodeMapping:nodeMapping];
+                                                         withNodeMapping:nodeMapping];
 }
 
 @end

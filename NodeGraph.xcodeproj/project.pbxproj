@@ -15,11 +15,11 @@
 		4050395F21FC8927005B1585 /* NGNodeOutput.h in Headers */ = {isa = PBXBuildFile; fileRef = 4050395D21FC8927005B1585 /* NGNodeOutput.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4050396021FC8927005B1585 /* NGNodeOutput.m in Sources */ = {isa = PBXBuildFile; fileRef = 4050395E21FC8927005B1585 /* NGNodeOutput.m */; };
 		4050396321FC896E005B1585 /* NGNode.h in Headers */ = {isa = PBXBuildFile; fileRef = 4050396121FC896E005B1585 /* NGNode.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4050396421FC896E005B1585 /* Node.m in Sources */ = {isa = PBXBuildFile; fileRef = 4050396221FC896E005B1585 /* Node.m */; };
+		4050396421FC896E005B1585 /* NGNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 4050396221FC896E005B1585 /* NGNode.m */; };
 		4050396721FC89C7005B1585 /* RGBNode.h in Headers */ = {isa = PBXBuildFile; fileRef = 4050396521FC89C7005B1585 /* RGBNode.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4050396821FC89C7005B1585 /* RGBNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 4050396621FC89C7005B1585 /* RGBNode.m */; };
 		40C08F652210C34500FD01AE /* NodeGraph.h in Headers */ = {isa = PBXBuildFile; fileRef = 40C08F632210C34500FD01AE /* NodeGraph.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		40C08F6E2210C5FD00FD01AE /* Node.m in Sources */ = {isa = PBXBuildFile; fileRef = 4050396221FC896E005B1585 /* Node.m */; };
+		40C08F6E2210C5FD00FD01AE /* NGNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 4050396221FC896E005B1585 /* NGNode.m */; };
 		40C08F6F2210C60100FD01AE /* NGNodeInput.m in Sources */ = {isa = PBXBuildFile; fileRef = 4050395A21FC8869005B1585 /* NGNodeInput.m */; };
 		40C08F702210C60100FD01AE /* NGNodeOutput.m in Sources */ = {isa = PBXBuildFile; fileRef = 4050395E21FC8927005B1585 /* NGNodeOutput.m */; };
 		40C08F712210C62400FD01AE /* NGNodeInput.h in Headers */ = {isa = PBXBuildFile; fileRef = 4050395921FC8869005B1585 /* NGNodeInput.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -76,7 +76,7 @@
 		4050395D21FC8927005B1585 /* NGNodeOutput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NGNodeOutput.h; sourceTree = "<group>"; };
 		4050395E21FC8927005B1585 /* NGNodeOutput.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NGNodeOutput.m; sourceTree = "<group>"; };
 		4050396121FC896E005B1585 /* NGNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NGNode.h; sourceTree = "<group>"; };
-		4050396221FC896E005B1585 /* Node.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Node.m; sourceTree = "<group>"; };
+		4050396221FC896E005B1585 /* NGNode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NGNode.m; sourceTree = "<group>"; };
 		4050396521FC89C7005B1585 /* RGBNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RGBNode.h; sourceTree = "<group>"; };
 		4050396621FC89C7005B1585 /* RGBNode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RGBNode.m; sourceTree = "<group>"; };
 		4050397521FC9EDD005B1585 /* AssembleColorNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AssembleColorNode.h; sourceTree = "<group>"; };
@@ -255,7 +255,7 @@
 			isa = PBXGroup;
 			children = (
 				5F0149AE221DFCFF0062DAF0 /* Utils */,
-				4050396221FC896E005B1585 /* Node.m */,
+				4050396221FC896E005B1585 /* NGNode.m */,
 				4050395A21FC8869005B1585 /* NGNodeInput.m */,
 				4050395E21FC8927005B1585 /* NGNodeOutput.m */,
 				5F014981220A44760062DAF0 /* NGGraphNode.m */,
@@ -526,7 +526,7 @@
 				5F01493A21FFCF820062DAF0 /* UpdateBackgroundColorNode.m in Sources */,
 				5F0149AC221CBEA20062DAF0 /* NGNodeSerializationUtils.m in Sources */,
 				4050396021FC8927005B1585 /* NGNodeOutput.m in Sources */,
-				4050396421FC896E005B1585 /* Node.m in Sources */,
+				4050396421FC896E005B1585 /* NGNode.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -550,7 +550,7 @@
 				5F014998221CB01B0062DAF0 /* NGGraphNode.m in Sources */,
 				40C08F702210C60100FD01AE /* NGNodeOutput.m in Sources */,
 				5F014999221CB0270062DAF0 /* NGNodeInputNumber.m in Sources */,
-				40C08F6E2210C5FD00FD01AE /* Node.m in Sources */,
+				40C08F6E2210C5FD00FD01AE /* NGNode.m in Sources */,
 				5F01499A221CB02B0062DAF0 /* RGBNode.m in Sources */,
 				5F0149AD221CBEA20062DAF0 /* NGNodeSerializationUtils.m in Sources */,
 			);

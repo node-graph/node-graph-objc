@@ -182,10 +182,10 @@ typedef NS_ENUM(NSUInteger, NGNodeInputTrigger) {
 
 /**
  @abstract
- Implement this method with your Node functionality.
+ Override/Implement this method in your subclass to define your Node's functionality.
  1, Process input values
  2, Send result to each respective output
- 3, Call completion block when done
+ 3, Call completion block when done, can be asynchronously
  */
 - (void)doProcess:(void (^)(void))completion;
 
