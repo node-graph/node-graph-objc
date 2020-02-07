@@ -10,12 +10,18 @@ import XCTest
 @testable import NodeGraphSwift_ios
 
 class _NodeInputTestMockNode: AbstractNode {
-    var delegateCallCount: NSInteger
+    var delegateCallCount: NSInteger = 0
     var delegateCaller: NodeInput? = nil
     var delegateValue: AnyHashable? = nil
     
     override init() {
         delegateCallCount = 0
+        
+        super.init()
+    }
+    
+    required init(from decoder: Decoder) throws {
+        fatalError("init(from:) has not been implemented")
     }
     
     override func nodeInputDidUpdateValue(_ nodeInput: NodeInput, value: AnyHashable?) {

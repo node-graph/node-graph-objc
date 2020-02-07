@@ -3,7 +3,7 @@ import Foundation
 /**
  Decides what inputs need to be set in order for a node to process.
  */
-enum NodeInputTrigger {
+enum NodeInputTrigger: Int, Codable {
     /// The node does not automatically process anything, you manually have to call the -process method.
     case noAutomaticProcessing
     /// Process as soon as any input is set.
@@ -82,7 +82,11 @@ protocol Node {
     func cancel()
 }
 
-class AbstractNode: Node, NodeInputDelegate {
+protocol SerializableNode: Codable {
+    
+}
+
+class AbstractNode: Node, NodeInputDelegate, SerializableNode {
     var inputTrigger: NodeInputTrigger
     var inputs: Set<NodeInput>
     var outputs: Set<NodeOutput>
@@ -106,13 +110,22 @@ class AbstractNode: Node, NodeInputDelegate {
             inputTrigger == .allAtLeastOnce ||
             inputTrigger == .custom
         )
-        return (inputs.count > 1 && couldTriggerOnAnyInput)
+        return (couldTriggerOnAnyInput && inputs.count > 1)
     }
+    private var _useDeferredProcessing: Bool = false
     
-    private(set) var isProcessing: Bool
-    private(set) var processingTime: TimeInterval
-    private var processingStartTime: TimeInterval
-    private var cancelling: Bool
+    private(set) var isProcessing: Bool = false
+    private(set) var processingTime: TimeInterval = 0.0
+    private var processingStartTime: TimeInterval = 0.0
+    private var cancelling: Bool = false
+    
+    private enum CodingKeys: String, CodingKey {
+        case inputs = "inputs"
+        case outputs = "outputs"
+        case nodeName = "name"
+        case nodeDescription = "description"
+        case type = "type"
+    }
     
     init() {
         processingTime = 0
@@ -123,7 +136,31 @@ class AbstractNode: Node, NodeInputDelegate {
         cancelling = false
         processingTime = 0.0
         processingStartTime = 0.0
+    }
+    
+    required init(from decoder: Decoder) throws {
+        fatalError("init(from:) has not been implemented")
+    }
+    
+    static func == (lhs: AbstractNode, rhs: AbstractNode) -> Bool {
+        return lhs === rhs
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(nodeName)
+    }
+    
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        var inputContainer = container.nestedUnkeyedContainer(forKey: .inputs)
+        var outputContainer = container.nestedUnkeyedContainer(forKey: .outputs)
         
+        try inputContainer.encode(contentsOf: inputs)
+        try outputContainer.encode(contentsOf: outputs)
+        
+        try container.encode(String(describing:type(of: self)), forKey: .type)
+        try container.encode(nodeName ?? "", forKey: .nodeName)
+        try container.encode(nodeDescription ?? "", forKey: .nodeDescription)
     }
     
     // MARK: Actions

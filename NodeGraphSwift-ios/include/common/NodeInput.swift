@@ -12,7 +12,7 @@ protocol NodeInputDelegate {
  
  This class is well suited for subclassing so you can implement inputs for specific types.
  */
-class NodeInput: Hashable {
+class NodeInput: Hashable, Codable {
     typealias NodeAndDelegate = Node & NodeInputDelegate
     
     /**
@@ -56,6 +56,12 @@ class NodeInput: Hashable {
      */
     private(set) var validationBlock: ((_: AnyHashable?) -> Bool)?
     
+    
+    private enum CodingKeys: String, CodingKey {
+        case key = "key"
+        case type = "type"
+    }
+    
     init() {
 
     }
@@ -67,6 +73,10 @@ class NodeInput: Hashable {
          forNode node: NodeAndDelegate?) {
         self.key = key
         self.node = node
+    }
+    
+    required init(from decoder: Decoder) throws {
+        fatalError()
     }
     
     /**
@@ -87,6 +97,12 @@ class NodeInput: Hashable {
     func hash(into hasher: inout Hasher) {
         hasher.combine(node?.nodeName)
         hasher.combine(key)
+    }
+    
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(key ?? "no_key", forKey: .key)
+        try container.encode(String(describing:type(of: self)), forKey: .type)
     }
     
     /**

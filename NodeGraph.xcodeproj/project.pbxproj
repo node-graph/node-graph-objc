@@ -11,6 +11,8 @@
 		40101E72232A51F100D6EC69 /* NodeOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40101E71232A51F100D6EC69 /* NodeOutput.swift */; };
 		40101E74232B90E800D6EC69 /* NodeOutputTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40101E73232B90E800D6EC69 /* NodeOutputTests.swift */; };
 		40101E78232B91DE00D6EC69 /* NodeGraphSwift_iosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404974502327717D00B04589 /* NodeGraphSwift_iosTests.swift */; };
+		403D09D72345C62800F50750 /* SerializableNodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403D09D62345C62800F50750 /* SerializableNodeTests.swift */; };
+		403D09D923479B3100F50750 /* GraphNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403D09D823479B3100F50750 /* GraphNode.swift */; };
 		4049744C2327717D00B04589 /* NodeGraphSwift_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 404974432327717D00B04589 /* NodeGraphSwift_ios.framework */; };
 		404974532327717D00B04589 /* NodeGraphSwift_ios.h in Headers */ = {isa = PBXBuildFile; fileRef = 404974452327717D00B04589 /* NodeGraphSwift_ios.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4049745D2327720000B04589 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4049745C2327720000B04589 /* Node.swift */; };
@@ -85,6 +87,8 @@
 		40101E71232A51F100D6EC69 /* NodeOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeOutput.swift; sourceTree = "<group>"; };
 		40101E73232B90E800D6EC69 /* NodeOutputTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeOutputTests.swift; sourceTree = "<group>"; };
 		40101E79232B932F00D6EC69 /* module.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
+		403D09D62345C62800F50750 /* SerializableNodeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerializableNodeTests.swift; sourceTree = "<group>"; };
+		403D09D823479B3100F50750 /* GraphNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphNode.swift; sourceTree = "<group>"; };
 		404974432327717D00B04589 /* NodeGraphSwift_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NodeGraphSwift_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		404974452327717D00B04589 /* NodeGraphSwift_ios.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NodeGraphSwift_ios.h; sourceTree = "<group>"; };
 		404974462327717D00B04589 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -344,6 +348,7 @@
 				40101E73232B90E800D6EC69 /* NodeOutputTests.swift */,
 				408EC85E232BA3A900185B35 /* NodeInputTests.swift */,
 				408EC860232BEDC200185B35 /* AbstractNodeTests.swift */,
+				403D09D62345C62800F50750 /* SerializableNodeTests.swift */,
 			);
 			path = "NodeGraphSwift-iosTests";
 			sourceTree = "<group>";
@@ -362,6 +367,7 @@
 				4049745C2327720000B04589 /* Node.swift */,
 				40101E6F232A51CD00D6EC69 /* NodeInput.swift */,
 				40101E71232A51F100D6EC69 /* NodeOutput.swift */,
+				403D09D823479B3100F50750 /* GraphNode.swift */,
 			);
 			path = common;
 			sourceTree = "<group>";
@@ -674,6 +680,7 @@
 			files = (
 				40101E70232A51CD00D6EC69 /* NodeInput.swift in Sources */,
 				4049745D2327720000B04589 /* Node.swift in Sources */,
+				403D09D923479B3100F50750 /* GraphNode.swift in Sources */,
 				40101E72232A51F100D6EC69 /* NodeOutput.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -686,6 +693,7 @@
 				408EC85F232BA3A900185B35 /* NodeInputTests.swift in Sources */,
 				40101E78232B91DE00D6EC69 /* NodeGraphSwift_iosTests.swift in Sources */,
 				408EC861232BEDC200185B35 /* AbstractNodeTests.swift in Sources */,
+				403D09D72345C62800F50750 /* SerializableNodeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -974,10 +982,10 @@
 		405038FD21FC814A005B1585 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = UR3JNX8K6N;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -998,10 +1006,10 @@
 		405038FE21FC814A005B1585 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = UR3JNX8K6N;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";

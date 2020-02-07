@@ -6,7 +6,7 @@ import Foundation
  
  An output has connections as weak references to instances of NodeInput.
  */
-class NodeOutput: Hashable {
+class NodeOutput: Hashable, Codable {
     /**
      The key of this output, can be nil if the node only has one output.
      An example value for this could be the `R` output key in an `RGB` node.
@@ -18,6 +18,11 @@ class NodeOutput: Hashable {
      @warning Please do not mutate this object directly.
      */
     private(set) var connections: NSHashTable<NodeInput> = NSHashTable(options: NSPointerFunctions.Options.weakMemory)
+    
+    private enum CodingKeys: String, CodingKey {
+        case key = "key"
+        case type = "type"
+    }
     
     /**
      Creates an output without a key.
@@ -34,6 +39,10 @@ class NodeOutput: Hashable {
         connections = NSHashTable(options: NSPointerFunctions.Options.weakMemory)
     }
     
+    required init(from decoder: Decoder) throws {
+        fatalError()
+    }
+    
     static func == (lhs: NodeOutput, rhs: NodeOutput) -> Bool {
         return lhs === rhs
     }
@@ -41,6 +50,12 @@ class NodeOutput: Hashable {
     func hash(into hasher: inout Hasher) {
         hasher.combine(key)
         hasher.combine(connections)
+    }
+    
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(key ?? "no_key", forKey: .key)
+        try container.encode(String(describing: type(of: self)), forKey: .type)
     }
     
     /**
